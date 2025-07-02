@@ -4,15 +4,19 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Star } from "lucide-react";
 import testimonialsData from "@/data/testimonials.json";
+import { useRouter } from 'next/navigation';
 
 export default function TestimonialsSection() {
+  const router = useRouter();
+
   const handleReadFullStory = (testimonialId: number) => {
     // Navigate to the full blog/testimonial page
-    // In a real application, this would use Next.js router
-    console.log(`Navigate to full story for testimonial ${testimonialId}`);
-    // For demo purposes, you could redirect to a blog page like:
-    // router.push(`/testimonials/${testimonialId}`)
-    alert(`Redirecting to full story for ${testimonialsData.find(t => t.id === testimonialId)?.title}`);
+    router.push(`/testimonials/${testimonialId}`);
+  };
+
+  const handleCardClick = (testimonialId: number) => {
+    // Navigate when clicking anywhere on the card
+    router.push(`/testimonials/${testimonialId}`);
   };
 
   return (
@@ -38,7 +42,8 @@ export default function TestimonialsSection() {
           {testimonialsData.map((testimonial) => (
             <Card 
               key={testimonial.id} 
-              className="premium-card overflow-hidden hover-lift glow-effect group transition-all duration-500"
+              className="premium-card overflow-hidden hover-lift glow-effect group transition-all duration-500 cursor-pointer"
+              onClick={() => handleCardClick(testimonial.id)}
             >
               {/* Image Section */}
               <div className="relative overflow-hidden">
@@ -87,7 +92,10 @@ export default function TestimonialsSection() {
 
                 {/* Read Full Story Button */}
                 <Button 
-                  onClick={() => handleReadFullStory(testimonial.id)}
+                  onClick={(e) => {
+                    e.stopPropagation(); // Prevent card click when button is clicked
+                    handleReadFullStory(testimonial.id);
+                  }}
                   variant="ghost" 
                   className="w-full justify-between text-white/70 hover:text-white hover:bg-white/5 transition-all duration-300 group/btn"
                 >
