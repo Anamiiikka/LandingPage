@@ -18,7 +18,6 @@ export default function TestimonialsPage() {
               Back to Home
             </Button>
           </Link>
-
           <div className="text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-6">
               <div className="w-2 h-2 bg-white/60 rounded-full animate-pulse" />
