@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, Star, ArrowRight } from "lucide-react";
 import testimonialsData from "@/data/testimonials.json";
 import Link from "next/link";
+import Footer from "@/components/Footer";
 
 export default function TestimonialsPage() {
   return (
@@ -101,6 +102,8 @@ export default function TestimonialsPage() {
           </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }

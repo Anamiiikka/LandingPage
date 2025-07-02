@@ -10,12 +10,12 @@ export default function TestimonialsSection() {
   const router = useRouter();
 
   const handleReadFullStory = (testimonialId: number) => {
-    // Navigate to the full blog/testimonial page
+   
     router.push(`/testimonials/${testimonialId}`);
   };
 
   const handleCardClick = (testimonialId: number) => {
-    // Navigate when clicking anywhere on the card
+   
     router.push(`/testimonials/${testimonialId}`);
   };
 
@@ -45,7 +45,7 @@ export default function TestimonialsSection() {
               className="premium-card overflow-hidden hover-lift glow-effect group transition-all duration-500 cursor-pointer"
               onClick={() => handleCardClick(testimonial.id)}
             >
-              {/* Image Section */}
+           
               <div className="relative overflow-hidden">
                 <div 
                   className="aspect-[4/3] bg-gradient-to-br from-white/15 to-white/5 relative overflow-hidden"
@@ -57,7 +57,7 @@ export default function TestimonialsSection() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                   
-                  {/* Category Badge */}
+                 
                   <div className="absolute top-3 left-3">
                     <div className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md border border-white/10">
                       <span className="text-xs font-medium text-white">{testimonial.category}</span>

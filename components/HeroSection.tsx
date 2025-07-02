@@ -28,12 +28,12 @@ export default function HeroSection() {
           <br />
           <span className="text-white/90">for all your</span>
           <br />
-          <span className="gradient-text">business needs</span>
+          <span className="gradient-text">IT needs</span>
         </h1>
 
         {/* Subtitle */}
         <p className="text-xl md:text-2xl text-white/70 mb-16 max-w-4xl mx-auto leading-relaxed font-light">
-          We're a team of passionate professionals dedicated to helping you achieve 
+          We are a team of passionate professionals dedicated to helping you achieve 
           your business goals with cutting-edge solutions and expert guidance.
         </p>
 

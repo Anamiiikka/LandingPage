@@ -4,6 +4,7 @@ import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import Chatbot from "@/components/Chatbot";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <HeroSection />
       {/* <ServicesSection /> */}
       <TestimonialsSection />
+      <Footer />
       <Chatbot />
     </main>
   );
