@@ -2,7 +2,7 @@
 
 import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
-import FeaturesSection from "@/components/FeaturesSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import Chatbot from "@/components/Chatbot";
 
 export default function Home() {
@@ -10,7 +10,7 @@ export default function Home() {
     <main className="min-h-screen bg-background">
       <HeroSection />
       {/* <ServicesSection /> */}
-      <FeaturesSection />
+      <TestimonialsSection />
       <Chatbot />
     </main>
   );
