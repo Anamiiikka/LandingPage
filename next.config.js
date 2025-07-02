@@ -1,10 +1,6 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: 'export',
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  images: { unoptimized: true },
-};
+     const nextConfig = {
+       // No output: 'export' to allow dynamic API routes
+     };
 
-module.exports = nextConfig;
+     module.exports = nextConfig;
