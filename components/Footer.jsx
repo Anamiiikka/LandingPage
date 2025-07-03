@@ -1,10 +1,9 @@
 
-
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button.jsx";
+import { Input } from "@/components/ui/input.jsx";
+import { Separator } from "@/components/ui/separator.jsx";
 
 import { 
   Facebook, 
@@ -26,7 +25,7 @@ export default function Footer() {
   const [email, setEmail] = useState("");
   const [isSubscribed, setIsSubscribed] = useState(false);
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = (e) => {
     e.preventDefault();
     if (email) {
       setIsSubscribed(true);

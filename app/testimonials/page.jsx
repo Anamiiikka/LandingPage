@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import { Metadata } from "next";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -13,7 +12,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }) {
   const testimonial = testimonialsData.find((t) => t.id === parseInt(params.id));
   if (!testimonial) {
     return {
@@ -29,7 +28,7 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
   };
 }
 
-export default function TestimonialPage({ params }: { params: { id: string } }) {
+export default function TestimonialPage({ params }) {
   console.log("Params received:", params);
   const testimonial = testimonialsData.find((t) => t.id === parseInt(params.id));
   console.log("Found testimonial:", testimonial);

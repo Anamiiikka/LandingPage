@@ -26,45 +26,10 @@ import {
   Headphones,
 } from "lucide-react";
 
-interface ChatMessage {
-  id: string;
-  text: string;
-  isBot: boolean;
-  timestamp: Date;
-  options?: string[];
-}
-
-interface ContactForm {
-  name: string;
-  email: string;
-  phone: string;
-  message: string;
-}
-
-interface QuoteForm {
-  name: string;
-  email: string;
-  phone: string;
-  service: string;
-  budget: string;
-  timeline: string;
-  description: string;
-}
-
-interface BookingForm {
-  name: string;
-  email: string;
-  phone: string;
-  service: string;
-  date: string;
-  time: string;
-  message: string;
-}
-
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
-  const [messages, setMessages] = useState<ChatMessage[]>([
+  const [messages, setMessages] = useState([
     {
       id: "1",
       text: "Hello! 👋 I'm your AI assistant. I'm here to help you discover our premium services and book consultations. How can I assist you today?",
@@ -74,12 +39,12 @@ export default function Chatbot() {
     },
   ]);
   const [inputMessage, setInputMessage] = useState("");
-  const [currentView, setCurrentView] = useState<"chat" | "booking" | "contact" | "quote">("chat");
+  const [currentView, setCurrentView] = useState("chat");
   const [isTyping, setIsTyping] = useState(false);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messagesEndRef = useRef(null);
   const [userId] = useState(`user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`);
 
-  const [bookingForm, setBookingForm] = useState<BookingForm>({
+  const [bookingForm, setBookingForm] = useState({
     name: "",
     email: "",
     phone: "",
@@ -89,14 +54,14 @@ export default function Chatbot() {
     message: "",
   });
 
-  const [contactForm, setContactForm] = useState<ContactForm>({
+  const [contactForm, setContactForm] = useState({
     name: "",
     email: "",
     phone: "",
     message: "",
   });
 
-  const [quoteForm, setQuoteForm] = useState<QuoteForm>({
+  const [quoteForm, setQuoteForm] = useState({
     name: "",
     email: "",
     phone: "",
@@ -131,7 +96,7 @@ export default function Chatbot() {
     return () => clearTimeout(timer);
   }, [isOpen]);
 
-  const saveMessage = async (message: ChatMessage) => {
+  const saveMessage = async (message) => {
     try {
       const response = await fetch("/api/chatbot/messages", {
         method: "POST",
@@ -147,8 +112,8 @@ export default function Chatbot() {
     }
   };
 
-  const addMessage = (text: string, isBot: boolean, options?: string[]) => {
-    const newMessage: ChatMessage = {
+  const addMessage = (text, isBot, options) => {
+    const newMessage = {
       id: Date.now().toString(),
       text,
       isBot,
@@ -159,7 +124,7 @@ export default function Chatbot() {
     saveMessage(newMessage); // Save all messages for admin reference
   };
 
-  const simulateTyping = (callback: () => void, delay = 1500) => {
+  const simulateTyping = (callback, delay = 1500) => {
     setIsTyping(true);
     setTimeout(() => {
       setIsTyping(false);
@@ -167,7 +132,7 @@ export default function Chatbot() {
     }, delay);
   };
 
-  const handleSendMessage = (e?: React.MouseEvent | React.KeyboardEvent) => {
+  const handleSendMessage = (e) => {
     if (e) e.preventDefault();
     if (!inputMessage.trim()) return;
 
@@ -181,7 +146,7 @@ export default function Chatbot() {
     });
   };
 
-  const getBotResponse = (message: string): { text: string; options?: string[] } => {
+  const getBotResponse = (message) => {
     if (message.includes("appointment") || message.includes("book") || message.includes("schedule")) {
       return {
         text: "Excellent choice! I'd be delighted to help you schedule a consultation with our experts. Let me guide you through our streamlined booking process.",
@@ -215,7 +180,7 @@ export default function Chatbot() {
     }
   };
 
-  const handleOptionClick = (option: string) => (e: React.MouseEvent) => {
+  const handleOptionClick = (option) => (e) => {
     e.stopPropagation();
     addMessage(option, false);
 
@@ -309,7 +274,7 @@ export default function Chatbot() {
     });
   };
 
-  const handleBookingSubmit = async (e: React.FormEvent) => {
+  const handleBookingSubmit = async (e) => {
     e.preventDefault();
 
     try {
@@ -357,7 +322,7 @@ You'll receive a confirmation email with meeting details and preparation materia
     }
   };
 
-  const handleContactSubmit = async (e: React.FormEvent) => {
+  const handleContactSubmit = async (e) => {
     e.preventDefault();
 
     try {
@@ -398,7 +363,7 @@ For urgent matters, feel free to call us at +1 (555) 123-4567.`,
     }
   };
 
-  const handleQuoteSubmit = async (e: React.FormEvent) => {
+  const handleQuoteSubmit = async (e) => {
     e.preventDefault();
 
     try {

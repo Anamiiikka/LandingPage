@@ -1,7 +1,7 @@
 "use client";
 
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card.jsx";
+import { Button } from "@/components/ui/button.jsx";
 import { ArrowRight, Star } from "lucide-react";
 import testimonialsData from "@/data/testimonials.json";
 import { useRouter } from 'next/navigation';
@@ -9,13 +9,11 @@ import { useRouter } from 'next/navigation';
 export default function TestimonialsSection() {
   const router = useRouter();
 
-  const handleReadFullStory = (testimonialId: number) => {
-   
+  const handleReadFullStory = (testimonialId) => {
     router.push(`/testimonials/${testimonialId}`);
   };
 
-  const handleCardClick = (testimonialId: number) => {
-   
+  const handleCardClick = (testimonialId) => {
     router.push(`/testimonials/${testimonialId}`);
   };
 
@@ -45,7 +43,6 @@ export default function TestimonialsSection() {
               className="premium-card overflow-hidden hover-lift glow-effect group transition-all duration-500 cursor-pointer"
               onClick={() => handleCardClick(testimonial.id)}
             >
-           
               <div className="relative overflow-hidden">
                 <div 
                   className="aspect-[4/3] bg-gradient-to-br from-white/15 to-white/5 relative overflow-hidden"
@@ -56,8 +53,6 @@ export default function TestimonialsSection() {
                   }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  
-                 
                   <div className="absolute top-3 left-3">
                     <div className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md border border-white/10">
                       <span className="text-xs font-medium text-white">{testimonial.category}</span>
