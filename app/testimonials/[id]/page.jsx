@@ -4,9 +4,22 @@ import { Button } from "@/components/ui/button.jsx";
 import Link from "next/link";
 import testimonialsData from "@/data/testimonials.json";
 import Footer from "@/components/Footer.jsx";
+import { 
+  ArrowLeft, 
+  Calendar, 
+  Clock, 
+  TrendingUp, 
+  Users, 
+  CheckCircle, 
+  Quote,
+  Play,
+  Star,
+  Award,
+  Target,
+  Lightbulb
+} from "lucide-react";
 
 export async function generateStaticParams() {
-  console.log("Generating static params:", testimonialsData.map((t) => ({ id: t.id.toString() })));
   return testimonialsData.map((testimonial) => ({
     id: testimonial.id.toString(),
   }));
@@ -16,11 +29,11 @@ export async function generateMetadata({ params }) {
   const testimonial = testimonialsData.find((t) => t.id === parseInt(params.id));
   if (!testimonial) {
     return {
-      title: "Testimonial Not Found",
+      title: "Case Study Not Found",
     };
   }
   return {
-    title: `${testimonial.title} | Your Site Name`,
+    title: `${testimonial.title} | Case Study`,
     description: testimonial.summary,
     openGraph: {
       images: [testimonial.image],
@@ -29,49 +42,343 @@ export async function generateMetadata({ params }) {
 }
 
 export default function TestimonialPage({ params }) {
-  console.log("Params received:", params);
   const testimonial = testimonialsData.find((t) => t.id === parseInt(params.id));
-  console.log("Found testimonial:", testimonial);
 
   if (!testimonial) {
-    console.error("Testimonial not found for ID:", params.id);
     notFound();
   }
 
+  // Extended data for the blog structure
+  const caseStudyData = {
+    ...testimonial,
+    highlights: [
+      { label: "Timeline", value: testimonial.timeline, icon: Clock },
+      { label: "Results", value: testimonial.results, icon: TrendingUp },
+      { label: "Industry", value: testimonial.category, icon: Award },
+      { label: "Team Size", value: "8 specialists", icon: Users }
+    ],
+    introduction: `${testimonial.company} approached us with a vision to transform their digital presence and streamline their operations. As a growing company in the ${testimonial.category.toLowerCase()} sector, they faced challenges with outdated systems, inefficient processes, and the need to scale rapidly while maintaining quality service delivery.`,
+    opportunity: {
+      challenges: [
+        "Legacy systems limiting growth potential",
+        "Manual processes causing operational inefficiencies", 
+        "Poor user experience affecting customer satisfaction",
+        "Lack of real-time data and analytics",
+        "Scalability concerns with existing infrastructure"
+      ],
+      goals: [
+        "Modernize technology stack for better performance",
+        "Automate key business processes",
+        "Improve user experience across all touchpoints",
+        "Implement comprehensive analytics and reporting",
+        "Build scalable architecture for future growth"
+      ]
+    },
+    solution: {
+      approach: "We implemented a comprehensive digital transformation strategy, focusing on modern web technologies, user-centered design, and scalable cloud infrastructure.",
+      keyFeatures: [
+        "Custom web application built with React and Next.js",
+        "Responsive mobile-first design approach",
+        "Real-time analytics and reporting dashboard",
+        "Automated workflow management system",
+        "Cloud-based infrastructure with 99.9% uptime",
+        "Advanced security measures and data protection"
+      ],
+      technologies: ["React", "Next.js", "Node.js", "MongoDB", "AWS", "TypeScript"]
+    },
+    outcome: {
+      metrics: [
+        { label: "Revenue Growth", value: "300%", description: "Increase in monthly recurring revenue" },
+        { label: "User Engagement", value: "85%", description: "Improvement in user session duration" },
+        { label: "Operational Efficiency", value: "60%", description: "Reduction in manual processing time" },
+        { label: "Customer Satisfaction", value: "95%", description: "Positive feedback rating" }
+      ],
+      longTermImpact: "The solution has positioned the company for sustained growth, with the new platform handling 10x the original user load while maintaining optimal performance."
+    },
+    videoTestimonial: {
+      available: true,
+      thumbnail: testimonial.image,
+      duration: "2:34"
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
-      <section className="py-32 px-4">
-        <div className="max-w-4xl mx-auto">
-          <Card className="premium-card">
-            <div
-              className="aspect-[4/3] bg-gradient-to-br from-white/15 to-white/5"
-              style={{
-                backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url(${testimonial.image})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            />
-            <CardContent className="p-8">
-              <h1 className="text-3xl font-bold gradient-text mb-4">{testimonial.title}</h1>
-              <p className="text-white/60 mb-4">{testimonial.summary}</p>
-              <p className="text-white/80 mb-6 leading-relaxed">{testimonial.testimonial}</p>
-              <div className="mb-6">
-                <div className="font-medium text-white">{testimonial.client}</div>
-                <div className="text-white/50 text-sm">{testimonial.company} - {testimonial.role}</div>
-                <div className="text-white/50 text-sm">Category: {testimonial.category}</div>
-                <div className="text-white/50 text-sm">Results: {testimonial.results}</div>
-                <div className="text-white/50 text-sm">Timeline: {testimonial.timeline}</div>
-                <div className="text-white/50 text-sm">Services: {testimonial.services.join(", ")}</div>
+      {/* Hero Section */}
+      <section className="relative py-20 px-4 overflow-hidden">
+        <div className="floating-orb top-1/4 right-1/4 w-64 h-64 bg-white/[0.02]" />
+        
+        <div className="max-w-6xl mx-auto">
+          <Link href="/testimonials" className="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors mb-8">
+            <ArrowLeft className="w-4 h-4" />
+            Back to Case Studies
+          </Link>
+          
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-6">
+                <Award className="w-4 h-4 text-white/60" />
+                <span className="text-sm font-medium text-white/80">Case Study</span>
               </div>
-              <Link href="/testimonials">
-                <Button variant="outline" className="border-white/20 hover:bg-white/5">
-                  Back to Testimonials
-                </Button>
-              </Link>
-            </CardContent>
-          </Card>
+              
+              <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-6 leading-tight">
+                {testimonial.title}
+              </h1>
+              
+              <p className="text-xl text-white/70 mb-8 leading-relaxed">
+                {testimonial.summary}
+              </p>
+              
+              {/* Highlights Grid */}
+              <div className="grid grid-cols-2 gap-4">
+                {caseStudyData.highlights.map((highlight, index) => (
+                  <div key={index} className="glass-card p-4">
+                    <div className="flex items-center gap-3 mb-2">
+                      <highlight.icon className="w-5 h-5 text-white/60" />
+                      <span className="text-sm text-white/60">{highlight.label}</span>
+                    </div>
+                    <div className="font-semibold text-white">{highlight.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div className="relative">
+              <div className="premium-card overflow-hidden">
+                <img 
+                  src={testimonial.image} 
+                  alt={testimonial.company}
+                  className="w-full aspect-[4/3] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                      <Users className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <div className="font-semibold text-white">{testimonial.client}</div>
+                      <div className="text-white/70 text-sm">{testimonial.role}</div>
+                      <div className="text-white/60 text-sm">{testimonial.company}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
+
+      {/* Main Content */}
+      <section className="py-16 px-4">
+        <div className="max-w-4xl mx-auto space-y-16">
+          
+          {/* Introduction */}
+          <div className="premium-card p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-12 h-12 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center">
+                <Lightbulb className="w-6 h-6 text-white" />
+              </div>
+              <h2 className="text-3xl font-bold gradient-text">Introduction</h2>
+            </div>
+            <p className="text-white/80 text-lg leading-relaxed">
+              {caseStudyData.introduction}
+            </p>
+          </div>
+
+          {/* Opportunity */}
+          <div className="premium-card p-8">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-12 h-12 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center">
+                <Target className="w-6 h-6 text-white" />
+              </div>
+              <h2 className="text-3xl font-bold gradient-text">The Opportunity</h2>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-xl font-semibold text-white mb-4">Challenges</h3>
+                <ul className="space-y-3">
+                  {caseStudyData.opportunity.challenges.map((challenge, index) => (
+                    <li key={index} className="flex items-start gap-3 text-white/70">
+                      <div className="w-2 h-2 bg-red-400 rounded-full mt-2 flex-shrink-0" />
+                      {challenge}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-semibold text-white mb-4">Goals</h3>
+                <ul className="space-y-3">
+                  {caseStudyData.opportunity.goals.map((goal, index) => (
+                    <li key={index} className="flex items-start gap-3 text-white/70">
+                      <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                      {goal}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Solution */}
+          <div className="premium-card p-8">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-12 h-12 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center">
+                <CheckCircle className="w-6 h-6 text-white" />
+              </div>
+              <h2 className="text-3xl font-bold gradient-text">Our Solution</h2>
+            </div>
+            
+            <p className="text-white/80 text-lg leading-relaxed mb-8">
+              {caseStudyData.solution.approach}
+            </p>
+            
+            <div className="mb-8">
+              <h3 className="text-xl font-semibold text-white mb-4">Key Features Delivered</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                {caseStudyData.solution.keyFeatures.map((feature, index) => (
+                  <div key={index} className="flex items-start gap-3 glass-card p-4">
+                    <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                    <span className="text-white/80">{feature}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div>
+              <h3 className="text-xl font-semibold text-white mb-4">Technologies Used</h3>
+              <div className="flex flex-wrap gap-3">
+                {caseStudyData.solution.technologies.map((tech, index) => (
+                  <span key={index} className="px-4 py-2 bg-white/10 rounded-full text-white/80 text-sm">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Outcome */}
+          <div className="premium-card p-8">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-12 h-12 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center">
+                <TrendingUp className="w-6 h-6 text-white" />
+              </div>
+              <h2 className="text-3xl font-bold gradient-text">Results & Impact</h2>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              {caseStudyData.outcome.metrics.map((metric, index) => (
+                <div key={index} className="glass-card p-6 text-center">
+                  <div className="text-3xl font-bold gradient-text mb-2">{metric.value}</div>
+                  <div className="font-semibold text-white mb-1">{metric.label}</div>
+                  <div className="text-white/60 text-sm">{metric.description}</div>
+                </div>
+              ))}
+            </div>
+            
+            <div className="glass-card p-6">
+              <h3 className="text-xl font-semibold text-white mb-3">Long-term Impact</h3>
+              <p className="text-white/80 leading-relaxed">{caseStudyData.outcome.longTermImpact}</p>
+            </div>
+          </div>
+
+          {/* Client Quote */}
+          <div className="premium-card p-8 relative overflow-hidden">
+            <div className="absolute top-6 right-6">
+              <Quote className="w-16 h-16 text-white/10" />
+            </div>
+            
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-12 h-12 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center">
+                <Quote className="w-6 h-6 text-white" />
+              </div>
+              <h2 className="text-3xl font-bold gradient-text">Client Testimonial</h2>
+            </div>
+            
+            <blockquote className="text-xl text-white/90 leading-relaxed mb-6 italic">
+              "{testimonial.testimonial}"
+            </blockquote>
+            
+            <div className="flex items-center gap-4">
+              <div className="w-16 h-16 rounded-full overflow-hidden">
+                <img 
+                  src={testimonial.image} 
+                  alt={testimonial.client}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <div className="font-semibold text-white">{testimonial.client}</div>
+                <div className="text-white/70">{testimonial.role}</div>
+                <div className="text-white/60">{testimonial.company}</div>
+                <div className="flex gap-1 mt-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Video Testimonial */}
+          {caseStudyData.videoTestimonial.available && (
+            <div className="premium-card p-8">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center">
+                  <Play className="w-6 h-6 text-white" />
+                </div>
+                <h2 className="text-3xl font-bold gradient-text">Video Testimonial</h2>
+              </div>
+              
+              <div className="relative aspect-video rounded-2xl overflow-hidden group cursor-pointer">
+                <img 
+                  src={caseStudyData.videoTestimonial.thumbnail}
+                  alt="Video testimonial thumbnail"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-300" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <Play className="w-8 h-8 text-white ml-1" />
+                  </div>
+                </div>
+                <div className="absolute bottom-4 right-4 px-3 py-1 bg-black/60 rounded-full text-white text-sm">
+                  {caseStudyData.videoTestimonial.duration}
+                </div>
+              </div>
+              
+              <p className="text-white/70 mt-4 text-center">
+                Hear directly from {testimonial.client} about their experience working with our team.
+              </p>
+            </div>
+          )}
+
+          {/* CTA Section */}
+          <div className="premium-card p-8 text-center">
+            <h3 className="text-2xl font-bold gradient-text mb-4">
+              Ready to Transform Your Business?
+            </h3>
+            <p className="text-white/70 mb-6 max-w-2xl mx-auto">
+              Let's discuss how we can help you achieve similar results. Our team is ready to create a custom solution for your unique challenges.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" className="premium-button px-8 py-3 rounded-xl">
+                Start Your Project
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="px-8 py-3 rounded-xl border-white/20 hover:bg-white/5 hover:border-white/40 transition-all duration-300"
+              >
+                View More Case Studies
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+      
       <Footer />
     </div>
   );
