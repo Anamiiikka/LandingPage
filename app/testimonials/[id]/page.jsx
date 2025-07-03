@@ -1,3 +1,4 @@
+
 import { notFound } from "next/navigation";
 import { Card, CardContent } from "@/components/ui/card.jsx";
 import { Button } from "@/components/ui/button.jsx";
@@ -84,7 +85,7 @@ export default function TestimonialPage({ params }) {
         "Cloud-based infrastructure with 99.9% uptime",
         "Advanced security measures and data protection"
       ],
-      technologies: ["React", "Next.js", "Node.js", "MongoDB", "AWS", "TypeScript"]
+      technologies: testimonial.technologies || [] // Use technologies from testimonials.json with fallback
     },
     outcome: {
       metrics: [
@@ -109,7 +110,7 @@ export default function TestimonialPage({ params }) {
         <div className="floating-orb top-1/4 right-1/4 w-64 h-64 bg-white/[0.02]" />
         
         <div className="max-w-6xl mx-auto">
-          <Link href="/testimonials" className="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors mb-8">
+          <Link href="/testimonials#testimonials" className="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors mb-8">
             <ArrowLeft className="w-4 h-4" />
             Back to Case Studies
           </Link>
@@ -137,7 +138,7 @@ export default function TestimonialPage({ params }) {
                       <highlight.icon className="w-5 h-5 text-white/60" />
                       <span className="text-sm text-white/60">{highlight.label}</span>
                     </div>
-                    <div className="font-semibold text-white">{highlight.value}</div>
+ Foods                    <div className="font-semibold text-white">{highlight.value}</div>
                   </div>
                 ))}
               </div>

@@ -11,7 +11,8 @@
     "category": "Web Development",
     "results": "300% Revenue Growth",
     "timeline": "6 months",
-    "services": ["Web Development", "Mobile App", "UI/UX Design"]
+    "services": ["Web Development", "Mobile App", "UI/UX Design"],
+    "technologies": ["React", "Next.js", "Node.js", "MongoDB", "AWS", "TypeScript"]
   },
   {
     "id": 2,
@@ -25,7 +26,8 @@
     "category": "E-commerce",
     "results": "200% Conversion Increase",
     "timeline": "4 months",
-    "services": ["E-commerce Development", "AI Integration", "Digital Marketing"]
+    "services": ["E-commerce Development", "AI Integration", "Digital Marketing"],
+    "technologies": ["React", "Next.js", "Python", "TensorFlow", "AWS", "PostgreSQL"]
   },
   {
     "id": 3,
@@ -39,7 +41,8 @@
     "category": "Healthcare",
     "results": "75% Time Savings",
     "timeline": "8 months",
-    "services": ["Custom Software", "Security Implementation", "Cloud Solutions"]
+    "services": ["Custom Software", "Security Implementation", "Cloud Solutions"],
+    "technologies": ["React", "Node.js", "MongoDB", "AWS", "TypeScript", "GraphQL"]
   },
   {
     "id": 4,
@@ -53,7 +56,8 @@
     "category": "FinTech",
     "results": "99.99% Uptime",
     "timeline": "12 months",
-    "services": ["Platform Development", "Security Architecture", "Performance Optimization"]
+    "services": ["Platform Development", "Security Architecture", "Performance Optimization"],
+    "technologies": ["React", "Next.js", "Node.js", "Redis", "AWS", "Go"]
   },
   {
     "id": 5,
@@ -67,7 +71,8 @@
     "category": "Education",
     "results": "85% Engagement Boost",
     "timeline": "5 months",
-    "services": ["LMS Development", "Interactive Design", "Analytics Integration"]
+    "services": ["LMS Development", "Interactive Design", "Analytics Integration"],
+    "technologies": ["React", "Next.js", "Node.js", "MongoDB", "Firebase", "TypeScript"]
   },
   {
     "id": 6,
@@ -81,6 +86,7 @@
     "category": "Manufacturing",
     "results": "40% Waste Reduction",
     "timeline": "10 months",
-    "services": ["IoT Development", "Data Analytics", "Process Automation"]
+    "services": ["IoT Development", "Data Analytics", "Process Automation"],
+    "technologies": ["Python", "Node.js", "AWS IoT", "MongoDB", "TensorFlow", "TypeScript"]
   }
 ]
