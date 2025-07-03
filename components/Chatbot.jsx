@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect, useRef } from "react";
@@ -43,16 +44,7 @@ export default function Chatbot() {
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef(null);
   const [userId] = useState(`user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`);
-
-  const [bookingForm, setBookingForm] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    service: "",
-    date: "",
-    time: "",
-    message: "",
-  });
+  const hasScheduledRef = useRef(false); // Flag to prevent duplicate messages
 
   const [contactForm, setContactForm] = useState({
     name: "",
@@ -96,6 +88,31 @@ export default function Chatbot() {
     return () => clearTimeout(timer);
   }, [isOpen]);
 
+  // Handle Calendly event scheduling
+  useEffect(() => {
+    const handleCalendlyEvent = (e) => {
+      if (e.data.event && e.data.event === "calendly.event_scheduled" && !hasScheduledRef.current) {
+        console.log("Calendly event received:", e.data); // Debug log
+        hasScheduledRef.current = true; // Set flag to prevent duplicates
+        simulateTyping(() => {
+          addMessage(
+            `🎉 Your consultation has been scheduled! You'll receive a confirmation email with details from Calendly.`,
+            true,
+            ["Back to Menu", "Contact Support"]
+          );
+          setCurrentView("chat");
+          // Reset flag after a delay to allow new bookings
+          setTimeout(() => {
+            hasScheduledRef.current = false;
+          }, 5000); // Adjust delay if needed
+        }, 1500);
+      }
+    };
+
+    window.addEventListener("message", handleCalendlyEvent);
+    return () => window.removeEventListener("message", handleCalendlyEvent);
+  }, []); // Empty dependency array is fine since we use ref for state
+
   const saveMessage = async (message) => {
     try {
       const response = await fetch("/api/chatbot/messages", {
@@ -121,7 +138,7 @@ export default function Chatbot() {
       options,
     };
     setMessages((prev) => [...prev, newMessage]);
-    saveMessage(newMessage); // Save all messages for admin reference
+    saveMessage(newMessage);
   };
 
   const simulateTyping = (callback, delay = 1500) => {
@@ -149,7 +166,7 @@ export default function Chatbot() {
   const getBotResponse = (message) => {
     if (message.includes("appointment") || message.includes("book") || message.includes("schedule")) {
       return {
-        text: "Excellent choice! I'd be delighted to help you schedule a consultation with our experts. Let me guide you through our streamlined booking process.",
+        text: "Excellent choice! I'd be delighted to help you schedule a consultation with our experts. Let's get you started with our booking system.",
         options: ["Book Now", "View Available Times", "Learn About Services", "Back to Menu"],
       };
     } else if (message.includes("price") || message.includes("cost") || message.includes("quote")) {
@@ -189,7 +206,7 @@ export default function Chatbot() {
         case "Book Appointment":
         case "Book Now":
           setCurrentView("booking");
-          addMessage("Perfect! Let's get you scheduled for a premium consultation. Please fill out the booking form below.", true);
+          addMessage("Perfect! Let's get you scheduled for a premium consultation. Please select a time below using our scheduling tool.", true);
           break;
 
         case "Get Quote":
@@ -268,58 +285,10 @@ export default function Chatbot() {
             "Book Appointment",
             "Get Quote",
             "Contact Us",
-            "Back to Menu",
-          ]);
+            "Back to Menu"],
+          );
       }
     });
-  };
-
-  const handleBookingSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await fetch("/api/chatbot/bookings", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(bookingForm),
-      });
-
-      if (response.ok) {
-        simulateTyping(() => {
-          addMessage(
-            `🎉 Perfect! Your premium consultation has been scheduled for ${bookingForm.date} at ${bookingForm.time}. 
-
-Confirmation Details:
-• Service: ${bookingForm.service}
-• Date: ${bookingForm.date}
-• Time: ${bookingForm.time}
-• Contact: ${bookingForm.email}
-
-You'll receive a confirmation email with meeting details and preparation materials shortly. We're excited to work with you!`,
-            true,
-            ["Reschedule", "Add to Calendar", "Contact Support"]
-          );
-
-          setCurrentView("chat");
-          setBookingForm({
-            name: "",
-            email: "",
-            phone: "",
-            service: "",
-            date: "",
-            time: "",
-            message: "",
-          });
-        }, 2000);
-      } else {
-        const errorData = await response.json();
-        console.error("Error saving booking:", response.status, errorData);
-        addMessage("Sorry, there was an error saving your booking. Please try again.", true);
-      }
-    } catch (error) {
-      console.error("Error saving booking:", error);
-      addMessage("Sorry, there was an error saving your booking. Please try again.", true);
-    }
   };
 
   const handleContactSubmit = async (e) => {
@@ -603,107 +572,17 @@ The proposal will include project scope, timeline, pricing, and next steps.`,
                   </Button>
                   <div>
                     <h3 className="font-semibold text-lg gradient-text">Book Premium Consultation</h3>
-                    <p className="text-sm text-white/60">Schedule your personalized session</p>
+                    <p className="text-sm text-white/60">Schedule your personalized session with Calendly</p>
                   </div>
                 </div>
 
-                <form onSubmit={handleBookingSubmit} className="space-y-5">
-                  <div className="grid grid-cols-2 gap-4">
-                    <Input
-                      placeholder="Full Name"
-                      value={bookingForm.name}
-                      onChange={(e) => setBookingForm((prev) => ({ ...prev, name: e.target.value }))}
-                      className="bg-white/5 border-white/20 rounded-xl focus:border-white/40 z-10"
-                      required
-                      style={{ pointerEvents: 'auto' }}
-                    />
-                    <Input
-                      type="email"
-                      placeholder="Email Address"
-                      value={bookingForm.email}
-                      onChange={(e) => setBookingForm((prev) => ({ ...prev, email: e.target.value }))}
-                      className="bg-white/5 border-white/20 rounded-xl focus:border-white/40 z-10"
-                      required
-                      style={{ pointerEvents: 'auto' }}
-                    />
-                  </div>
-
-                  <Input
-                    type="tel"
-                    placeholder="Phone Number"
-                    value={bookingForm.phone}
-                    onChange={(e) => setBookingForm((prev) => ({ ...prev, phone: e.target.value }))}
-                    className="bg-white/5 border-white/20 rounded-xl focus:border-white/40 z-10"
-                    style={{ pointerEvents: 'auto' }}
-                  />
-
-                  <select
-                    value={bookingForm.service}
-                    onChange={(e) => setBookingForm((prev) => ({ ...prev, service: e.target.value }))}
-                    className="w-full h-12 px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white focus:border-white/40 transition-colors duration-300 z-10"
-                    required
-                    style={{ pointerEvents: 'auto' }}
-                  >
-                    <option value="" className="bg-black">
-                      Select Service
-                    </option>
-                    <option value="Web Development" className="bg-black">
-                      Web Development
-                    </option>
-                    <option value="Mobile Development" className="bg-black">
-                      Mobile Development
-                    </option>
-                    <option value="UI/UX Design" className="bg-black">
-                      UI/UX Design
-                    </option>
-                    <option value="Digital Marketing" className="bg-black">
-                      Digital Marketing
-                    </option>
-                    <option value="Strategic Consulting" className="bg-black">
-                      Strategic Consulting
-                    </option>
-                    <option value="Cloud Solutions" className="bg-black">
-                      Cloud Solutions
-                    </option>
-                  </select>
-
-                  <div className="grid grid-cols-2 gap-4">
-                    <Input
-                      type="date"
-                      value={bookingForm.date}
-                      onChange={(e) => setBookingForm((prev) => ({ ...prev, date: e.target.value }))}
-                      className="bg-white/5 border-white/20 rounded-xl focus:border-white/40 z-10"
-                      min={new Date().toISOString().split('T')[0]}
-                      required
-                      style={{ pointerEvents: 'auto' }}
-                    />
-                    <Input
-                      type="time"
-                      value={bookingForm.time}
-                      onChange={(e) => setBookingForm((prev) => ({ ...prev, time: e.target.value }))}
-                      className="bg-white/5 border-white/20 rounded-xl focus:border-white/40 z-10"
-                      required
-                      style={{ pointerEvents: 'auto' }}
-                    />
-                  </div>
-
-                  <Textarea
-                    placeholder="Tell us about your project or requirements..."
-                    value={bookingForm.message}
-                    onChange={(e) => setBookingForm((prev) => ({ ...prev, message: e.target.value }))}
-                    className="bg-white/5 border-white/20 rounded-xl focus:border-white/40 min-h-[80px] resize-none z-10"
-                    style={{ pointerEvents: 'auto' }}
-                  />
-
-                  <Button
-                    type="submit"
-                    className="w-full bg-gradient-to-r from-white to-gray-200 text-black hover:from-white hover:to-white rounded-xl py-3 font-semibold z-10"
-                    style={{ pointerEvents: 'auto' }}
-                  >
-                    <Calendar className="w-4 h-4 mr-2" />
-                    Schedule Consultation
-                  </Button>
-                </form>
+                {/* Calendly Inline Widget */}
+                <div
+                  className="calendly-inline-widget"
+                  data-url="https://calendly.com/codedpool10/30min"
+                  style={{ minWidth: '320px', height: '450px' }}
+                ></div>
+                <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
               </div>
             )}
 
