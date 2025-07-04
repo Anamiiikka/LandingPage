@@ -13,7 +13,7 @@
     "timeline": "6 months",
     "services": ["Web Development", "Mobile App", "UI/UX Design"],
     "technologies": ["React", "Next.js", "Node.js", "MongoDB", "AWS", "TypeScript"],
-    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    "videoUrl": "https://www.youtube.com/embed/8JW6qzPCkE8?si=CMZ9bN8m6NXeItTb"
   },
   {
     "id": 2,
@@ -29,7 +29,7 @@
     "timeline": "4 months",
     "services": ["E-commerce Development", "AI Integration", "Digital Marketing"],
     "technologies": ["React", "Next.js", "Python", "TensorFlow", "AWS", "PostgreSQL"],
-    "videoUrl": "https://www.youtube.com/embed/jNQXAC9IVRw"
+    "videoUrl": "https://www.youtube.com/embed/QBX7RkhuyCA?si=J8xN6OX4vA2dre-g"
   },
   {
     "id": 3,
@@ -61,7 +61,7 @@
     "timeline": "12 months",
     "services": ["Platform Development", "Security Architecture", "Performance Optimization"],
     "technologies": ["React", "Next.js", "Node.js", "Redis", "AWS", "Go"],
-    "videoUrl": "https://www.youtube.com/embed/QH2-TGUlwu4"
+    "videoUrl": "https://www.youtube.com/embed/8sxAcYnZFAk"
   },
   {
     "id": 5,
@@ -77,7 +77,7 @@
     "timeline": "5 months",
     "services": ["LMS Development", "Interactive Design", "Analytics Integration"],
     "technologies": ["React", "Next.js", "Node.js", "MongoDB", "Firebase", "TypeScript"],
-    "videoUrl": "https://www.youtube.com/embed/nfWlot6h_JM"
+    "videoUrl": "https://www.youtube.com/embed/bQIPwkSfGZM?si=EEhWe6ajsY6z8wTV"
   },
   {
     "id": 6,
