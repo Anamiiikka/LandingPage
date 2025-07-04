@@ -1,43 +1,44 @@
+// app/components/ConsultationSection.jsx
 "use client";
 
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sparkles } from "lucide-react";
 
-export default function ConsultationSection() {
+const ConsultationSection = () => {
   const handleBookConsultation = () => {
     window.open(process.env.NEXT_PUBLIC_CALENDLY_URL, "_blank", "noopener,noreferrer");
   };
 
   useEffect(() => {
-    // Generate and append stars to the section client-side
-    const section = document.querySelector("section");
+    // Generate and append stars to the section client-side with a unique class
+    const section = document.querySelector("#consultation-section");
     if (section) {
       for (let i = 0; i < 20; i++) {
         const star = document.createElement("div");
-        star.className = "star";
+        star.className = "consultation-star";
         star.style.width = `${Math.floor(Math.random() * 4) + 2}px`;
         star.style.height = `${Math.floor(Math.random() * 4) + 2}px`;
         star.style.top = `${Math.random() * 100}%`;
         star.style.left = `${Math.random() * 100}%`;
         star.style.animationDelay = `${Math.random() * 1.5}s`;
+        star.style.position = "absolute";
         section.appendChild(star);
       }
     }
   }, []);
 
   return (
-    <section className="relative min-h-[60vh] flex items-center justify-center px-4 overflow-hidden bg-black">
-      {/* Embedded CSS */}
+    <section id="consultation-section" className="relative min-h-[60vh] flex items-center justify-center px-4 overflow-hidden bg-black">
+      {/* Embedded CSS with scoped class */}
       <style>
         {`
-          .star {
-            position: absolute;
+          .consultation-star {
             background: rgba(255, 255, 255, 0.8);
             border-radius: 50%;
-            animation: blink 1.5s infinite;
+            animation: consultation-blink 1.5s infinite;
           }
-          @keyframes blink {
+          @keyframes consultation-blink {
             0% { opacity: 0.2; }
             50% { opacity: 1; }
             100% { opacity: 0.2; }
@@ -94,7 +95,7 @@ export default function ConsultationSection() {
           <span className="gradient-text shimmer">Idea in your mind?</span>
           <br className="my-8" />
           <span className="text-5xl md:text-7xl text-white/90" style={{ background: 'linear-gradient(90deg, #00c4cc, #7d2ae8)', WebkitBackgroundClip: 'text', color: 'transparent' }}>
-            Convert it into Reality.
+            Convert it into Reality
           </span>
           <br className="my-8" />
           <span className="text-white/90 relative">
@@ -113,4 +114,6 @@ export default function ConsultationSection() {
       </div>
     </section>
   );
-}
+};
+
+export default ConsultationSection;
