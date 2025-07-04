@@ -1,4 +1,3 @@
-
 import { notFound } from "next/navigation";
 import { Card, CardContent } from "@/components/ui/card.jsx";
 import { Button } from "@/components/ui/button.jsx";
@@ -14,7 +13,6 @@ import {
   CheckCircle, 
   Quote,
   Play,
-  Star,
   Award,
   Target,
   Lightbulb
@@ -138,7 +136,7 @@ export default function TestimonialPage({ params }) {
                       <highlight.icon className="w-5 h-5 text-white/60" />
                       <span className="text-sm text-white/60">{highlight.label}</span>
                     </div>
- Foods                    <div className="font-semibold text-white">{highlight.value}</div>
+                    <div className="font-semibold text-white">{highlight.value}</div>
                   </div>
                 ))}
               </div>
@@ -314,11 +312,6 @@ export default function TestimonialPage({ params }) {
                 <div className="font-semibold text-white">{testimonial.client}</div>
                 <div className="text-white/70">{testimonial.role}</div>
                 <div className="text-white/60">{testimonial.company}</div>
-                <div className="flex gap-1 mt-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
               </div>
             </div>
           </div>
@@ -333,21 +326,16 @@ export default function TestimonialPage({ params }) {
                 <h2 className="text-3xl font-bold gradient-text">Video Testimonial</h2>
               </div>
               
-              <div className="relative aspect-video rounded-2xl overflow-hidden group cursor-pointer">
-                <img 
-                  src={caseStudyData.videoTestimonial.thumbnail}
-                  alt="Video testimonial thumbnail"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-300" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <Play className="w-8 h-8 text-white ml-1" />
-                  </div>
-                </div>
-                <div className="absolute bottom-4 right-4 px-3 py-1 bg-black/60 rounded-full text-white text-sm">
-                  {caseStudyData.videoTestimonial.duration}
-                </div>
+              <div className="aspect-video rounded-2xl overflow-hidden">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                  title={`${testimonial.client} - Video Testimonial`}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
               </div>
               
               <p className="text-white/70 mt-4 text-center">
