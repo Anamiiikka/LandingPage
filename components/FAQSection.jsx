@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import faqData from "./faqData.json";
+import faqData from "../data/faqData.json";;
 
 export default function FAQSection() {
   const [openItems, setOpenItems] = useState([]);
@@ -24,17 +24,15 @@ export default function FAQSection() {
           {faqData.map((item, index) => (
             <div
               key={index}
-              className="border border-white/20 rounded-2xl p-6 hover:bg-white/5 transition-all duration-300"
+              onClick={() => toggleFAQ(index)}
+              className="border border-white/20 rounded-2xl p-6 hover:bg-white/5 transition-all duration-300 cursor-pointer"
             >
-              <button
-                onClick={() => toggleFAQ(index)}
-                className="w-full text-left text-xl font-semibold text-white/90 flex justify-between items-center"
-              >
+              <div className="text-xl font-semibold text-white/90 flex justify-between items-center">
                 {item.question}
                 <span className="text-white/60">
                   {openItems.includes(index) ? "−" : "+"}
                 </span>
-              </button>
+              </div>
               {openItems.includes(index) && (
                 <p className="mt-4 text-white/70 leading-relaxed">{item.answer}</p>
               )}
