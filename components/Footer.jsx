@@ -60,10 +60,10 @@ export default function Footer() {
   };
 
   const socialLinks = [
-    { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
-    { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
-    { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+    { icon: Facebook, href: "https://www.facebook.com/adalabs.in/", label: "Facebook" },
+    { icon: Twitter, href: "https://x.com/AdaLabsInfo", label: "Twitter" },
+    { icon: Instagram, href: "https://www.instagram.com/adalabs.in/", label: "Instagram" },
+    { icon: Linkedin, href: "https://www.linkedin.com/company/adalabs/posts/?feedView=all", label: "LinkedIn" },
     { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
     { icon: Github, href: "https://github.com", label: "GitHub" },
   ];
@@ -209,9 +209,15 @@ export default function Footer() {
 
           {/* Talk to Us */}
           <div>
-            <h3 className="text-base font-bold text-white mb-4 uppercase tracking-wider">
-              Talk to Us
-            </h3>
+            <Button 
+              asChild
+              className="h-10 px-5 bg-white text-black hover:bg-white/90 rounded-xl font-semibold transition-all duration-300 mb-4"
+            >
+              <Link href="https://adalabs.in/contact-us" target="_blank" rel="noopener noreferrer">
+                Talk to Us
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </Button>
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-white/70">
                 <Mail className="w-4 h-4 flex-shrink-0" />
@@ -235,17 +241,16 @@ export default function Footer() {
             {/* Company Info */}
             <div className="text-center lg:text-left">
               <h3 className="text-xl font-bold gradient-text mb-1">
-                Professional Services
+                @2025 Adalabs & Co.
               </h3>
-              <p className="text-white/60 text-sm">
-                © {new Date().getFullYear()} Professional Services. All rights reserved.
-              </p>
+              
             </div>
 
             {/* Social Media Links - Smaller icons */}
             <div className="flex items-center gap-3">
               {socialLinks.map((social, index) => (
                 <Link
+                
                   key={index}
                   href={social.href}
                   target="_blank"
