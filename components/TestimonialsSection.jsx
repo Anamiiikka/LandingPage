@@ -150,32 +150,9 @@ export default function TestimonialsSection() {
           </div>
         </div>
 
-        {/* YouTube Video Section */}
-        <div className="mt-20">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold gradient-text mb-4">See Our Work in Action</h3>
-            <p className="text-white/60 max-w-2xl mx-auto">
-              Watch how we transform businesses with cutting-edge technology solutions and innovative approaches.
-            </p>
-          </div>
+        
           
-          <div className="max-w-4xl mx-auto">
-            <div className="premium-card overflow-hidden">
-              <div className="aspect-video">
-                <iframe
-                  width="100%"
-                  height="100%"
-                  src={featuredVideoUrl}
-                  title="Professional Services - Client Success Stories"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  className="rounded-2xl"
-                ></iframe>
-              </div>
-            </div>
-          </div>
-        </div>
+          
 
         {/* CTA Section */}
         <div className="text-center mt-20">
