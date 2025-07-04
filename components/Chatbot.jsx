@@ -44,7 +44,6 @@ export default function Chatbot() {
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef(null);
   const [userId] = useState(`user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`);
-  const hasScheduledRef = useRef(false); // Flag to prevent duplicate messages
 
   const [contactForm, setContactForm] = useState({
     name: "",
@@ -87,31 +86,6 @@ export default function Chatbot() {
 
     return () => clearTimeout(timer);
   }, [isOpen]);
-
-  // Handle Calendly event scheduling
-  useEffect(() => {
-    const handleCalendlyEvent = (e) => {
-      if (e.data.event && e.data.event === "calendly.event_scheduled" && !hasScheduledRef.current) {
-        console.log("Calendly event received:", e.data); // Debug log
-        hasScheduledRef.current = true; // Set flag to prevent duplicates
-        simulateTyping(() => {
-          addMessage(
-            `🎉 Your consultation has been scheduled! You'll receive a confirmation email with details from Calendly.`,
-            true,
-            ["Back to Menu", "Contact Support"]
-          );
-          setCurrentView("chat");
-          // Reset flag after a delay to allow new bookings
-          setTimeout(() => {
-            hasScheduledRef.current = false;
-          }, 5000); // Adjust delay if needed
-        }, 1500);
-      }
-    };
-
-    window.addEventListener("message", handleCalendlyEvent);
-    return () => window.removeEventListener("message", handleCalendlyEvent);
-  }, []); // Empty dependency array is fine since we use ref for state
 
   const saveMessage = async (message) => {
     try {
@@ -205,8 +179,12 @@ export default function Chatbot() {
       switch (option) {
         case "Book Appointment":
         case "Book Now":
-          setCurrentView("booking");
-          addMessage("Perfect! Let's get you scheduled for a premium consultation. Please select a time below using our scheduling tool.", true);
+          addMessage(
+            "Redirecting you to our booking page to schedule your premium consultation!",
+            true,
+            ["Back to Menu", "Contact Support"]
+          );
+          window.open(process.env.NEXT_PUBLIC_CALENDLY_URL, "_blank", "noopener,noreferrer");
           break;
 
         case "Get Quote":
@@ -556,34 +534,6 @@ The proposal will include project scope, timeline, pricing, and next steps.`,
                   </div>
                 </div>
               </>
-            )}
-
-            {currentView === "booking" && (
-              <div className="p-6 overflow-y-auto">
-                <div className="flex items-center gap-3 mb-6">
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    onClick={() => setCurrentView("chat")}
-                    className="h-10 w-10 p-0 hover:bg-white/10 rounded-xl z-10"
-                    style={{ pointerEvents: 'auto' }}
-                  >
-                    <ArrowRight className="w-5 h-5 rotate-180 text-white/60" />
-                  </Button>
-                  <div>
-                    <h3 className="font-semibold text-lg gradient-text">Book Premium Consultation</h3>
-                    <p className="text-sm text-white/60">Schedule your personalized session with Calendly</p>
-                  </div>
-                </div>
-
-                {/* Calendly Inline Widget */}
-                <div
-                  className="calendly-inline-widget"
-                  data-url="https://calendly.com/codedpool10/30min"
-                  style={{ minWidth: '320px', height: '450px' }}
-                ></div>
-                <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-              </div>
             )}
 
             {currentView === "contact" && (
