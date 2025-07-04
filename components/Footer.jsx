@@ -221,7 +221,7 @@ export default function Footer() {
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-white/70">
                 <Mail className="w-4 h-4 flex-shrink-0" />
-                <span className="text-sm">adalabs1234@gmail.com</span>
+                <span className="text-sm">info@adalabs.in</span>
               </div>
               <div className="flex items-center gap-2 text-white/70">
                 <MapPin className="w-4 h-4 flex-shrink-0" />
