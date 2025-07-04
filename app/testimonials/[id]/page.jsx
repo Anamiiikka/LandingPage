@@ -96,7 +96,7 @@ export default function TestimonialPage({ params }) {
     },
     videoTestimonial: {
       available: true,
-      thumbnail: testimonial.image,
+      url: testimonial.videoUrl || "https://www.youtube.com/embed/dQw4w9WgXcQ",
       duration: "2:34"
     }
   };
@@ -330,7 +330,7 @@ export default function TestimonialPage({ params }) {
                 <iframe
                   width="100%"
                   height="100%"
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                  src={caseStudyData.videoTestimonial.url}
                   title={`${testimonial.client} - Video Testimonial`}
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

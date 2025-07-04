@@ -50,6 +50,9 @@ export default function TestimonialsSection() {
     router.push(`/testimonials/${testimonialId}`);
   };
 
+  // Get the first testimonial's video URL for the main video section
+  const featuredVideoUrl = testimonialsData[0]?.videoUrl || "https://www.youtube.com/embed/dQw4w9WgXcQ";
+
   return (
     <section className="py-32 px-4 relative">
       <div className="max-w-7xl mx-auto">
@@ -162,7 +165,7 @@ export default function TestimonialsSection() {
                 <iframe
                   width="100%"
                   height="100%"
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                  src={featuredVideoUrl}
                   title="Professional Services - Client Success Stories"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
