@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect, useRef } from "react";
@@ -62,6 +61,16 @@ export default function Chatbot() {
     description: "",
   });
 
+  // Load FAQ data
+  const [faqData, setFaqData] = useState([]);
+  useEffect(() => {
+    import('../data/faqData.json').then((module) => {
+      setFaqData(module.default);
+    }).catch((error) => {
+      console.error("Error loading FAQ data:", error);
+    });
+  }, []);
+
   // Auto scroll to bottom
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -123,7 +132,7 @@ export default function Chatbot() {
     }, delay);
   };
 
-  const handleSendMessage = (e) => {
+  const handleSendMessage = async (e) => {
     if (e) e.preventDefault();
     if (!inputMessage.trim()) return;
 
@@ -131,42 +140,57 @@ export default function Chatbot() {
     const userMessage = inputMessage.toLowerCase();
     setInputMessage("");
 
-    simulateTyping(() => {
-      const response = getBotResponse(userMessage);
-      addMessage(response.text, true, response.options);
-    });
+    setIsTyping(true); // Start typing indicator immediately
+    const response = await getAIResponse(userMessage);
+    setIsTyping(false); // Stop typing indicator when done
+    addMessage(response.text, true, response.options);
   };
 
-  const getBotResponse = (message) => {
-    if (message.includes("appointment") || message.includes("book") || message.includes("schedule")) {
+  const getAIResponse = async (message) => {
+    const prompt = `You are a helpful AI assistant. Answer the user's question based on the following FAQ data: ${JSON.stringify(faqData)}. If the question doesn't match any FAQ, provide a general response or suggest contacting support. User question: ${message}`;
+
+    try {
+      const response = await fetch('/api/chatbot/ai', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to fetch AI response');
+      }
+
+      if (response.body) {
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
+        let fullText = '';
+
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          const chunk = decoder.decode(value);
+          fullText += chunk;
+          // Update the last message with the growing text (simulating typing)
+          setMessages((prev) => {
+            const lastMessage = prev[prev.length - 1];
+            if (lastMessage.isBot) {
+              return [...prev.slice(0, -1), { ...lastMessage, text: fullText }];
+            }
+            return prev;
+          });
+          scrollToBottom(); // Ensure smooth scrolling as text grows
+        }
+
+        return { text: fullText, options: ["Book Appointment", "Get Quote", "Learn More", "Contact Us"] };
+      } else {
+        const data = await response.json();
+        return data;
+      }
+    } catch (error) {
+      console.error("Error fetching AI response:", error);
       return {
-        text: "Excellent choice! I'd be delighted to help you schedule a consultation with our experts. Let's get you started with our booking system.",
-        options: ["Book Now", "View Available Times", "Learn About Services", "Back to Menu"],
-      };
-    } else if (message.includes("price") || message.includes("cost") || message.includes("quote")) {
-      return {
-        text: "Our pricing is tailored to deliver exceptional value for your investment. I can provide you with a personalized quote based on your specific requirements. What service interests you most?",
-        options: ["Get Custom Quote", "View Pricing Plans", "Compare Services", "Back to Menu"],
-      };
-    } else if (message.includes("service") || message.includes("what do you do")) {
-      return {
-        text: "We offer premium web development, mobile applications, UI/UX design, digital marketing, strategic consulting, and cloud solutions. Each service is crafted with attention to detail and industry best practices.",
-        options: ["View All Services", "Book Consultation", "Get Quote", "Back to Menu"],
-      };
-    } else if (message.includes("contact") || message.includes("reach") || message.includes("talk")) {
-      return {
-        text: "I'd be happy to connect you with our team! You can reach us through multiple channels or fill out our contact form for a personalized response.",
-        options: ["Contact Form", "Call Us", "Email Us", "Back to Menu"],
-      };
-    } else if (message.includes("help") || message.includes("support")) {
-      return {
-        text: "I'm here to help! I can assist you with booking appointments, getting quotes, learning about our services, or connecting you with our team. What would you like to do?",
-        options: ["Book Appointment", "Get Quote", "Contact Support", "Back to Menu"],
-      };
-    } else {
-      return {
-        text: "Thank you for reaching out! I'm here to provide you with comprehensive information about our services and help you take the next step. How can I assist you today?",
-        options: ["Book Appointment", "Get Quote", "Learn More", "Contact Us"],
+        text: "Sorry, I encountered an error while processing your request. Please try again or contact support.",
+        options: ["Contact Support", "Back to Menu"],
       };
     }
   };
@@ -242,10 +266,10 @@ export default function Chatbot() {
 
         case "Speak to Agent":
         case "Contact Support":
+          setCurrentView("contact");
           addMessage(
-            "I'll connect you with one of our specialists right away! They'll be able to provide detailed information and personalized assistance for your project.",
-            true,
-            ["Schedule Call", "Send Message", "Back to Menu"]
+            "Here’s our mock support contact information:\n\n- **Phone:** +1 (555) 987-6543\n- **Email:** support@yourcompany.com\n- **Hours:** Monday-Friday, 9 AM - 6 PM EST\n\nPlease fill out the form below to send a message to our support team.",
+            true
           );
           break;
 

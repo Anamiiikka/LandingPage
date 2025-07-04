@@ -1,22 +1,62 @@
 [
   {
-    "question": "What services does Adalabs offer?",
-    "answer": "Adalabs provides Executive IT Strategy Consulting, Business Integration and Expansion, Future-Ready Enterprise Solutions, Cybersecurity and Risk Management, Optimized Supply Chain Management, and Innovation and Digital Transformation Consulting."
+    "question": "What services does your company provide?",
+    "answer": "We provide end-to-end digital solutions, including custom software development, website and mobile application development, and cutting-edge Artificial Intelligence (AI) services. Our offerings include UI/UX design, API integration, DevOps, cloud deployment, and long-term support."
   },
   {
-    "question": "How can I get started with Adalabs?",
-    "answer": "You can get started by clicking the 'Get Started' button on our homepage, which will guide you through an initial consultation with our team."
+    "question": "Do you offer Artificial Intelligence (AI) development services?",
+    "answer": "Yes. We specialize in AI and machine learning solutions such as intelligent automation, predictive analytics, computer vision, natural language processing (NLP), recommendation engines, and chatbot development tailored to your business goals."
   },
   {
-    "question": "What is the pricing structure?",
-    "answer": "Our pricing varies based on the services required. Please contact us directly for a customized quote tailored to your needs."
+    "question": "Which industries do you serve with your solutions?",
+    "answer": "We work across various sectors including healthcare, finance, e-commerce, logistics, education, and manufacturing. Our domain-driven approach ensures that both conventional and AI-powered solutions align with industry-specific requirements."
   },
   {
-    "question": "Do you offer support after implementation?",
-    "answer": "Yes, we provide ongoing support and maintenance to ensure your solutions remain effective and up-to-date."
+    "question": "Can you enhance or modernize our existing digital systems?",
+    "answer": "Absolutely. We offer complete system audits, UI/UX revamps, performance optimization, migration to modern tech stacks, and AI-enablement for legacy software or web platforms."
   },
   {
-    "question": "Is your platform mobile-friendly?",
-    "answer": "Absolutely, all our solutions and this website are fully responsive and optimized for mobile devices."
+    "question": "What is your development methodology?",
+    "answer": "We follow agile and DevOps practices for fast, iterative, and reliable delivery. Our typical development cycle includes discovery workshops, prototyping, agile sprints, QA, deployment, and post-launch support."
+  },
+  {
+    "question": "What technologies and frameworks do you use?",
+    "answer": "We work with modern tech stacks such as: - Frontend: React, Angular, Vue.js - Backend: Node.js, .NET, Java, Python, PHP, Laravel - Mobile: Flutter, React Native, Swift, Kotlin - AI/ML: TensorFlow, PyTorch, OpenCV, spaCy, HuggingFace, scikit-learn"
+  },
+  {
+    "question": "How do you ensure quality and security in your development process?",
+    "answer": "Our QA process includes unit testing, automated and manual testing, code reviews, security audits, and performance testing. We follow OWASP and ISO/IEC security standards to protect your data and systems."
+  },
+  {
+    "question": "How long does a typical project take to complete?",
+    "answer": "Timelines vary depending on project complexity: - Informational websites: 2-4 weeks - Custom applications: 8-20 weeks - AI projects: 8-24 weeks, depending on data and model training needs. A detailed project roadmap is shared after the discovery phase."
+  },
+  {
+    "question": "How do you manage communication and project tracking?",
+    "answer": "We assign a dedicated project manager and use collaboration tools like Slack, Microsoft Teams, and Zoom. Project progress is tracked via Jira, Trello, or Asana, with regular updates, demos, and milestone reviews."
+  },
+  {
+    "question": "Can we request changes during the project?",
+    "answer": "Yes. Our agile process allows for iterative improvements and accommodates change requests during sprints. We document all changes and align them with project timelines and budget."
+  },
+  {
+    "question": "Do you offer post-deployment support and system maintenance?",
+    "answer": "Yes. We provide ongoing support, including monitoring, bug fixes, feature updates, cloud resource optimization, and AI model retraining, if applicable."
+  },
+  {
+    "question": "Can AI be integrated into our existing software or website?",
+    "answer": "Absolutely. We can integrate AI-powered features such as chatbots, data-driven dashboards, personalized user experiences, fraud detection systems, and more-without needing a complete system overhaul."
+  },
+  {
+    "question": "Do you sign NDAs and ensure data confidentiality?",
+    "answer": "Yes. We sign Non-Disclosure Agreements (NDAs) to protect sensitive information and follow GDPR and other relevant data privacy laws. Our team is trained in secure development and ethical AI practices."
+  },
+  {
+    "question": "What engagement models do you offer?",
+    "answer": "We offer flexible models: - Fixed Price - Ideal for clearly defined projects - Time & Material - Best for evolving requirements - Dedicated Teams - For long-term partnerships and scalability"
+  },
+  {
+    "question": "Why should we choose your company?",
+    "answer": "We combine deep technical expertise with a strategic mindset. Our ability to deliver scalable, secure, and AI-powered solutions sets us apart. Clients choose us for our reliability, transparency, and commitment to innovation and long-term success."
   }
 ]
