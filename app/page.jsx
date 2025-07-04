@@ -6,6 +6,7 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import FAQSection from "@/components/FAQSection";
 import Chatbot from "@/components/Chatbot";
 import Footer from "@/components/Footer";
+import ConsultationSection from "@/components/ConsultationSection";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <ServicesSection />
       <TestimonialsSection />
       <FAQSection />
+      <ConsultationSection />
       <Footer />
       <Chatbot />
     </main>
