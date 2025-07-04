@@ -250,6 +250,7 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               {socialLinks.map((social, index) => (
                 <Link
+                
                   key={index}
                   href={social.href}
                   target="_blank"

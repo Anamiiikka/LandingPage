@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sparkles } from "lucide-react";
 
@@ -8,14 +9,22 @@ export default function ConsultationSection() {
     window.open(process.env.NEXT_PUBLIC_CALENDLY_URL, "_blank", "noopener,noreferrer");
   };
 
-  // Generate random star positions, sizes, and delays
-  const stars = Array.from({ length: 20 }, (_, index) => ({
-    key: index,
-    size: Math.floor(Math.random() * 4) + 2, // Random size between 2px and 5px
-    top: `${Math.random() * 100}%`, // Random top position 0% to 100%
-    left: `${Math.random() * 100}%`, // Random left position 0% to 100%
-    delay: `${Math.random() * 1.5}s`, // Random delay between 0s and 1.5s
-  }));
+  useEffect(() => {
+    // Generate and append stars to the section client-side
+    const section = document.querySelector("section");
+    if (section) {
+      for (let i = 0; i < 20; i++) {
+        const star = document.createElement("div");
+        star.className = "star";
+        star.style.width = `${Math.floor(Math.random() * 4) + 2}px`;
+        star.style.height = `${Math.floor(Math.random() * 4) + 2}px`;
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.animationDelay = `${Math.random() * 1.5}s`;
+        section.appendChild(star);
+      }
+    }
+  }, []);
 
   return (
     <section className="relative min-h-[60vh] flex items-center justify-center px-4 overflow-hidden bg-black">
@@ -74,23 +83,10 @@ export default function ConsultationSection() {
         `}
       </style>
 
-      {/* Floating Orbs and Random Blinking Stars */}
+      {/* Floating Orbs */}
       <div className="floating-orb top-1/4 left-1/4 w-96 h-96 bg-white/[0.03]" />
       <div className="floating-orb bottom-1/4 right-1/4 w-80 h-80 bg-white/[0.02] animation-delay-2000" />
       <div className="floating-orb top-1/2 left-1/2 w-64 h-64 bg-white/[0.01] animation-delay-4000" />
-      {stars.map((star) => (
-        <div
-          key={star.key}
-          className="star"
-          style={{
-            width: `${star.size}px`,
-            height: `${star.size}px`,
-            top: star.top,
-            left: star.left,
-            animationDelay: star.delay,
-          }}
-        />
-      ))}
 
       <div className="relative max-w-7xl mx-auto text-center z-10">
         {/* Main Headline */}
@@ -98,7 +94,7 @@ export default function ConsultationSection() {
           <span className="gradient-text shimmer">Idea in your mind?</span>
           <br className="my-8" />
           <span className="text-5xl md:text-7xl text-white/90" style={{ background: 'linear-gradient(90deg, #00c4cc, #7d2ae8)', WebkitBackgroundClip: 'text', color: 'transparent' }}>
-            Convert it into Reality
+            Convert it into Reality.
           </span>
           <br className="my-8" />
           <span className="text-white/90 relative">
