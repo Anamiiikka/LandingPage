@@ -2,7 +2,7 @@
 
 import { Card, CardContent } from "@/components/ui/card.jsx";
 import { Button } from "@/components/ui/button.jsx";
-import { ArrowRight, Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import testimonialsData from "@/data/testimonials.json";
 import { useRouter } from 'next/navigation';
 import { useRef, useEffect } from 'react';
@@ -49,6 +49,9 @@ export default function TestimonialsSection() {
   const handleCardClick = (testimonialId) => {
     router.push(`/testimonials/${testimonialId}`);
   };
+
+  // Get the first testimonial's video URL for the main video section
+  const featuredVideoUrl = testimonialsData[0]?.videoUrl || "https://www.youtube.com/embed/dQw4w9WgXcQ";
 
   return (
     <section className="py-32 px-4 relative">
@@ -111,11 +114,6 @@ export default function TestimonialsSection() {
                           <div className="font-medium text-white text-sm">{testimonial.client}</div>
                           <div className="text-white/50 text-xs">{testimonial.company}</div>
                         </div>
-                        <div className="flex gap-1">
-                          {[...Array(5)].map((_, i) => (
-                            <Star key={i} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
-                          ))}
-                        </div>
                       </div>
                       <Button 
                         onClick={(e) => {
@@ -135,22 +133,26 @@ export default function TestimonialsSection() {
             </div>
           </div>
 
-          {/* Navigation Arrows */}
-          <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 flex justify-between">
+          {/* Navigation Arrows - Changed to circular */}
+          <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 flex justify-between pointer-events-none">
             <Button
               onClick={scrollPrev}
-              className="rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/10 p-2"
+              className="w-12 h-12 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/10 p-0 pointer-events-auto"
             >
               <ChevronLeft className="w-6 h-6 text-white" />
             </Button>
             <Button
               onClick={scrollNext}
-              className="rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/10 p-2"
+              className="w-12 h-12 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/10 p-0 pointer-events-auto"
             >
               <ChevronRight className="w-6 h-6 text-white" />
             </Button>
           </div>
         </div>
+
+        
+          
+          
 
         {/* CTA Section */}
         <div className="text-center mt-20">

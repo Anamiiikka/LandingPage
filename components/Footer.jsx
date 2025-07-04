@@ -1,4 +1,3 @@
-
 "use client";
 
 import { Button } from "@/components/ui/button.jsx";
@@ -16,7 +15,8 @@ import {
   Phone,
   MapPin,
   ArrowRight,
-  Send
+  Send,
+  CheckCircle
 } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
@@ -24,120 +24,143 @@ import { useState } from "react";
 export default function Footer() {
   const [email, setEmail] = useState("");
   const [isSubscribed, setIsSubscribed] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [emailError, setEmailError] = useState("");
 
-  const handleSubscribe = (e) => {
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const handleSubscribe = async (e) => {
     e.preventDefault();
-    if (email) {
+    setEmailError("");
+    
+    if (!email.trim()) {
+      setEmailError("Email is required");
+      return;
+    }
+    
+    if (!validateEmail(email)) {
+      setEmailError("Please enter a valid email address");
+      return;
+    }
+
+    setIsLoading(true);
+    
+    // Simulate API call
+    setTimeout(() => {
       setIsSubscribed(true);
       setEmail("");
-      setTimeout(() => setIsSubscribed(false), 3000);
-    }
+      setIsLoading(false);
+      
+      // Reset success message after 5 seconds
+      setTimeout(() => setIsSubscribed(false), 5000);
+    }, 1000);
   };
 
   const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Youtube, href: "#", label: "YouTube" },
-    { icon: Github, href: "#", label: "GitHub" },
+    { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
+    { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+    { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+    { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
+    { icon: Github, href: "https://github.com", label: "GitHub" },
   ];
 
   const quickLinks = [
-    { label: "About", href: "/about" },
-    { label: "Services", href: "/services" },
-    { label: "Portfolio", href: "/portfolio" },
+    { label: "Home", href: "/" },
+    { label: "About us", href: "/about" },
     { label: "Testimonials", href: "/testimonials" },
-    { label: "Contact", href: "/contact" },
+    { label: "Contact us", href: "/contact" },
   ];
 
   const services = [
-    { label: "Web Development", href: "/services/web" },
-    { label: "Mobile Apps", href: "/services/mobile" },
-    { label: "UI/UX Design", href: "/services/design" },
-    { label: "Digital Marketing", href: "/services/marketing" },
-    { label: "Consulting", href: "/services/consulting" },
+    { label: "Artificial Intelligence", href: "/services/ai" },
+    { label: "Engineering and R&D", href: "/services/engineering" },
+    { label: "Software Products", href: "/services/software" },
+    { label: "Enterprise Solutions", href: "/services/enterprise" },
+    { label: "Automation and IoT Services", href: "/services/iot" },
+    { label: "Customer Experience", href: "/services/cx" },
   ];
 
   const legal = [
-    { label: "Privacy", href: "/privacy" },
-    { label: "Terms", href: "/terms" },
-    { label: "Cookies", href: "/cookies" },
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Terms & Conditions", href: "/terms" },
   ];
 
   return (
     <footer className="relative bg-gradient-to-b from-black to-gray-900 text-white">
-      {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Company Info */}
-          <div className="lg:col-span-1">
-            <h3 className="text-xl font-bold gradient-text mb-3">
-              Professional Services
-            </h3>
-            <p className="text-white/70 mb-4 text-sm leading-relaxed">
-              Your trusted partner for innovative digital solutions and expert guidance.
-            </p>
-            
-            {/* Contact Info */}
-            <div className="space-y-2">
-              <div className="flex items-center gap-2 text-white/60 text-sm">
-                <Mail className="w-3 h-3" />
-                <span>info@adalabs.in</span>
-              </div>
-              <div className="flex items-center gap-2 text-white/60 text-sm">
-                <Phone className="w-3 h-3" />
-                <span>+1 (555) 123-4567</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Newsletter */}
-          <div className="lg:col-span-1">
-            <h4 className="text-lg font-semibold mb-3 gradient-text">
-              Stay Updated
-            </h4>
-            <p className="text-white/60 mb-4 text-sm">
-              Get the latest insights and updates.
+      {/* Newsletter Section - Reduced padding */}
+      <div className="border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-4 py-12">
+          <div className="text-center max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-4">
+              Subscribe to the newsletter
+            </h2>
+            <p className="text-lg text-white/70 mb-8 leading-relaxed">
+              Join our newsletter to stay up to date on features and releases.
             </p>
             
             {isSubscribed ? (
-              <div className="flex items-center gap-2 text-green-400 bg-green-400/10 p-2 rounded-lg">
-                <Send className="w-3 h-3" />
-                <span className="text-xs font-medium">Subscribed!</span>
+              <div className="flex items-center justify-center gap-3 text-green-400 bg-green-400/10 p-4 rounded-2xl max-w-md mx-auto">
+                <CheckCircle className="w-5 h-5" />
+                <span className="text-base font-medium">Successfully subscribed! Thank you for joining us.</span>
               </div>
             ) : (
-              <form onSubmit={handleSubscribe} className="space-y-2">
-                <div className="flex gap-2">
-                  <Input
-                    type="email"
-                    placeholder="Your email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="bg-white/5 border-white/20 rounded-lg focus:border-white/40 text-white placeholder:text-white/40 text-sm h-9"
-                    required
-                  />
+              <form onSubmit={handleSubscribe} className="max-w-2xl mx-auto">
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <div className="flex-1">
+                    <Input
+                      type="email"
+                      placeholder="Enter your email address"
+                      value={email}
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                        setEmailError("");
+                      }}
+                      className="h-12 px-5 bg-white/5 border-white/20 rounded-xl focus:border-white/40 text-white placeholder:text-white/50"
+                      disabled={isLoading}
+                    />
+                    {emailError && (
+                      <p className="text-red-400 text-sm mt-1 text-left">{emailError}</p>
+                    )}
+                  </div>
                   <Button 
                     type="submit"
-                    size="sm"
-                    className="bg-gradient-to-r from-white to-gray-200 text-black hover:from-white hover:to-white rounded-lg px-3"
+                    disabled={isLoading}
+                    className="h-12 px-6 bg-white text-black hover:bg-white/90 rounded-xl font-semibold transition-all duration-300 disabled:opacity-50"
                   >
-                    <ArrowRight className="w-3 h-3" />
+                    {isLoading ? (
+                      <div className="flex items-center gap-2">
+                        <div className="w-4 h-4 border-2 border-black/20 border-t-black rounded-full animate-spin" />
+                        Subscribing...
+                      </div>
+                    ) : (
+                      "Subscribe"
+                    )}
                   </Button>
                 </div>
               </form>
             )}
           </div>
+        </div>
+      </div>
 
+      {/* Main Footer Content - Reduced padding and spacing */}
+      <div className="max-w-7xl mx-auto px-4 py-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-3 gradient-text">Links</h4>
+            <h3 className="text-base font-bold text-white mb-4 uppercase tracking-wider">
+              Quick Links
+            </h3>
             <ul className="space-y-2">
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <Link 
                     href={link.href}
-                    className="text-white/60 hover:text-white transition-colors duration-300 text-sm"
+                    className="text-white/70 hover:text-white transition-colors duration-300 text-sm"
                   >
                     {link.label}
                   </Link>
@@ -146,15 +169,17 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Services */}
+          {/* What We Do */}
           <div>
-            <h4 className="text-lg font-semibold mb-3 gradient-text">Services</h4>
+            <h3 className="text-base font-bold text-white mb-4 uppercase tracking-wider">
+              What We Do
+            </h3>
             <ul className="space-y-2">
               {services.map((service, index) => (
                 <li key={index}>
                   <Link 
                     href={service.href}
-                    className="text-white/60 hover:text-white transition-colors duration-300 text-sm"
+                    className="text-white/70 hover:text-white transition-colors duration-300 text-sm"
                   >
                     {service.label}
                   </Link>
@@ -162,53 +187,73 @@ export default function Footer() {
               ))}
             </ul>
           </div>
-        </div>
 
-        {/* Social Media & Bottom Section */}
-        <div className="mt-8 pt-6 border-t border-white/10">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            {/* Social Media Links */}
-            <div className="flex items-center gap-4">
-              <span className="text-sm text-white/60">Follow us:</span>
-              <div className="flex gap-3">
-                {socialLinks.map((social, index) => (
-                  <Link
-                    key={index}
-                    href={social.href}
-                    aria-label={social.label}
-                    className="w-8 h-8 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-lg flex items-center justify-center transition-all duration-300 group hover:scale-110"
+          {/* Legal */}
+          <div>
+            <h3 className="text-base font-bold text-white mb-4 uppercase tracking-wider">
+              Legal
+            </h3>
+            <ul className="space-y-2">
+              {legal.map((link, index) => (
+                <li key={index}>
+                  <Link 
+                    href={link.href}
+                    className="text-white/70 hover:text-white transition-colors duration-300 text-sm"
                   >
-                    <social.icon className="w-4 h-4 text-white/60 group-hover:text-white transition-colors duration-300" />
+                    {link.label}
                   </Link>
-                ))}
-              </div>
-            </div>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-            {/* Certifications */}
-            <div className="flex gap-3 items-center">
-              <div className="px-3 py-1 bg-white/5 border border-white/10 rounded-lg">
-                <span className="text-xs text-white/60">ISO 27001</span>
+          {/* Talk to Us */}
+          <div>
+            <h3 className="text-base font-bold text-white mb-4 uppercase tracking-wider">
+              Talk to Us
+            </h3>
+            <div className="space-y-2">
+              <div className="flex items-center gap-2 text-white/70">
+                <Mail className="w-4 h-4 flex-shrink-0" />
+                <span className="text-sm">adalabs1234@gmail.com</span>
               </div>
-              <div className="px-3 py-1 bg-white/5 border border-white/10 rounded-lg">
-                <span className="text-xs text-white/60">SOC 2</span>
+              <div className="flex items-center gap-2 text-white/70">
+                <MapPin className="w-4 h-4 flex-shrink-0" />
+                <span className="text-sm">1234 India</span>
+              </div>
+              <div className="flex items-center gap-2 text-white/70">
+                <Phone className="w-4 h-4 flex-shrink-0" />
+                <span className="text-sm">+91 5678970000</span>
               </div>
             </div>
           </div>
+        </div>
 
-          {/* Copyright & Legal */}
-          <div className="mt-6 pt-4 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-white/60 text-sm">
-              © {new Date().getFullYear()} Professional Services. All rights reserved.
-            </p>
-            
-            <div className="flex gap-4">
-              {legal.map((link, index) => (
+        {/* Bottom Section - Reduced padding */}
+        <div className="mt-10 pt-6 border-t border-white/10">
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
+            {/* Company Info */}
+            <div className="text-center lg:text-left">
+              <h3 className="text-xl font-bold gradient-text mb-1">
+                Professional Services
+              </h3>
+              <p className="text-white/60 text-sm">
+                © {new Date().getFullYear()} Professional Services. All rights reserved.
+              </p>
+            </div>
+
+            {/* Social Media Links - Smaller icons */}
+            <div className="flex items-center gap-3">
+              {socialLinks.map((social, index) => (
                 <Link
                   key={index}
-                  href={link.href}
-                  className="text-white/60 hover:text-white transition-colors duration-300 text-sm"
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="w-10 h-10 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 rounded-full flex items-center justify-center transition-all duration-300 group hover:scale-110"
                 >
-                  {link.label}
+                  <social.icon className="w-4 h-4 text-white/70 group-hover:text-white transition-colors duration-300" />
                 </Link>
               ))}
             </div>

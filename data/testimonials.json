@@ -12,7 +12,8 @@
     "results": "300% Revenue Growth",
     "timeline": "6 months",
     "services": ["Web Development", "Mobile App", "UI/UX Design"],
-    "technologies": ["React", "Next.js", "Node.js", "MongoDB", "AWS", "TypeScript"]
+    "technologies": ["React", "Next.js", "Node.js", "MongoDB", "AWS", "TypeScript"],
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ"
   },
   {
     "id": 2,
@@ -27,7 +28,8 @@
     "results": "200% Conversion Increase",
     "timeline": "4 months",
     "services": ["E-commerce Development", "AI Integration", "Digital Marketing"],
-    "technologies": ["React", "Next.js", "Python", "TensorFlow", "AWS", "PostgreSQL"]
+    "technologies": ["React", "Next.js", "Python", "TensorFlow", "AWS", "PostgreSQL"],
+    "videoUrl": "https://www.youtube.com/embed/jNQXAC9IVRw"
   },
   {
     "id": 3,
@@ -42,7 +44,8 @@
     "results": "75% Time Savings",
     "timeline": "8 months",
     "services": ["Custom Software", "Security Implementation", "Cloud Solutions"],
-    "technologies": ["React", "Node.js", "MongoDB", "AWS", "TypeScript", "GraphQL"]
+    "technologies": ["React", "Node.js", "MongoDB", "AWS", "TypeScript", "GraphQL"],
+    "videoUrl": "https://www.youtube.com/embed/M7lc1UVf-VE"
   },
   {
     "id": 4,
@@ -57,7 +60,8 @@
     "results": "99.99% Uptime",
     "timeline": "12 months",
     "services": ["Platform Development", "Security Architecture", "Performance Optimization"],
-    "technologies": ["React", "Next.js", "Node.js", "Redis", "AWS", "Go"]
+    "technologies": ["React", "Next.js", "Node.js", "Redis", "AWS", "Go"],
+    "videoUrl": "https://www.youtube.com/embed/QH2-TGUlwu4"
   },
   {
     "id": 5,
@@ -72,7 +76,8 @@
     "results": "85% Engagement Boost",
     "timeline": "5 months",
     "services": ["LMS Development", "Interactive Design", "Analytics Integration"],
-    "technologies": ["React", "Next.js", "Node.js", "MongoDB", "Firebase", "TypeScript"]
+    "technologies": ["React", "Next.js", "Node.js", "MongoDB", "Firebase", "TypeScript"],
+    "videoUrl": "https://www.youtube.com/embed/nfWlot6h_JM"
   },
   {
     "id": 6,
@@ -87,6 +92,7 @@
     "results": "40% Waste Reduction",
     "timeline": "10 months",
     "services": ["IoT Development", "Data Analytics", "Process Automation"],
-    "technologies": ["Python", "Node.js", "AWS IoT", "MongoDB", "TensorFlow", "TypeScript"]
+    "technologies": ["Python", "Node.js", "AWS IoT", "MongoDB", "TensorFlow", "TypeScript"],
+    "videoUrl": "https://www.youtube.com/embed/kJQP7kiw5Fk"
   }
 ]
