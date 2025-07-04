@@ -91,25 +91,25 @@ export default function Footer() {
 
   return (
     <footer className="relative bg-gradient-to-b from-black to-gray-900 text-white">
-      {/* Newsletter Section */}
+      {/* Newsletter Section - Reduced padding */}
       <div className="border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-4 py-16">
+        <div className="max-w-7xl mx-auto px-4 py-12">
           <div className="text-center max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-4">
               Subscribe to the newsletter
             </h2>
-            <p className="text-xl text-white/70 mb-12 leading-relaxed">
+            <p className="text-lg text-white/70 mb-8 leading-relaxed">
               Join our newsletter to stay up to date on features and releases.
             </p>
             
             {isSubscribed ? (
-              <div className="flex items-center justify-center gap-3 text-green-400 bg-green-400/10 p-6 rounded-2xl max-w-md mx-auto">
-                <CheckCircle className="w-6 h-6" />
-                <span className="text-lg font-medium">Successfully subscribed! Thank you for joining us.</span>
+              <div className="flex items-center justify-center gap-3 text-green-400 bg-green-400/10 p-4 rounded-2xl max-w-md mx-auto">
+                <CheckCircle className="w-5 h-5" />
+                <span className="text-base font-medium">Successfully subscribed! Thank you for joining us.</span>
               </div>
             ) : (
               <form onSubmit={handleSubscribe} className="max-w-2xl mx-auto">
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-col sm:flex-row gap-3">
                   <div className="flex-1">
                     <Input
                       type="email"
@@ -119,17 +119,17 @@ export default function Footer() {
                         setEmail(e.target.value);
                         setEmailError("");
                       }}
-                      className="h-14 px-6 bg-white/5 border-white/20 rounded-xl focus:border-white/40 text-white placeholder:text-white/50 text-lg"
+                      className="h-12 px-5 bg-white/5 border-white/20 rounded-xl focus:border-white/40 text-white placeholder:text-white/50"
                       disabled={isLoading}
                     />
                     {emailError && (
-                      <p className="text-red-400 text-sm mt-2 text-left">{emailError}</p>
+                      <p className="text-red-400 text-sm mt-1 text-left">{emailError}</p>
                     )}
                   </div>
                   <Button 
                     type="submit"
                     disabled={isLoading}
-                    className="h-14 px-8 bg-white text-black hover:bg-white/90 rounded-xl font-semibold text-lg transition-all duration-300 disabled:opacity-50"
+                    className="h-12 px-6 bg-white text-black hover:bg-white/90 rounded-xl font-semibold transition-all duration-300 disabled:opacity-50"
                   >
                     {isLoading ? (
                       <div className="flex items-center gap-2">
@@ -147,20 +147,20 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      {/* Main Footer Content - Reduced padding and spacing */}
+      <div className="max-w-7xl mx-auto px-4 py-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-bold text-white mb-6 uppercase tracking-wider">
+            <h3 className="text-base font-bold text-white mb-4 uppercase tracking-wider">
               Quick Links
             </h3>
-            <ul className="space-y-4">
+            <ul className="space-y-2">
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <Link 
                     href={link.href}
-                    className="text-white/70 hover:text-white transition-colors duration-300 text-base"
+                    className="text-white/70 hover:text-white transition-colors duration-300 text-sm"
                   >
                     {link.label}
                   </Link>
@@ -171,15 +171,15 @@ export default function Footer() {
 
           {/* What We Do */}
           <div>
-            <h3 className="text-lg font-bold text-white mb-6 uppercase tracking-wider">
+            <h3 className="text-base font-bold text-white mb-4 uppercase tracking-wider">
               What We Do
             </h3>
-            <ul className="space-y-4">
+            <ul className="space-y-2">
               {services.map((service, index) => (
                 <li key={index}>
                   <Link 
                     href={service.href}
-                    className="text-white/70 hover:text-white transition-colors duration-300 text-base"
+                    className="text-white/70 hover:text-white transition-colors duration-300 text-sm"
                   >
                     {service.label}
                   </Link>
@@ -190,15 +190,15 @@ export default function Footer() {
 
           {/* Legal */}
           <div>
-            <h3 className="text-lg font-bold text-white mb-6 uppercase tracking-wider">
+            <h3 className="text-base font-bold text-white mb-4 uppercase tracking-wider">
               Legal
             </h3>
-            <ul className="space-y-4">
+            <ul className="space-y-2">
               {legal.map((link, index) => (
                 <li key={index}>
                   <Link 
                     href={link.href}
-                    className="text-white/70 hover:text-white transition-colors duration-300 text-base"
+                    className="text-white/70 hover:text-white transition-colors duration-300 text-sm"
                   >
                     {link.label}
                   </Link>
@@ -209,32 +209,32 @@ export default function Footer() {
 
           {/* Talk to Us */}
           <div>
-            <h3 className="text-lg font-bold text-white mb-6 uppercase tracking-wider">
+            <h3 className="text-base font-bold text-white mb-4 uppercase tracking-wider">
               Talk to Us
             </h3>
-            <div className="space-y-4">
-              <div className="flex items-center gap-3 text-white/70">
-                <Mail className="w-5 h-5 flex-shrink-0" />
-                <span className="text-base">adalabs1234@gmail.com</span>
+            <div className="space-y-2">
+              <div className="flex items-center gap-2 text-white/70">
+                <Mail className="w-4 h-4 flex-shrink-0" />
+                <span className="text-sm">adalabs1234@gmail.com</span>
               </div>
-              <div className="flex items-center gap-3 text-white/70">
-                <MapPin className="w-5 h-5 flex-shrink-0" />
-                <span className="text-base">1234 India</span>
+              <div className="flex items-center gap-2 text-white/70">
+                <MapPin className="w-4 h-4 flex-shrink-0" />
+                <span className="text-sm">1234 India</span>
               </div>
-              <div className="flex items-center gap-3 text-white/70">
-                <Phone className="w-5 h-5 flex-shrink-0" />
-                <span className="text-base">+91 5678970000</span>
+              <div className="flex items-center gap-2 text-white/70">
+                <Phone className="w-4 h-4 flex-shrink-0" />
+                <span className="text-sm">+91 5678970000</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="mt-16 pt-8 border-t border-white/10">
-          <div className="flex flex-col lg:flex-row justify-between items-center gap-8">
+        {/* Bottom Section - Reduced padding */}
+        <div className="mt-10 pt-6 border-t border-white/10">
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
             {/* Company Info */}
             <div className="text-center lg:text-left">
-              <h3 className="text-2xl font-bold gradient-text mb-2">
+              <h3 className="text-xl font-bold gradient-text mb-1">
                 Professional Services
               </h3>
               <p className="text-white/60 text-sm">
@@ -242,8 +242,8 @@ export default function Footer() {
               </p>
             </div>
 
-            {/* Social Media Links */}
-            <div className="flex items-center gap-4">
+            {/* Social Media Links - Smaller icons */}
+            <div className="flex items-center gap-3">
               {socialLinks.map((social, index) => (
                 <Link
                   key={index}
@@ -251,9 +251,9 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="w-12 h-12 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 rounded-full flex items-center justify-center transition-all duration-300 group hover:scale-110"
+                  className="w-10 h-10 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 rounded-full flex items-center justify-center transition-all duration-300 group hover:scale-110"
                 >
-                  <social.icon className="w-5 h-5 text-white/70 group-hover:text-white transition-colors duration-300" />
+                  <social.icon className="w-4 h-4 text-white/70 group-hover:text-white transition-colors duration-300" />
                 </Link>
               ))}
             </div>
