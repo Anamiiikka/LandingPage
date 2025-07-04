@@ -29,7 +29,7 @@ const ConsultationSection = () => {
   }, []);
 
   return (
-    <section id="consultation-section" className="relative min-h-[60vh] flex items-center justify-center px-4 overflow-hidden bg-black">
+    <section id="consultation-section" className="py-16 bg-background px-4 relative overflow-hidden">
       {/* Embedded CSS with scoped class */}
       <style>
         {`
@@ -43,35 +43,21 @@ const ConsultationSection = () => {
             50% { opacity: 1; }
             100% { opacity: 0.2; }
           }
-          .floating-orb {
-            position: absolute;
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-          }
-          .floating-orb.animation-delay-2000 {
-            animation-delay: 2s;
-          }
-          .floating-orb.animation-delay-4000 {
-            animation-delay: 4s;
-          }
-          @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-          }
           .glow-text {
             position: relative;
+            display: inline-block; /* Ensure proper positioning */
             animation: glow 2s ease-in-out infinite;
           }
           .glow-text::after {
             content: '';
             position: absolute;
             width: 100%;
-            height: 2px;
-            bottom: -4px;
+            height: 3px; /* Increased height for visibility */
+            bottom: -6px; /* Adjusted to position below text */
             left: 0;
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.2));
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
             animation: pulse 1.5s infinite;
-            z-index: -1;
+            z-index: 1; /* Ensure it’s above other elements */
           }
           @keyframes glow {
             0%, 100% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.3); }
@@ -84,21 +70,16 @@ const ConsultationSection = () => {
         `}
       </style>
 
-      {/* Floating Orbs */}
-      <div className="floating-orb top-1/4 left-1/4 w-96 h-96 bg-white/[0.03]" />
-      <div className="floating-orb bottom-1/4 right-1/4 w-80 h-80 bg-white/[0.02] animation-delay-2000" />
-      <div className="floating-orb top-1/2 left-1/2 w-64 h-64 bg-white/[0.01] animation-delay-4000" />
-
-      <div className="relative max-w-7xl mx-auto text-center z-10">
+      <div className="max-w-7xl mx-auto text-center">
         {/* Main Headline */}
         <h2 className="text-4xl md:text-6xl font-bold leading-[2] tracking-tight">
           <span className="gradient-text shimmer">Idea in your mind?</span>
           <br className="my-8" />
           <span className="text-5xl md:text-7xl text-white/90" style={{ background: 'linear-gradient(90deg, #00c4cc, #7d2ae8)', WebkitBackgroundClip: 'text', color: 'transparent' }}>
-            Convert it into Reality
+            Convert it into Reality.
           </span>
           <br className="my-8" />
-          <span className="text-white/90 relative">
+          <span className="text-white/90">
             <span className="glow-text">Don’t wait</span>
           </span>
         </h2>
