@@ -240,9 +240,10 @@ export default function Footer() {
           <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
             {/* Company Info */}
             <div className="text-center lg:text-left">
-              <h3 className="text-xl font-bold gradient-text mb-1">
-                @2025 Adalabs & Co.
-              </h3>
+             <h3 className="text-xl font-bold gradient-text mb-1">
+  &copy; {new Date().getFullYear()} Adalabs & Co.
+</h3>
+
               
             </div>
 

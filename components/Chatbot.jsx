@@ -1,10 +1,10 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/Button";
+import { Input } from "@/components/Input";
+import { Textarea } from "@/components/Textarea";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/Card";
 import {
   MessageCircle,
   X,
@@ -268,7 +268,7 @@ export default function Chatbot() {
         case "Contact Support":
           setCurrentView("contact");
           addMessage(
-            "Here’s our mock support contact information:\n\n- **Phone:** +1 (555) 987-6543\n- **Email:** support@yourcompany.com\n- **Hours:** Monday-Friday, 9 AM - 6 PM EST\n\nPlease fill out the form below to send a message to our support team.",
+            "Here's our mock support contact information:\n\n- **Phone:** +1 (555) 987-6543\n- **Email:** support@yourcompany.com\n- **Hours:** Monday-Friday, 9 AM - 6 PM EST\n\nPlease fill out the form below to send a message to our support team.",
             true
           );
           break;
