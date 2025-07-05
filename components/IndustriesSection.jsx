@@ -14,19 +14,81 @@ import {
   Building2,
   Truck
 } from "lucide-react";
-import industriesData from "@/data/industriesData.json";
 
-// Icon mapping for dynamic icon rendering
-const iconMap = {
-  Code2,
-  Plane,
-  Sun,
-  Heart,
-  GraduationCap,
-  ShoppingCart,
-  Building2,
-  Truck
-};
+const industries = [
+  {
+    id: "software",
+    title: "Software & Technology",
+    icon: Code2,
+    description: "Custom software solutions, web applications, and digital transformation services",
+    gradient: "from-blue-500/20 to-cyan-500/20",
+    borderColor: "border-blue-500/30",
+    hoverColor: "hover:border-blue-500/60"
+  },
+  {
+    id: "drone",
+    title: "Drone & Aerospace",
+    icon: Plane,
+    description: "UAV systems, flight control software, and aerospace technology solutions",
+    gradient: "from-purple-500/20 to-indigo-500/20",
+    borderColor: "border-purple-500/30",
+    hoverColor: "hover:border-purple-500/60"
+  },
+  {
+    id: "solar",
+    title: "Solar & Renewable Energy",
+    icon: Sun,
+    description: "Smart energy management systems and renewable energy monitoring solutions",
+    gradient: "from-yellow-500/20 to-orange-500/20",
+    borderColor: "border-yellow-500/30",
+    hoverColor: "hover:border-yellow-500/60"
+  },
+  {
+    id: "healthcare",
+    title: "Healthcare & Medical",
+    icon: Heart,
+    description: "HIPAA-compliant systems, patient management, and medical device integration",
+    gradient: "from-red-500/20 to-pink-500/20",
+    borderColor: "border-red-500/30",
+    hoverColor: "hover:border-red-500/60"
+  },
+  {
+    id: "education",
+    title: "Education & E-Learning",
+    icon: GraduationCap,
+    description: "Learning management systems, educational apps, and interactive platforms",
+    gradient: "from-green-500/20 to-emerald-500/20",
+    borderColor: "border-green-500/30",
+    hoverColor: "hover:border-green-500/60"
+  },
+  {
+    id: "ecommerce",
+    title: "E-Commerce & Retail",
+    icon: ShoppingCart,
+    description: "Online stores, inventory management, and customer experience platforms",
+    gradient: "from-teal-500/20 to-cyan-500/20",
+    borderColor: "border-teal-500/30",
+    hoverColor: "hover:border-teal-500/60"
+  },
+  {
+    id: "fintech",
+    title: "FinTech & Banking",
+    icon: Building2,
+    description: "Secure financial platforms, payment systems, and blockchain solutions",
+    gradient: "from-slate-500/20 to-gray-500/20",
+    borderColor: "border-slate-500/30",
+    hoverColor: "hover:border-slate-500/60"
+  },
+  {
+    id: "logistics",
+    title: "Logistics & Supply Chain",
+    icon: Truck,
+    description: "Fleet management, tracking systems, and supply chain optimization",
+    gradient: "from-amber-500/20 to-yellow-500/20",
+    borderColor: "border-amber-500/30",
+    hoverColor: "hover:border-amber-500/60"
+  }
+];
 
 export default function IndustriesSection() {
   const router = useRouter();
@@ -34,13 +96,6 @@ export default function IndustriesSection() {
   const handleIndustryClick = (industryId) => {
     router.push(`/industries/${industryId}`);
   };
-
-  // Convert JSON data to array format for rendering
-  const industries = Object.values(industriesData).map(industry => ({
-    ...industry,
-    icon: iconMap[industry.icon], // Map string to actual icon component
-    description: industry.shortDescription // Use short description for the grid
-  }));
 
   return (
     <section className="py-32 px-4 relative">

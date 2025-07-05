@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
-import { Card, CardContent } from "@/components/Card";
-import { Button } from "@/components/Button";
+import { Card, CardContent } from "@/components/ui/card.jsx";
+import { Button } from "@/components/ui/button.jsx";
 import Link from "next/link";
 import testimonialsData from "@/data/testimonials.json";
 import Footer from "@/components/Footer.jsx";
@@ -47,6 +47,60 @@ export default function TestimonialPage({ params }) {
     notFound();
   }
 
+  // Extended data for the blog structure
+  const caseStudyData = {
+    ...testimonial,
+    highlights: [
+      { label: "Timeline", value: testimonial.timeline, icon: Clock },
+      { label: "Results", value: testimonial.results, icon: TrendingUp },
+      { label: "Industry", value: testimonial.category, icon: Award },
+      { label: "Team Size", value: "8 specialists", icon: Users }
+    ],
+    introduction: `${testimonial.company} approached us with a vision to transform their digital presence and streamline their operations. As a growing company in the ${testimonial.category.toLowerCase()} sector, they faced challenges with outdated systems, inefficient processes, and the need to scale rapidly while maintaining quality service delivery.`,
+    opportunity: {
+      challenges: [
+        "Legacy systems limiting growth potential",
+        "Manual processes causing operational inefficiencies", 
+        "Poor user experience affecting customer satisfaction",
+        "Lack of real-time data and analytics",
+        "Scalability concerns with existing infrastructure"
+      ],
+      goals: [
+        "Modernize technology stack for better performance",
+        "Automate key business processes",
+        "Improve user experience across all touchpoints",
+        "Implement comprehensive analytics and reporting",
+        "Build scalable architecture for future growth"
+      ]
+    },
+    solution: {
+      approach: "We implemented a comprehensive digital transformation strategy, focusing on modern web technologies, user-centered design, and scalable cloud infrastructure.",
+      keyFeatures: [
+        "Custom web application built with React and Next.js",
+        "Responsive mobile-first design approach",
+        "Real-time analytics and reporting dashboard",
+        "Automated workflow management system",
+        "Cloud-based infrastructure with 99.9% uptime",
+        "Advanced security measures and data protection"
+      ],
+      technologies: testimonial.technologies || [] // Use technologies from testimonials.json with fallback
+    },
+    outcome: {
+      metrics: [
+        { label: "Revenue Growth", value: "300%", description: "Increase in monthly recurring revenue" },
+        { label: "User Engagement", value: "85%", description: "Improvement in user session duration" },
+        { label: "Operational Efficiency", value: "60%", description: "Reduction in manual processing time" },
+        { label: "Customer Satisfaction", value: "95%", description: "Positive feedback rating" }
+      ],
+      longTermImpact: "The solution has positioned the company for sustained growth, with the new platform handling 10x the original user load while maintaining optimal performance."
+    },
+    videoTestimonial: {
+      available: true,
+      url: testimonial.videoUrl || "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      duration: "2:34"
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
@@ -76,13 +130,10 @@ export default function TestimonialPage({ params }) {
               
               {/* Highlights Grid */}
               <div className="grid grid-cols-2 gap-4">
-                {testimonial.highlights && testimonial.highlights.map((highlight, index) => (
+                {caseStudyData.highlights.map((highlight, index) => (
                   <div key={index} className="glass-card p-4">
                     <div className="flex items-center gap-3 mb-2">
-                      {highlight.icon === 'Clock' && <Clock className="w-5 h-5 text-white/60" />}
-                      {highlight.icon === 'TrendingUp' && <TrendingUp className="w-5 h-5 text-white/60" />}
-                      {highlight.icon === 'Award' && <Award className="w-5 h-5 text-white/60" />}
-                      {highlight.icon === 'Users' && <Users className="w-5 h-5 text-white/60" />}
+                      <highlight.icon className="w-5 h-5 text-white/60" />
                       <span className="text-sm text-white/60">{highlight.label}</span>
                     </div>
                     <div className="font-semibold text-white">{highlight.value}</div>
@@ -122,125 +173,115 @@ export default function TestimonialPage({ params }) {
         <div className="max-w-4xl mx-auto space-y-16">
           
           {/* Introduction */}
-          {testimonial.introduction && (
-            <div className="premium-card p-8">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center">
-                  <Lightbulb className="w-6 h-6 text-white" />
-                </div>
-                <h2 className="text-3xl font-bold gradient-text">Introduction</h2>
+          <div className="premium-card p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-12 h-12 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center">
+                <Lightbulb className="w-6 h-6 text-white" />
               </div>
-              <p className="text-white/80 text-lg leading-relaxed">
-                {testimonial.introduction}
-              </p>
+              <h2 className="text-3xl font-bold gradient-text">Introduction</h2>
             </div>
-          )}
+            <p className="text-white/80 text-lg leading-relaxed">
+              {caseStudyData.introduction}
+            </p>
+          </div>
 
           {/* Opportunity */}
-          {testimonial.opportunity && (
-            <div className="premium-card p-8">
-              <div className="flex items-center gap-3 mb-8">
-                <div className="w-12 h-12 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center">
-                  <Target className="w-6 h-6 text-white" />
-                </div>
-                <h2 className="text-3xl font-bold gradient-text">The Opportunity</h2>
+          <div className="premium-card p-8">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-12 h-12 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center">
+                <Target className="w-6 h-6 text-white" />
               </div>
-              
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="text-xl font-semibold text-white mb-4">Challenges</h3>
-                  <ul className="space-y-3">
-                    {testimonial.opportunity.challenges.map((challenge, index) => (
-                      <li key={index} className="flex items-start gap-3 text-white/70">
-                        <div className="w-2 h-2 bg-red-400 rounded-full mt-2 flex-shrink-0" />
-                        {challenge}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                
-                <div>
-                  <h3 className="text-xl font-semibold text-white mb-4">Goals</h3>
-                  <ul className="space-y-3">
-                    {testimonial.opportunity.goals.map((goal, index) => (
-                      <li key={index} className="flex items-start gap-3 text-white/70">
-                        <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                        {goal}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+              <h2 className="text-3xl font-bold gradient-text">The Opportunity</h2>
             </div>
-          )}
-
-          {/* Solution */}
-          {testimonial.solution && (
-            <div className="premium-card p-8">
-              <div className="flex items-center gap-3 mb-8">
-                <div className="w-12 h-12 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center">
-                  <CheckCircle className="w-6 h-6 text-white" />
-                </div>
-                <h2 className="text-3xl font-bold gradient-text">Our Solution</h2>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-xl font-semibold text-white mb-4">Challenges</h3>
+                <ul className="space-y-3">
+                  {caseStudyData.opportunity.challenges.map((challenge, index) => (
+                    <li key={index} className="flex items-start gap-3 text-white/70">
+                      <div className="w-2 h-2 bg-red-400 rounded-full mt-2 flex-shrink-0" />
+                      {challenge}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              
-              <p className="text-white/80 text-lg leading-relaxed mb-8">
-                {testimonial.solution.approach}
-              </p>
-              
-              {testimonial.solution.keyFeatures && (
-                <div className="mb-8">
-                  <h3 className="text-xl font-semibold text-white mb-4">Key Features Delivered</h3>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {testimonial.solution.keyFeatures.map((feature, index) => (
-                      <div key={index} className="flex items-start gap-3 glass-card p-4">
-                        <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                        <span className="text-white/80">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
               
               <div>
-                <h3 className="text-xl font-semibold text-white mb-4">Technologies Used</h3>
-                <div className="flex flex-wrap gap-3">
-                  {testimonial.technologies.map((tech, index) => (
-                    <span key={index} className="px-4 py-2 bg-white/10 rounded-full text-white/80 text-sm">
-                      {tech}
-                    </span>
+                <h3 className="text-xl font-semibold text-white mb-4">Goals</h3>
+                <ul className="space-y-3">
+                  {caseStudyData.opportunity.goals.map((goal, index) => (
+                    <li key={index} className="flex items-start gap-3 text-white/70">
+                      <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                      {goal}
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             </div>
-          )}
+          </div>
 
-          {/* Outcome */}
-          {testimonial.outcome && (
-            <div className="premium-card p-8">
-              <div className="flex items-center gap-3 mb-8">
-                <div className="w-12 h-12 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center">
-                  <TrendingUp className="w-6 h-6 text-white" />
-                </div>
-                <h2 className="text-3xl font-bold gradient-text">Results & Impact</h2>
+          {/* Solution */}
+          <div className="premium-card p-8">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-12 h-12 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center">
+                <CheckCircle className="w-6 h-6 text-white" />
               </div>
-              
-              <div className="grid md:grid-cols-2 gap-6 mb-8">
-                {testimonial.outcome.metrics.map((metric, index) => (
-                  <div key={index} className="glass-card p-6 text-center">
-                    <div className="text-3xl font-bold gradient-text mb-2">{metric.value}</div>
-                    <div className="font-semibold text-white mb-1">{metric.label}</div>
-                    <div className="text-white/60 text-sm">{metric.description}</div>
+              <h2 className="text-3xl font-bold gradient-text">Our Solution</h2>
+            </div>
+            
+            <p className="text-white/80 text-lg leading-relaxed mb-8">
+              {caseStudyData.solution.approach}
+            </p>
+            
+            <div className="mb-8">
+              <h3 className="text-xl font-semibold text-white mb-4">Key Features Delivered</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                {caseStudyData.solution.keyFeatures.map((feature, index) => (
+                  <div key={index} className="flex items-start gap-3 glass-card p-4">
+                    <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                    <span className="text-white/80">{feature}</span>
                   </div>
                 ))}
               </div>
-              
-              <div className="glass-card p-6">
-                <h3 className="text-xl font-semibold text-white mb-3">Long-term Impact</h3>
-                <p className="text-white/80 leading-relaxed">{testimonial.outcome.longTermImpact}</p>
+            </div>
+            
+            <div>
+              <h3 className="text-xl font-semibold text-white mb-4">Technologies Used</h3>
+              <div className="flex flex-wrap gap-3">
+                {caseStudyData.solution.technologies.map((tech, index) => (
+                  <span key={index} className="px-4 py-2 bg-white/10 rounded-full text-white/80 text-sm">
+                    {tech}
+                  </span>
+                ))}
               </div>
             </div>
-          )}
+          </div>
+
+          {/* Outcome */}
+          <div className="premium-card p-8">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-12 h-12 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center">
+                <TrendingUp className="w-6 h-6 text-white" />
+              </div>
+              <h2 className="text-3xl font-bold gradient-text">Results & Impact</h2>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              {caseStudyData.outcome.metrics.map((metric, index) => (
+                <div key={index} className="glass-card p-6 text-center">
+                  <div className="text-3xl font-bold gradient-text mb-2">{metric.value}</div>
+                  <div className="font-semibold text-white mb-1">{metric.label}</div>
+                  <div className="text-white/60 text-sm">{metric.description}</div>
+                </div>
+              ))}
+            </div>
+            
+            <div className="glass-card p-6">
+              <h3 className="text-xl font-semibold text-white mb-3">Long-term Impact</h3>
+              <p className="text-white/80 leading-relaxed">{caseStudyData.outcome.longTermImpact}</p>
+            </div>
+          </div>
 
           {/* Client Quote */}
           <div className="premium-card p-8 relative overflow-hidden">
@@ -276,7 +317,7 @@ export default function TestimonialPage({ params }) {
           </div>
 
           {/* Video Testimonial */}
-          {testimonial.videoTestimonial && testimonial.videoTestimonial.available && (
+          {caseStudyData.videoTestimonial.available && (
             <div className="premium-card p-8">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center">
@@ -289,7 +330,7 @@ export default function TestimonialPage({ params }) {
                 <iframe
                   width="100%"
                   height="100%"
-                  src={testimonial.videoUrl}
+                  src={caseStudyData.videoTestimonial.url}
                   title={`${testimonial.client} - Video Testimonial`}
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

@@ -1,7 +1,7 @@
 "use client";
 
-import { Card, CardContent } from "@/components/Card";
-import { Button } from "@/components/Button";
+import { Card, CardContent } from "@/components/ui/card.jsx";
+import { Button } from "@/components/ui/button.jsx";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import testimonialsData from "@/data/testimonials.json";
 import { useRouter } from 'next/navigation';
@@ -49,6 +49,9 @@ export default function TestimonialsSection() {
   const handleCardClick = (testimonialId) => {
     router.push(`/testimonials/${testimonialId}`);
   };
+
+  // Get the first testimonial's video URL for the main video section
+  const featuredVideoUrl = testimonialsData[0]?.videoUrl || "https://www.youtube.com/embed/dQw4w9WgXcQ";
 
   return (
     <section className="py-32 px-4 relative">
@@ -146,6 +149,10 @@ export default function TestimonialsSection() {
             </Button>
           </div>
         </div>
+
+        
+          
+          
 
         {/* CTA Section */}
         <div className="text-center mt-20">
