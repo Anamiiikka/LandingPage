@@ -22,305 +22,18 @@ import {
   Building2,
   Truck
 } from "lucide-react";
+import industriesData from "@/data/industriesData.json";
 
-// Industry data
-const industriesData = {
-  software: {
-    id: "software",
-    title: "Software & Technology",
-    icon: Code2,
-    description: "Empowering businesses with cutting-edge software solutions and digital transformation services",
-    heroImage: "https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    gradient: "from-blue-500/20 to-cyan-500/20",
-    services: [
-      "Custom Software Development",
-      "Web Application Development", 
-      "Mobile App Development",
-      "API Development & Integration",
-      "Cloud Migration Services",
-      "DevOps & Automation",
-      "Software Modernization",
-      "Technical Consulting"
-    ],
-    technologies: ["React", "Node.js", "Python", "AWS", "Docker", "Kubernetes", "MongoDB", "PostgreSQL"],
-    benefits: [
-      { title: "Faster Time to Market", description: "Accelerate product launches with agile development" },
-      { title: "Scalable Architecture", description: "Build systems that grow with your business" },
-      { title: "Cost Optimization", description: "Reduce operational costs through automation" },
-      { title: "Enhanced Security", description: "Enterprise-grade security implementations" }
-    ],
-    caseStudies: [
-      {
-        title: "TechFlow Platform Transformation",
-        description: "Increased revenue by 300% through custom web platform",
-        results: "300% Revenue Growth"
-      },
-      {
-        title: "Enterprise Software Modernization", 
-        description: "Legacy system migration to cloud-native architecture",
-        results: "75% Performance Improvement"
-      }
-    ]
-  },
-  drone: {
-    id: "drone",
-    title: "Drone & Aerospace",
-    icon: Plane,
-    description: "Advanced UAV systems and aerospace technology solutions for next-generation applications",
-    heroImage: "https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    gradient: "from-purple-500/20 to-indigo-500/20",
-    services: [
-      "UAV Flight Control Systems",
-      "Drone Fleet Management",
-      "Aerial Data Analytics",
-      "Autonomous Navigation",
-      "Real-time Monitoring",
-      "Mission Planning Software",
-      "Payload Integration",
-      "Regulatory Compliance"
-    ],
-    technologies: ["C++", "Python", "ROS", "OpenCV", "TensorFlow", "GPS/GNSS", "IoT Sensors", "Edge Computing"],
-    benefits: [
-      { title: "Operational Efficiency", description: "Automate complex aerial operations" },
-      { title: "Data Accuracy", description: "Precise data collection and analysis" },
-      { title: "Safety Enhancement", description: "Reduce human risk in dangerous environments" },
-      { title: "Cost Reduction", description: "Lower operational costs vs traditional methods" }
-    ],
-    caseStudies: [
-      {
-        title: "Agricultural Monitoring System",
-        description: "Precision agriculture with drone-based crop monitoring",
-        results: "40% Yield Improvement"
-      },
-      {
-        title: "Infrastructure Inspection Platform",
-        description: "Automated inspection of power lines and bridges",
-        results: "60% Time Savings"
-      }
-    ]
-  },
-  solar: {
-    id: "solar",
-    title: "Solar & Renewable Energy",
-    icon: Sun,
-    description: "Smart energy management systems and renewable energy monitoring solutions for sustainable future",
-    heroImage: "https://images.pexels.com/photos/433308/pexels-photo-433308.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    gradient: "from-yellow-500/20 to-orange-500/20",
-    services: [
-      "Solar Panel Monitoring",
-      "Energy Management Systems",
-      "Grid Integration Solutions",
-      "Performance Analytics",
-      "Predictive Maintenance",
-      "Smart Inverter Control",
-      "Energy Storage Management",
-      "Carbon Footprint Tracking"
-    ],
-    technologies: ["IoT", "Python", "React", "InfluxDB", "Grafana", "MQTT", "Machine Learning", "Cloud Analytics"],
-    benefits: [
-      { title: "Energy Optimization", description: "Maximize energy production and efficiency" },
-      { title: "Predictive Maintenance", description: "Prevent failures before they occur" },
-      { title: "Cost Savings", description: "Reduce operational and maintenance costs" },
-      { title: "Environmental Impact", description: "Track and reduce carbon footprint" }
-    ],
-    caseStudies: [
-      {
-        title: "Smart Solar Farm Management",
-        description: "IoT-enabled monitoring for 100MW solar installation",
-        results: "25% Efficiency Increase"
-      },
-      {
-        title: "Residential Energy Platform",
-        description: "Home energy management with solar integration",
-        results: "35% Energy Savings"
-      }
-    ]
-  },
-  healthcare: {
-    id: "healthcare",
-    title: "Healthcare & Medical",
-    icon: Heart,
-    description: "HIPAA-compliant healthcare solutions improving patient care and operational efficiency",
-    heroImage: "https://images.pexels.com/photos/3786126/pexels-photo-3786126.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    gradient: "from-red-500/20 to-pink-500/20",
-    services: [
-      "Electronic Health Records",
-      "Patient Management Systems",
-      "Telemedicine Platforms",
-      "Medical Device Integration",
-      "Healthcare Analytics",
-      "Appointment Scheduling",
-      "Billing & Insurance",
-      "Compliance Management"
-    ],
-    technologies: ["React", "Node.js", "FHIR", "HL7", "AWS HIPAA", "MongoDB", "Encryption", "Blockchain"],
-    benefits: [
-      { title: "Patient Care Quality", description: "Improve patient outcomes and satisfaction" },
-      { title: "Operational Efficiency", description: "Streamline healthcare workflows" },
-      { title: "Compliance Assurance", description: "Meet HIPAA and regulatory requirements" },
-      { title: "Data Security", description: "Protect sensitive patient information" }
-    ],
-    caseStudies: [
-      {
-        title: "MedConnect Patient Portal",
-        description: "Comprehensive patient management system",
-        results: "75% Time Savings"
-      },
-      {
-        title: "Telemedicine Platform",
-        description: "Remote consultation and monitoring system",
-        results: "90% Patient Satisfaction"
-      }
-    ]
-  },
-  education: {
-    id: "education",
-    title: "Education & E-Learning",
-    icon: GraduationCap,
-    description: "Interactive learning platforms and educational technology solutions for modern education",
-    heroImage: "https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    gradient: "from-green-500/20 to-emerald-500/20",
-    services: [
-      "Learning Management Systems",
-      "Interactive Course Platforms",
-      "Student Assessment Tools",
-      "Virtual Classrooms",
-      "Educational Mobile Apps",
-      "Progress Tracking",
-      "Gamification Features",
-      "Content Management"
-    ],
-    technologies: ["React", "Next.js", "Node.js", "WebRTC", "MongoDB", "Firebase", "AI/ML", "Progressive Web Apps"],
-    benefits: [
-      { title: "Student Engagement", description: "Increase participation and motivation" },
-      { title: "Personalized Learning", description: "Adaptive learning paths for each student" },
-      { title: "Administrative Efficiency", description: "Streamline educational operations" },
-      { title: "Accessibility", description: "Make education available anywhere, anytime" }
-    ],
-    caseStudies: [
-      {
-        title: "LearnHub Academy Platform",
-        description: "Comprehensive LMS with gamification features",
-        results: "85% Engagement Boost"
-      },
-      {
-        title: "Virtual Science Lab",
-        description: "Interactive online laboratory simulations",
-        results: "95% Learning Retention"
-      }
-    ]
-  },
-  ecommerce: {
-    id: "ecommerce",
-    title: "E-Commerce & Retail",
-    icon: ShoppingCart,
-    description: "Comprehensive e-commerce solutions driving online sales and customer satisfaction",
-    heroImage: "https://images.pexels.com/photos/3769747/pexels-photo-3769747.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    gradient: "from-teal-500/20 to-cyan-500/20",
-    services: [
-      "E-commerce Platforms",
-      "Payment Gateway Integration",
-      "Inventory Management",
-      "Customer Relationship Management",
-      "Order Fulfillment Systems",
-      "Analytics & Reporting",
-      "Mobile Commerce Apps",
-      "Multi-vendor Marketplaces"
-    ],
-    technologies: ["React", "Next.js", "Shopify", "WooCommerce", "Stripe", "PayPal", "AWS", "Elasticsearch"],
-    benefits: [
-      { title: "Sales Growth", description: "Increase online revenue and conversions" },
-      { title: "Customer Experience", description: "Enhance shopping experience and satisfaction" },
-      { title: "Operational Efficiency", description: "Automate order processing and inventory" },
-      { title: "Market Reach", description: "Expand to new markets and channels" }
-    ],
-    caseStudies: [
-      {
-        title: "RetailMax E-commerce Platform",
-        description: "Modern e-commerce with AI recommendations",
-        results: "200% Conversion Increase"
-      },
-      {
-        title: "Multi-vendor Marketplace",
-        description: "Comprehensive marketplace platform",
-        results: "150% Vendor Growth"
-      }
-    ]
-  },
-  fintech: {
-    id: "fintech",
-    title: "FinTech & Banking",
-    icon: Building2,
-    description: "Secure financial platforms and innovative banking solutions for the digital economy",
-    heroImage: "https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    gradient: "from-slate-500/20 to-gray-500/20",
-    services: [
-      "Digital Banking Platforms",
-      "Payment Processing Systems",
-      "Blockchain Solutions",
-      "Cryptocurrency Exchanges",
-      "Risk Management Systems",
-      "Compliance & Reporting",
-      "Mobile Banking Apps",
-      "Trading Platforms"
-    ],
-    technologies: ["React", "Node.js", "Blockchain", "Solidity", "PostgreSQL", "Redis", "Kubernetes", "Security"],
-    benefits: [
-      { title: "Security & Compliance", description: "Bank-grade security and regulatory compliance" },
-      { title: "Transaction Speed", description: "Fast and reliable payment processing" },
-      { title: "User Experience", description: "Intuitive financial interfaces" },
-      { title: "Scalability", description: "Handle millions of transactions daily" }
-    ],
-    caseStudies: [
-      {
-        title: "CryptoVault Trading Platform",
-        description: "High-performance cryptocurrency trading system",
-        results: "99.99% Uptime"
-      },
-      {
-        title: "Digital Banking Solution",
-        description: "Complete mobile banking platform",
-        results: "500K+ Active Users"
-      }
-    ]
-  },
-  logistics: {
-    id: "logistics",
-    title: "Logistics & Supply Chain",
-    icon: Truck,
-    description: "Smart logistics solutions optimizing supply chain operations and delivery efficiency",
-    heroImage: "https://images.pexels.com/photos/4246119/pexels-photo-4246119.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    gradient: "from-amber-500/20 to-yellow-500/20",
-    services: [
-      "Fleet Management Systems",
-      "Route Optimization",
-      "Warehouse Management",
-      "Real-time Tracking",
-      "Inventory Control",
-      "Supply Chain Analytics",
-      "Delivery Management",
-      "IoT Integration"
-    ],
-    technologies: ["React", "Node.js", "GPS Tracking", "IoT", "Machine Learning", "MongoDB", "Real-time APIs", "Mobile"],
-    benefits: [
-      { title: "Cost Reduction", description: "Optimize routes and reduce fuel costs" },
-      { title: "Delivery Speed", description: "Faster and more reliable deliveries" },
-      { title: "Visibility", description: "Real-time tracking and monitoring" },
-      { title: "Efficiency", description: "Streamlined warehouse and fleet operations" }
-    ],
-    caseStudies: [
-      {
-        title: "Smart Fleet Management",
-        description: "IoT-enabled fleet tracking and optimization",
-        results: "30% Cost Reduction"
-      },
-      {
-        title: "Warehouse Automation",
-        description: "Automated inventory and order management",
-        results: "50% Efficiency Gain"
-      }
-    ]
-  }
+// Icon mapping for dynamic icon rendering
+const iconMap = {
+  Code2,
+  Plane,
+  Sun,
+  Heart,
+  GraduationCap,
+  ShoppingCart,
+  Building2,
+  Truck
 };
 
 export async function generateStaticParams() {
@@ -343,11 +56,17 @@ export async function generateMetadata({ params }) {
 }
 
 export default function IndustryPage({ params }) {
-  const industry = industriesData[params.id];
+  const industryData = industriesData[params.id];
 
-  if (!industry) {
+  if (!industryData) {
     notFound();
   }
+
+  // Map the icon string to the actual icon component
+  const industry = {
+    ...industryData,
+    icon: iconMap[industryData.icon]
+  };
 
   return (
     <div className="min-h-screen bg-background">
