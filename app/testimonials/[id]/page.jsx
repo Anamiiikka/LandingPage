@@ -3,7 +3,6 @@ import { Card, CardContent } from "@/components/ui/card.jsx";
 import { Button } from "@/components/ui/button.jsx";
 import Link from "next/link";
 import testimonialsData from "@/data/testimonials.json";
-import testimonialsDetailedData from "@/data/testimonialsDetailedData.json";
 import Footer from "@/components/Footer.jsx";
 import { 
   ArrowLeft, 
@@ -43,18 +42,16 @@ export async function generateMetadata({ params }) {
 
 export default function TestimonialPage({ params }) {
   const testimonial = testimonialsData.find((t) => t.id === parseInt(params.id));
-  const detailedData = testimonialsDetailedData[params.id];
 
-  if (!testimonial || !detailedData) {
+  if (!testimonial) {
     notFound();
   }
 
-  // Merge basic testimonial data with detailed data
+  // Use the consolidated data from the single JSON file
   const caseStudyData = {
     ...testimonial,
-    ...detailedData,
     solution: {
-      ...detailedData.solution,
+      ...testimonial.solution,
       technologies: testimonial.technologies || []
     }
   };
@@ -88,7 +85,7 @@ export default function TestimonialPage({ params }) {
               
               {/* Highlights Grid */}
               <div className="grid grid-cols-2 gap-4">
-                {caseStudyData.highlights.map((highlight, index) => (
+                {caseStudyData.highlights?.map((highlight, index) => (
                   <div key={index} className="glass-card p-4">
                     <div className="flex items-center gap-3 mb-2">
                       {highlight.icon === 'Clock' && <Clock className="w-5 h-5 text-white/60" />}
@@ -134,115 +131,133 @@ export default function TestimonialPage({ params }) {
         <div className="max-w-4xl mx-auto space-y-16">
           
           {/* Introduction */}
-          <div className="premium-card p-8">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center">
-                <Lightbulb className="w-6 h-6 text-white" />
+          {caseStudyData.introduction && (
+            <div className="premium-card p-8">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center">
+                  <Lightbulb className="w-6 h-6 text-white" />
+                </div>
+                <h2 className="text-3xl font-bold gradient-text">Introduction</h2>
               </div>
-              <h2 className="text-3xl font-bold gradient-text">Introduction</h2>
+              <p className="text-white/80 text-lg leading-relaxed">
+                {caseStudyData.introduction}
+              </p>
             </div>
-            <p className="text-white/80 text-lg leading-relaxed">
-              {caseStudyData.introduction}
-            </p>
-          </div>
+          )}
 
           {/* Opportunity */}
-          <div className="premium-card p-8">
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center">
-                <Target className="w-6 h-6 text-white" />
-              </div>
-              <h2 className="text-3xl font-bold gradient-text">The Opportunity</h2>
-            </div>
-            
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-xl font-semibold text-white mb-4">Challenges</h3>
-                <ul className="space-y-3">
-                  {caseStudyData.opportunity.challenges.map((challenge, index) => (
-                    <li key={index} className="flex items-start gap-3 text-white/70">
-                      <div className="w-2 h-2 bg-red-400 rounded-full mt-2 flex-shrink-0" />
-                      {challenge}
-                    </li>
-                  ))}
-                </ul>
+          {caseStudyData.opportunity && (
+            <div className="premium-card p-8">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-12 h-12 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center">
+                  <Target className="w-6 h-6 text-white" />
+                </div>
+                <h2 className="text-3xl font-bold gradient-text">The Opportunity</h2>
               </div>
               
-              <div>
-                <h3 className="text-xl font-semibold text-white mb-4">Goals</h3>
-                <ul className="space-y-3">
-                  {caseStudyData.opportunity.goals.map((goal, index) => (
-                    <li key={index} className="flex items-start gap-3 text-white/70">
-                      <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                      {goal}
-                    </li>
-                  ))}
-                </ul>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h3 className="text-xl font-semibold text-white mb-4">Challenges</h3>
+                  <ul className="space-y-3">
+                    {caseStudyData.opportunity.challenges?.map((challenge, index) => (
+                      <li key={index} className="flex items-start gap-3 text-white/70">
+                        <div className="w-2 h-2 bg-red-400 rounded-full mt-2 flex-shrink-0" />
+                        {challenge}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+                <div>
+                  <h3 className="text-xl font-semibold text-white mb-4">Goals</h3>
+                  <ul className="space-y-3">
+                    {caseStudyData.opportunity.goals?.map((goal, index) => (
+                      <li key={index} className="flex items-start gap-3 text-white/70">
+                        <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                        {goal}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
+          )}
 
           {/* Solution */}
-          <div className="premium-card p-8">
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center">
-                <CheckCircle className="w-6 h-6 text-white" />
+          {caseStudyData.solution && (
+            <div className="premium-card p-8">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-12 h-12 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center">
+                  <CheckCircle className="w-6 h-6 text-white" />
+                </div>
+                <h2 className="text-3xl font-bold gradient-text">Our Solution</h2>
               </div>
-              <h2 className="text-3xl font-bold gradient-text">Our Solution</h2>
-            </div>
-            
-            <p className="text-white/80 text-lg leading-relaxed mb-8">
-              {caseStudyData.solution.approach}
-            </p>
-            
-            <div className="mb-8">
-              <h3 className="text-xl font-semibold text-white mb-4">Key Features Delivered</h3>
-              <div className="grid md:grid-cols-2 gap-4">
-                {caseStudyData.solution.keyFeatures.map((feature, index) => (
-                  <div key={index} className="flex items-start gap-3 glass-card p-4">
-                    <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                    <span className="text-white/80">{feature}</span>
+              
+              {caseStudyData.solution.approach && (
+                <p className="text-white/80 text-lg leading-relaxed mb-8">
+                  {caseStudyData.solution.approach}
+                </p>
+              )}
+              
+              {caseStudyData.solution.keyFeatures && (
+                <div className="mb-8">
+                  <h3 className="text-xl font-semibold text-white mb-4">Key Features Delivered</h3>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    {caseStudyData.solution.keyFeatures.map((feature, index) => (
+                      <div key={index} className="flex items-start gap-3 glass-card p-4">
+                        <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                        <span className="text-white/80">{feature}</span>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
+                </div>
+              )}
+              
+              {caseStudyData.solution.technologies && (
+                <div>
+                  <h3 className="text-xl font-semibold text-white mb-4">Technologies Used</h3>
+                  <div className="flex flex-wrap gap-3">
+                    {caseStudyData.solution.technologies.map((tech, index) => (
+                      <span key={index} className="px-4 py-2 bg-white/10 rounded-full text-white/80 text-sm">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
-            
-            <div>
-              <h3 className="text-xl font-semibold text-white mb-4">Technologies Used</h3>
-              <div className="flex flex-wrap gap-3">
-                {caseStudyData.solution.technologies.map((tech, index) => (
-                  <span key={index} className="px-4 py-2 bg-white/10 rounded-full text-white/80 text-sm">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
+          )}
 
           {/* Outcome */}
-          <div className="premium-card p-8">
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center">
-                <TrendingUp className="w-6 h-6 text-white" />
-              </div>
-              <h2 className="text-3xl font-bold gradient-text">Results & Impact</h2>
-            </div>
-            
-            <div className="grid md:grid-cols-2 gap-6 mb-8">
-              {caseStudyData.outcome.metrics.map((metric, index) => (
-                <div key={index} className="glass-card p-6 text-center">
-                  <div className="text-3xl font-bold gradient-text mb-2">{metric.value}</div>
-                  <div className="font-semibold text-white mb-1">{metric.label}</div>
-                  <div className="text-white/60 text-sm">{metric.description}</div>
+          {caseStudyData.outcome && (
+            <div className="premium-card p-8">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-12 h-12 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center">
+                  <TrendingUp className="w-6 h-6 text-white" />
                 </div>
-              ))}
+                <h2 className="text-3xl font-bold gradient-text">Results & Impact</h2>
+              </div>
+              
+              {caseStudyData.outcome.metrics && (
+                <div className="grid md:grid-cols-2 gap-6 mb-8">
+                  {caseStudyData.outcome.metrics.map((metric, index) => (
+                    <div key={index} className="glass-card p-6 text-center">
+                      <div className="text-3xl font-bold gradient-text mb-2">{metric.value}</div>
+                      <div className="font-semibold text-white mb-1">{metric.label}</div>
+                      <div className="text-white/60 text-sm">{metric.description}</div>
+                    </div>
+                  ))}
+                </div>
+              )}
+              
+              {caseStudyData.outcome.longTermImpact && (
+                <div className="glass-card p-6">
+                  <h3 className="text-xl font-semibold text-white mb-3">Long-term Impact</h3>
+                  <p className="text-white/80 leading-relaxed">{caseStudyData.outcome.longTermImpact}</p>
+                </div>
+              )}
             </div>
-            
-            <div className="glass-card p-6">
-              <h3 className="text-xl font-semibold text-white mb-3">Long-term Impact</h3>
-              <p className="text-white/80 leading-relaxed">{caseStudyData.outcome.longTermImpact}</p>
-            </div>
-          </div>
+          )}
 
           {/* Client Quote */}
           <div className="premium-card p-8 relative overflow-hidden">
@@ -278,7 +293,7 @@ export default function TestimonialPage({ params }) {
           </div>
 
           {/* Video Testimonial */}
-          {caseStudyData.videoTestimonial.available && (
+          {caseStudyData.videoTestimonial?.available && (
             <div className="premium-card p-8">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center">
