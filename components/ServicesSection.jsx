@@ -68,7 +68,7 @@ export default function ServicesSection() {
           </p>
         </div>
 
-        {/* Services Grid */}
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {services.map((service, index) => (
             <Card key={index} className="premium-card hover-lift glow-effect group cursor-pointer">
