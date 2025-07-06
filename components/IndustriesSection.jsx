@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card.jsx";
 import { Button } from "@/components/ui/button.jsx";
 import { ArrowRight } from "lucide-react";
 import { useRouter } from 'next/navigation';
+import industriesData from "@/data/industriesData.json";
 import {
   Code2,
   Plane,
@@ -15,80 +16,17 @@ import {
   Truck
 } from "lucide-react";
 
-const industries = [
-  {
-    id: "software",
-    title: "Software & Technology",
-    icon: Code2,
-    description: "Custom software solutions, web applications, and digital transformation services",
-    gradient: "from-blue-500/20 to-cyan-500/20",
-    borderColor: "border-blue-500/30",
-    hoverColor: "hover:border-blue-500/60"
-  },
-  {
-    id: "drone",
-    title: "Drone & Aerospace",
-    icon: Plane,
-    description: "UAV systems, flight control software, and aerospace technology solutions",
-    gradient: "from-purple-500/20 to-indigo-500/20",
-    borderColor: "border-purple-500/30",
-    hoverColor: "hover:border-purple-500/60"
-  },
-  {
-    id: "solar",
-    title: "Solar & Renewable Energy",
-    icon: Sun,
-    description: "Smart energy management systems and renewable energy monitoring solutions",
-    gradient: "from-yellow-500/20 to-orange-500/20",
-    borderColor: "border-yellow-500/30",
-    hoverColor: "hover:border-yellow-500/60"
-  },
-  {
-    id: "healthcare",
-    title: "Healthcare & Medical",
-    icon: Heart,
-    description: "HIPAA-compliant systems, patient management, and medical device integration",
-    gradient: "from-red-500/20 to-pink-500/20",
-    borderColor: "border-red-500/30",
-    hoverColor: "hover:border-red-500/60"
-  },
-  {
-    id: "education",
-    title: "Education & E-Learning",
-    icon: GraduationCap,
-    description: "Learning management systems, educational apps, and interactive platforms",
-    gradient: "from-green-500/20 to-emerald-500/20",
-    borderColor: "border-green-500/30",
-    hoverColor: "hover:border-green-500/60"
-  },
-  {
-    id: "ecommerce",
-    title: "E-Commerce & Retail",
-    icon: ShoppingCart,
-    description: "Online stores, inventory management, and customer experience platforms",
-    gradient: "from-teal-500/20 to-cyan-500/20",
-    borderColor: "border-teal-500/30",
-    hoverColor: "hover:border-teal-500/60"
-  },
-  {
-    id: "fintech",
-    title: "FinTech & Banking",
-    icon: Building2,
-    description: "Secure financial platforms, payment systems, and blockchain solutions",
-    gradient: "from-slate-500/20 to-gray-500/20",
-    borderColor: "border-slate-500/30",
-    hoverColor: "hover:border-slate-500/60"
-  },
-  {
-    id: "logistics",
-    title: "Logistics & Supply Chain",
-    icon: Truck,
-    description: "Fleet management, tracking systems, and supply chain optimization",
-    gradient: "from-amber-500/20 to-yellow-500/20",
-    borderColor: "border-amber-500/30",
-    hoverColor: "hover:border-amber-500/60"
-  }
-];
+// Icon mapping for dynamic icon rendering
+const iconMap = {
+  Code2,
+  Plane,
+  Sun,
+  Heart,
+  GraduationCap,
+  ShoppingCart,
+  Building2,
+  Truck
+};
 
 export default function IndustriesSection() {
   const router = useRouter();
@@ -96,6 +34,9 @@ export default function IndustriesSection() {
   const handleIndustryClick = (industryId) => {
     router.push(`/industries/${industryId}`);
   };
+
+  // Convert object to array for mapping
+  const industries = Object.values(industriesData);
 
   return (
     <section className="py-32 px-4 relative">
@@ -117,35 +58,39 @@ export default function IndustriesSection() {
 
         {/* Industries Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-          {industries.map((industry, index) => (
-            <Card 
-              key={industry.id}
-              className={`premium-card overflow-hidden hover-lift glow-effect group cursor-pointer transition-all duration-500 ${industry.borderColor} ${industry.hoverColor}`}
-              onClick={() => handleIndustryClick(industry.id)}
-            >
-              <CardContent className="p-6">
-                <div className={`w-16 h-16 bg-gradient-to-br ${industry.gradient} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-500 shadow-lg border border-white/10`}>
-                  <industry.icon className="w-8 h-8 text-white" />
-                </div>
-                
-                <h3 className="text-lg font-semibold mb-3 gradient-text group-hover:text-white transition-colors duration-300">
-                  {industry.title}
-                </h3>
-                
-                <p className="text-white/60 text-sm leading-relaxed mb-4 group-hover:text-white/80 transition-colors duration-300">
-                  {industry.description}
-                </p>
-                
-                <Button 
-                  variant="ghost" 
-                  className="w-full justify-between text-white/70 hover:text-white hover:bg-white/5 transition-all duration-300 group/btn p-0 h-auto"
-                >
-                  <span className="text-sm">Learn More</span>
-                  <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
+          {industries.map((industry, index) => {
+            const IconComponent = iconMap[industry.icon];
+            
+            return (
+              <Card 
+                key={industry.id}
+                className={`premium-card overflow-hidden hover-lift glow-effect group cursor-pointer transition-all duration-500 ${industry.borderColor} ${industry.hoverColor}`}
+                onClick={() => handleIndustryClick(industry.id)}
+              >
+                <CardContent className="p-6">
+                  <div className={`w-16 h-16 bg-gradient-to-br ${industry.gradient} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-500 shadow-lg border border-white/10`}>
+                    {IconComponent && <IconComponent className="w-8 h-8 text-white" />}
+                  </div>
+                  
+                  <h3 className="text-lg font-semibold mb-3 gradient-text group-hover:text-white transition-colors duration-300">
+                    {industry.title}
+                  </h3>
+                  
+                  <p className="text-white/60 text-sm leading-relaxed mb-4 group-hover:text-white/80 transition-colors duration-300">
+                    {industry.description}
+                  </p>
+                  
+                  <Button 
+                    variant="ghost" 
+                    className="w-full justify-between text-white/70 hover:text-white hover:bg-white/5 transition-all duration-300 group/btn p-0 h-auto"
+                  >
+                    <span className="text-sm">Learn More</span>
+                    <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                  </Button>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
 
         {/* CTA Section */}

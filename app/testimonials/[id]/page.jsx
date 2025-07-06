@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card.jsx";
 import { Button } from "@/components/ui/button.jsx";
 import Link from "next/link";
 import testimonialsData from "@/data/testimonials.json";
+import testimonialsDetailedData from "@/data/testimonialsDetailedData.json";
 import Footer from "@/components/Footer.jsx";
 import { 
   ArrowLeft, 
@@ -42,62 +43,19 @@ export async function generateMetadata({ params }) {
 
 export default function TestimonialPage({ params }) {
   const testimonial = testimonialsData.find((t) => t.id === parseInt(params.id));
+  const detailedData = testimonialsDetailedData[params.id];
 
-  if (!testimonial) {
+  if (!testimonial || !detailedData) {
     notFound();
   }
 
-  // Extended data for the blog structure
+  // Merge basic testimonial data with detailed data
   const caseStudyData = {
     ...testimonial,
-    highlights: [
-      { label: "Timeline", value: testimonial.timeline, icon: Clock },
-      { label: "Results", value: testimonial.results, icon: TrendingUp },
-      { label: "Industry", value: testimonial.category, icon: Award },
-      { label: "Team Size", value: "8 specialists", icon: Users }
-    ],
-    introduction: `${testimonial.company} approached us with a vision to transform their digital presence and streamline their operations. As a growing company in the ${testimonial.category.toLowerCase()} sector, they faced challenges with outdated systems, inefficient processes, and the need to scale rapidly while maintaining quality service delivery.`,
-    opportunity: {
-      challenges: [
-        "Legacy systems limiting growth potential",
-        "Manual processes causing operational inefficiencies", 
-        "Poor user experience affecting customer satisfaction",
-        "Lack of real-time data and analytics",
-        "Scalability concerns with existing infrastructure"
-      ],
-      goals: [
-        "Modernize technology stack for better performance",
-        "Automate key business processes",
-        "Improve user experience across all touchpoints",
-        "Implement comprehensive analytics and reporting",
-        "Build scalable architecture for future growth"
-      ]
-    },
+    ...detailedData,
     solution: {
-      approach: "We implemented a comprehensive digital transformation strategy, focusing on modern web technologies, user-centered design, and scalable cloud infrastructure.",
-      keyFeatures: [
-        "Custom web application built with React and Next.js",
-        "Responsive mobile-first design approach",
-        "Real-time analytics and reporting dashboard",
-        "Automated workflow management system",
-        "Cloud-based infrastructure with 99.9% uptime",
-        "Advanced security measures and data protection"
-      ],
-      technologies: testimonial.technologies || [] // Use technologies from testimonials.json with fallback
-    },
-    outcome: {
-      metrics: [
-        { label: "Revenue Growth", value: "300%", description: "Increase in monthly recurring revenue" },
-        { label: "User Engagement", value: "85%", description: "Improvement in user session duration" },
-        { label: "Operational Efficiency", value: "60%", description: "Reduction in manual processing time" },
-        { label: "Customer Satisfaction", value: "95%", description: "Positive feedback rating" }
-      ],
-      longTermImpact: "The solution has positioned the company for sustained growth, with the new platform handling 10x the original user load while maintaining optimal performance."
-    },
-    videoTestimonial: {
-      available: true,
-      url: testimonial.videoUrl || "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      duration: "2:34"
+      ...detailedData.solution,
+      technologies: testimonial.technologies || []
     }
   };
 
@@ -133,7 +91,10 @@ export default function TestimonialPage({ params }) {
                 {caseStudyData.highlights.map((highlight, index) => (
                   <div key={index} className="glass-card p-4">
                     <div className="flex items-center gap-3 mb-2">
-                      <highlight.icon className="w-5 h-5 text-white/60" />
+                      {highlight.icon === 'Clock' && <Clock className="w-5 h-5 text-white/60" />}
+                      {highlight.icon === 'TrendingUp' && <TrendingUp className="w-5 h-5 text-white/60" />}
+                      {highlight.icon === 'Award' && <Award className="w-5 h-5 text-white/60" />}
+                      {highlight.icon === 'Users' && <Users className="w-5 h-5 text-white/60" />}
                       <span className="text-sm text-white/60">{highlight.label}</span>
                     </div>
                     <div className="font-semibold text-white">{highlight.value}</div>
