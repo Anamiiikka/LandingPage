@@ -8,6 +8,7 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import FAQSection from "@/components/FAQSection";
 import Chatbot from "@/components/Chatbot";
 import Footer from "@/components/Footer";
+import JoinTeamSection from "@/components/JoinTeamSection";
 
 
 const ConsultationSection = dynamic(() => import("../components/ConsultationSection"), {
@@ -25,6 +26,7 @@ export default function Home() {
       <TestimonialsSection />
       <FAQSection />
       <ConsultationSection />
+      <JoinTeamSection/>
       <Footer />
       <Chatbot />
     </main>
