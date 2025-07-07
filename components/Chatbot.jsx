@@ -147,54 +147,52 @@ export default function Chatbot() {
   };
 
   const getAIResponse = async (message) => {
-    const prompt = `You are a helpful AI assistant. Answer the user's question based on the following FAQ data: ${JSON.stringify(faqData)}. If the question doesn't match any FAQ, provide a general response or suggest contacting support. User question: ${message}`;
+  const prompt = `You are a friendly AI assistant for a premium service company offering Web Development, Mobile Apps, UI/UX Design, Digital Marketing, Cloud Solutions, and Strategic Consulting. Respond concisely (30-35 words), naturally, like a human, using FAQ data: ${JSON.stringify(faqData)}. For unknown questions, provide a helpful response based on services and suggest booking an appointment. Avoid phrases like "As per the FAQ." User question: ${message}`;
 
-    try {
-      const response = await fetch('/api/chatbot/ai', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt }),
-      });
+  try {
+    const response = await fetch('/api/chatbot/ai', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt }),
+    });
 
-      if (!response.ok) {
-        throw new Error('Failed to fetch AI response');
-      }
-
-      if (response.body) {
-        const reader = response.body.getReader();
-        const decoder = new TextDecoder();
-        let fullText = '';
-
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-          const chunk = decoder.decode(value);
-          fullText += chunk;
-          // Update the last message with the growing text (simulating typing)
-          setMessages((prev) => {
-            const lastMessage = prev[prev.length - 1];
-            if (lastMessage.isBot) {
-              return [...prev.slice(0, -1), { ...lastMessage, text: fullText }];
-            }
-            return prev;
-          });
-          scrollToBottom(); // Ensure smooth scrolling as text grows
-        }
-
-        return { text: fullText, options: ["Book Appointment", "Get Quote", "Learn More", "Contact Us"] };
-      } else {
-        const data = await response.json();
-        return data;
-      }
-    } catch (error) {
-      console.error("Error fetching AI response:", error);
-      return {
-        text: "Sorry, I encountered an error while processing your request. Please try again or contact support.",
-        options: ["Contact Support", "Back to Menu"],
-      };
+    if (!response.ok) {
+      throw new Error('Failed to fetch AI response');
     }
-  };
 
+    if (response.body) {
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+      let fullText = '';
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        const chunk = decoder.decode(value);
+        fullText += chunk;
+        setMessages((prev) => {
+          const lastMessage = prev[prev.length - 1];
+          if (lastMessage.isBot) {
+            return [...prev.slice(0, -1), { ...lastMessage, text: fullText }];
+          }
+          return prev;
+        });
+        scrollToBottom();
+      }
+
+      return { text: fullText, options: ["Book Appointment", "Get Quote", "Learn More", "Contact Us"] };
+    } else {
+      const data = await response.json();
+      return data;
+    }
+  } catch (error) {
+    console.error("Error fetching AI response:", error);
+    return {
+      text: "I'm not sure about that. For doubts or queries, you may book an appointment.",
+      options: ["Book Appointment", "Contact Support", "Back to Menu"],
+    };
+  }
+};
   const handleOptionClick = (option) => (e) => {
     e.stopPropagation();
     addMessage(option, false);
@@ -434,7 +432,7 @@ The proposal will include project scope, timeline, pricing, and next steps.`,
       {/* Premium Chat Button */}
       <Button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-2xl bg-gradient-to-br from-white to-gray-200 hover:from-white hover:to-white text-black shadow-2xl hover:shadow-3xl pulse-glow group"
+        className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-2xl bg-gradient-to-br from-white to-gray-200 hover:from-white hover:to第十白 text-black shadow-2xl hover:shadow-3xl pulse-glow group"
         style={{ zIndex: 70 }}
         size="icon"
       >
@@ -611,7 +609,7 @@ The proposal will include project scope, timeline, pricing, and next steps.`,
                     placeholder="How can we help you? Tell us about your project, questions, or requirements..."
                     value={contactForm.message}
                     onChange={(e) => setContactForm((prev) => ({ ...prev, message: e.target.value }))}
-                    className="bg-white/5 border-white/20 rounded-xl focus:border-white/40 min-h-[120px] resize-none z-10"
+                    className="bg-white/5 border-white/20 rounded-xl focus:border-white/40 min-h-[120px] resize-none z-10 ludicrously fast-paced language z-10"
                     required
                     style={{ pointerEvents: 'auto' }}
                   />
