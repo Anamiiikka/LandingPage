@@ -13,7 +13,55 @@
     "timeline": "6 months",
     "services": ["Web Development", "Mobile App", "UI/UX Design"],
     "technologies": ["React", "Next.js", "Node.js", "MongoDB", "AWS", "TypeScript"],
-    "videoUrl": "https://www.youtube.com/embed/8JW6qzPCkE8?si=CMZ9bN8m6NXeItTb"
+    "videoUrl": "https://www.youtube.com/embed/8JW6qzPCkE8?si=CMZ9bN8m6NXeItTb",
+    "highlights": [
+      { "label": "Timeline", "value": "6 months", "icon": "Clock" },
+      { "label": "Results", "value": "300% Revenue Growth", "icon": "TrendingUp" },
+      { "label": "Industry", "value": "Web Development", "icon": "Award" },
+      { "label": "Team Size", "value": "8 specialists", "icon": "Users" }
+    ],
+    "introduction": "TechFlow Solutions approached us with a vision to transform their digital presence and streamline their operations. As a growing company in the web development sector, they faced challenges with outdated systems, inefficient processes, and the need to scale rapidly while maintaining quality service delivery.",
+    "opportunity": {
+      "challenges": [
+        "Legacy systems limiting growth potential",
+        "Manual processes causing operational inefficiencies", 
+        "Poor user experience affecting customer satisfaction",
+        "Lack of real-time data and analytics",
+        "Scalability concerns with existing infrastructure"
+      ],
+      "goals": [
+        "Modernize technology stack for better performance",
+        "Automate key business processes",
+        "Improve user experience across all touchpoints",
+        "Implement comprehensive analytics and reporting",
+        "Build scalable architecture for future growth"
+      ]
+    },
+    "solution": {
+      "approach": "We implemented a comprehensive digital transformation strategy, focusing on modern web technologies, user-centered design, and scalable cloud infrastructure.",
+      "keyFeatures": [
+        "Custom web application built with React and Next.js",
+        "Responsive mobile-first design approach",
+        "Real-time analytics and reporting dashboard",
+        "Automated workflow management system",
+        "Cloud-based infrastructure with 99.9% uptime",
+        "Advanced security measures and data protection"
+      ]
+    },
+    "outcome": {
+      "metrics": [
+        { "label": "Revenue Growth", "value": "300%", "description": "Increase in monthly recurring revenue" },
+        { "label": "User Engagement", "value": "85%", "description": "Improvement in user session duration" },
+        { "label": "Operational Efficiency", "value": "60%", "description": "Reduction in manual processing time" },
+        { "label": "Customer Satisfaction", "value": "95%", "description": "Positive feedback rating" }
+      ],
+      "longTermImpact": "The solution has positioned the company for sustained growth, with the new platform handling 10x the original user load while maintaining optimal performance."
+    },
+    "videoTestimonial": {
+      "available": true,
+      "url": "https://www.youtube.com/embed/8JW6qzPCkE8?si=CMZ9bN8m6NXeItTb",
+      "duration": "2:34"
+    }
   },
   {
     "id": 2,
@@ -29,7 +77,55 @@
     "timeline": "4 months",
     "services": ["E-commerce Development", "AI Integration", "Digital Marketing"],
     "technologies": ["React", "Next.js", "Python", "TensorFlow", "AWS", "PostgreSQL"],
-    "videoUrl": "https://www.youtube.com/embed/QBX7RkhuyCA?si=J8xN6OX4vA2dre-g"
+    "videoUrl": "https://www.youtube.com/embed/QBX7RkhuyCA?si=J8xN6OX4vA2dre-g",
+    "highlights": [
+      { "label": "Timeline", "value": "4 months", "icon": "Clock" },
+      { "label": "Results", "value": "200% Conversion Increase", "icon": "TrendingUp" },
+      { "label": "Industry", "value": "E-commerce", "icon": "Award" },
+      { "label": "Team Size", "value": "10 specialists", "icon": "Users" }
+    ],
+    "introduction": "RetailMax approached us with a vision to transform their e-commerce presence and streamline their operations. As a growing company in the e-commerce sector, they faced challenges with outdated systems, inefficient processes, and the need to scale rapidly while maintaining quality service delivery.",
+    "opportunity": {
+      "challenges": [
+        "Outdated e-commerce platform limiting conversions",
+        "Poor mobile experience affecting sales", 
+        "Lack of personalized shopping experience",
+        "Inefficient inventory management system",
+        "Limited analytics and customer insights"
+      ],
+      "goals": [
+        "Build modern, responsive e-commerce platform",
+        "Implement AI-powered recommendation engine",
+        "Improve mobile shopping experience",
+        "Integrate advanced analytics and reporting",
+        "Automate inventory and order management"
+      ]
+    },
+    "solution": {
+      "approach": "We implemented a comprehensive e-commerce transformation strategy, focusing on modern web technologies, AI-powered personalization, and advanced analytics.",
+      "keyFeatures": [
+        "Modern e-commerce platform built with React and Next.js",
+        "AI-powered product recommendation system",
+        "Mobile-optimized shopping experience",
+        "Real-time inventory management system",
+        "Advanced analytics and customer insights dashboard",
+        "Automated order processing and fulfillment"
+      ]
+    },
+    "outcome": {
+      "metrics": [
+        { "label": "Conversion Rate", "value": "200%", "description": "Increase in online conversions" },
+        { "label": "Mobile Sales", "value": "150%", "description": "Improvement in mobile revenue" },
+        { "label": "Average Order Value", "value": "45%", "description": "Increase through AI recommendations" },
+        { "label": "Customer Retention", "value": "80%", "description": "Improvement in repeat purchases" }
+      ],
+      "longTermImpact": "The solution has positioned RetailMax as a leader in their market, with the new platform handling 5x more traffic while maintaining excellent performance and user experience."
+    },
+    "videoTestimonial": {
+      "available": true,
+      "url": "https://www.youtube.com/embed/QBX7RkhuyCA?si=J8xN6OX4vA2dre-g",
+      "duration": "3:12"
+    }
   },
   {
     "id": 3,
@@ -45,7 +141,55 @@
     "timeline": "8 months",
     "services": ["Custom Software", "Security Implementation", "Cloud Solutions"],
     "technologies": ["React", "Node.js", "MongoDB", "AWS", "TypeScript", "GraphQL"],
-    "videoUrl": "https://www.youtube.com/embed/M7lc1UVf-VE"
+    "videoUrl": "https://www.youtube.com/embed/M7lc1UVf-VE",
+    "highlights": [
+      { "label": "Timeline", "value": "8 months", "icon": "Clock" },
+      { "label": "Results", "value": "75% Time Savings", "icon": "TrendingUp" },
+      { "label": "Industry", "value": "Healthcare", "icon": "Award" },
+      { "label": "Team Size", "value": "12 specialists", "icon": "Users" }
+    ],
+    "introduction": "MedConnect Clinic approached us with a vision to transform their patient management and streamline their healthcare operations. As a growing healthcare provider, they faced challenges with outdated systems, inefficient processes, and the need to improve patient care while maintaining HIPAA compliance.",
+    "opportunity": {
+      "challenges": [
+        "Paper-based patient records causing delays",
+        "Manual appointment scheduling inefficiencies", 
+        "Poor patient communication and engagement",
+        "Lack of integrated billing and insurance processing",
+        "Compliance concerns with data security"
+      ],
+      "goals": [
+        "Implement digital patient management system",
+        "Automate appointment scheduling and reminders",
+        "Improve patient communication and portal access",
+        "Integrate billing and insurance processing",
+        "Ensure HIPAA compliance and data security"
+      ]
+    },
+    "solution": {
+      "approach": "We implemented a comprehensive healthcare management system, focusing on HIPAA-compliant technologies, user-friendly interfaces, and seamless integration with existing workflows.",
+      "keyFeatures": [
+        "HIPAA-compliant patient portal and management system",
+        "Automated appointment scheduling and reminders",
+        "Secure patient communication platform",
+        "Integrated billing and insurance processing",
+        "Real-time analytics and reporting dashboard",
+        "Mobile app for patients and staff"
+      ]
+    },
+    "outcome": {
+      "metrics": [
+        { "label": "Administrative Time", "value": "75%", "description": "Reduction in manual processing" },
+        { "label": "Patient Satisfaction", "value": "90%", "description": "Improvement in patient experience" },
+        { "label": "Appointment Efficiency", "value": "60%", "description": "Reduction in scheduling conflicts" },
+        { "label": "Billing Accuracy", "value": "95%", "description": "Improvement in billing processes" }
+      ],
+      "longTermImpact": "The solution has transformed MedConnect's operations, allowing staff to focus on patient care while improving overall efficiency and patient satisfaction."
+    },
+    "videoTestimonial": {
+      "available": true,
+      "url": "https://www.youtube.com/embed/M7lc1UVf-VE",
+      "duration": "2:45"
+    }
   },
   {
     "id": 4,
@@ -61,7 +205,55 @@
     "timeline": "12 months",
     "services": ["Platform Development", "Security Architecture", "Performance Optimization"],
     "technologies": ["React", "Next.js", "Node.js", "Redis", "AWS", "Go"],
-    "videoUrl": "https://www.youtube.com/embed/8sxAcYnZFAk"
+    "videoUrl": "https://www.youtube.com/embed/8sxAcYnZFAk",
+    "highlights": [
+      { "label": "Timeline", "value": "12 months", "icon": "Clock" },
+      { "label": "Results", "value": "99.99% Uptime", "icon": "TrendingUp" },
+      { "label": "Industry", "value": "FinTech", "icon": "Award" },
+      { "label": "Team Size", "value": "15 specialists", "icon": "Users" }
+    ],
+    "introduction": "CryptoVault approached us with a vision to create a high-performance trading platform for cryptocurrency markets. As a fintech startup, they needed a robust, secure, and scalable solution that could handle millions of transactions while maintaining the highest security standards.",
+    "opportunity": {
+      "challenges": [
+        "Need for high-frequency trading capabilities",
+        "Extreme security requirements for financial data", 
+        "Scalability to handle millions of transactions",
+        "Real-time market data processing",
+        "Regulatory compliance across multiple jurisdictions"
+      ],
+      "goals": [
+        "Build high-performance trading platform",
+        "Implement bank-grade security measures",
+        "Ensure 99.99% uptime and reliability",
+        "Process real-time market data efficiently",
+        "Meet regulatory compliance requirements"
+      ]
+    },
+    "solution": {
+      "approach": "We implemented a high-performance trading platform using cutting-edge technologies, focusing on security, scalability, and real-time processing capabilities.",
+      "keyFeatures": [
+        "High-frequency trading engine with microsecond latency",
+        "Multi-layer security architecture with encryption",
+        "Real-time market data processing and analytics",
+        "Scalable cloud infrastructure with auto-scaling",
+        "Comprehensive compliance and audit logging",
+        "Advanced risk management and monitoring systems"
+      ]
+    },
+    "outcome": {
+      "metrics": [
+        { "label": "System Uptime", "value": "99.99%", "description": "Platform availability and reliability" },
+        { "label": "Transaction Volume", "value": "10M+", "description": "Daily transactions processed" },
+        { "label": "Latency", "value": "<1ms", "description": "Average trade execution time" },
+        { "label": "Security Incidents", "value": "0", "description": "Zero security breaches" }
+      ],
+      "longTermImpact": "The platform has established CryptoVault as a leading cryptocurrency exchange, processing billions in trading volume while maintaining perfect security and uptime records."
+    },
+    "videoTestimonial": {
+      "available": true,
+      "url": "https://www.youtube.com/embed/8sxAcYnZFAk",
+      "duration": "3:28"
+    }
   },
   {
     "id": 5,
@@ -77,7 +269,55 @@
     "timeline": "5 months",
     "services": ["LMS Development", "Interactive Design", "Analytics Integration"],
     "technologies": ["React", "Next.js", "Node.js", "MongoDB", "Firebase", "TypeScript"],
-    "videoUrl": "https://www.youtube.com/embed/bQIPwkSfGZM?si=EEhWe6ajsY6z8wTV"
+    "videoUrl": "https://www.youtube.com/embed/bQIPwkSfGZM?si=EEhWe6ajsY6z8wTV",
+    "highlights": [
+      { "label": "Timeline", "value": "5 months", "icon": "Clock" },
+      { "label": "Results", "value": "85% Engagement Boost", "icon": "TrendingUp" },
+      { "label": "Industry", "value": "Education", "icon": "Award" },
+      { "label": "Team Size", "value": "9 specialists", "icon": "Users" }
+    ],
+    "introduction": "LearnHub Academy approached us with a vision to revolutionize online education through an interactive learning management system. As an educational institution, they needed a platform that could engage students, track progress, and provide comprehensive learning analytics.",
+    "opportunity": {
+      "challenges": [
+        "Low student engagement in online courses",
+        "Lack of interactive learning features", 
+        "Difficulty tracking student progress",
+        "Limited collaboration tools for students",
+        "Inadequate analytics for educators"
+      ],
+      "goals": [
+        "Create engaging interactive learning platform",
+        "Implement gamification and progress tracking",
+        "Build collaborative learning environment",
+        "Provide comprehensive analytics for educators",
+        "Ensure accessibility across all devices"
+      ]
+    },
+    "solution": {
+      "approach": "We implemented a comprehensive learning management system with gamification, interactive content, and advanced analytics to enhance the educational experience.",
+      "keyFeatures": [
+        "Interactive course platform with multimedia content",
+        "Gamification system with points, badges, and leaderboards",
+        "Real-time collaboration tools and discussion forums",
+        "Comprehensive progress tracking and analytics",
+        "Mobile-responsive design for all devices",
+        "AI-powered personalized learning recommendations"
+      ]
+    },
+    "outcome": {
+      "metrics": [
+        { "label": "Student Engagement", "value": "85%", "description": "Increase in course completion rates" },
+        { "label": "Learning Retention", "value": "70%", "description": "Improvement in knowledge retention" },
+        { "label": "Course Satisfaction", "value": "95%", "description": "Student satisfaction scores" },
+        { "label": "Teacher Efficiency", "value": "50%", "description": "Reduction in administrative tasks" }
+      ],
+      "longTermImpact": "The platform has transformed LearnHub Academy's educational delivery, with students showing significantly improved learning outcomes and engagement levels."
+    },
+    "videoTestimonial": {
+      "available": true,
+      "url": "https://www.youtube.com/embed/bQIPwkSfGZM?si=EEhWe6ajsY6z8wTV",
+      "duration": "2:56"
+    }
   },
   {
     "id": 6,
@@ -93,6 +333,54 @@
     "timeline": "10 months",
     "services": ["IoT Development", "Data Analytics", "Process Automation"],
     "technologies": ["Python", "Node.js", "AWS IoT", "MongoDB", "TensorFlow", "TypeScript"],
-    "videoUrl": "https://www.youtube.com/embed/kJQP7kiw5Fk"
+    "videoUrl": "https://www.youtube.com/embed/kJQP7kiw5Fk",
+    "highlights": [
+      { "label": "Timeline", "value": "10 months", "icon": "Clock" },
+      { "label": "Results", "value": "40% Waste Reduction", "icon": "TrendingUp" },
+      { "label": "Industry", "value": "Manufacturing", "icon": "Award" },
+      { "label": "Team Size", "value": "14 specialists", "icon": "Users" }
+    ],
+    "introduction": "IndustryPro Manufacturing approached us with a vision to modernize their production facilities through IoT integration and smart manufacturing solutions. As a traditional manufacturer, they needed to improve efficiency, reduce waste, and implement predictive maintenance.",
+    "opportunity": {
+      "challenges": [
+        "Lack of real-time production visibility",
+        "High waste and inefficient processes", 
+        "Reactive maintenance causing downtime",
+        "Manual quality control processes",
+        "Limited data-driven decision making"
+      ],
+      "goals": [
+        "Implement IoT sensors for real-time monitoring",
+        "Reduce waste through process optimization",
+        "Enable predictive maintenance capabilities",
+        "Automate quality control processes",
+        "Provide data-driven insights for management"
+      ]
+    },
+    "solution": {
+      "approach": "We implemented a comprehensive IoT and smart manufacturing solution, focusing on real-time monitoring, predictive analytics, and process automation.",
+      "keyFeatures": [
+        "IoT sensor network for real-time production monitoring",
+        "Predictive maintenance system using machine learning",
+        "Automated quality control with computer vision",
+        "Real-time dashboard for production analytics",
+        "Process optimization algorithms for waste reduction",
+        "Mobile app for technicians and managers"
+      ]
+    },
+    "outcome": {
+      "metrics": [
+        { "label": "Waste Reduction", "value": "40%", "description": "Decrease in material waste" },
+        { "label": "Downtime Reduction", "value": "60%", "description": "Improvement through predictive maintenance" },
+        { "label": "Quality Improvement", "value": "35%", "description": "Reduction in defective products" },
+        { "label": "Energy Efficiency", "value": "25%", "description": "Reduction in energy consumption" }
+      ],
+      "longTermImpact": "The IoT integration has transformed IndustryPro's manufacturing operations, establishing them as a leader in smart manufacturing with significant cost savings and efficiency improvements."
+    },
+    "videoTestimonial": {
+      "available": true,
+      "url": "https://www.youtube.com/embed/kJQP7kiw5Fk",
+      "duration": "3:15"
+    }
   }
 ]

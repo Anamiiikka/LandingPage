@@ -91,7 +91,7 @@ export default function Footer() {
 
   return (
     <footer className="relative bg-gradient-to-b from-black to-gray-900 text-white">
-      {/* Newsletter Section - Reduced padding */}
+    
       <div className="border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 py-12">
           <div className="text-center max-w-4xl mx-auto">
@@ -147,10 +147,10 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Main Footer Content - Reduced padding and spacing */}
+   
       <div className="max-w-7xl mx-auto px-4 py-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Quick Links */}
+         
           <div>
             <h3 className="text-base font-bold text-white mb-4 uppercase tracking-wider">
               Quick Links
@@ -169,7 +169,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* What We Do */}
+       
           <div>
             <h3 className="text-base font-bold text-white mb-4 uppercase tracking-wider">
               What We Do
@@ -235,10 +235,10 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Section - Reduced padding */}
+      
         <div className="mt-10 pt-6 border-t border-white/10">
           <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
-            {/* Company Info */}
+
             <div className="text-center lg:text-left">
               <h3 className="text-xl font-bold gradient-text mb-1">
                 @2025 Adalabs & Co.
@@ -246,7 +246,7 @@ export default function Footer() {
               
             </div>
 
-            {/* Social Media Links - Smaller icons */}
+           
             <div className="flex items-center gap-3">
               {socialLinks.map((social, index) => (
                 <Link
@@ -266,7 +266,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Background Elements */}
+    
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="floating-orb bottom-0 left-1/4 w-32 h-32 bg-white/[0.02]" />
         <div className="floating-orb bottom-0 right-1/4 w-24 h-24 bg-white/[0.01]" />

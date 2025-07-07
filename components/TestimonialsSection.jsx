@@ -23,7 +23,6 @@ export default function TestimonialsSection() {
   const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
   const scrollNext = () => emblaApi && emblaApi.scrollNext();
 
-  // Handle arrow key navigation
   useEffect(() => {
     if (!emblaApi) return;
 
@@ -56,7 +55,7 @@ export default function TestimonialsSection() {
   return (
     <section className="py-32 px-4 relative">
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
+      
         <div className="text-center mb-20">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-6">
             <div className="w-2 h-2 bg-white/60 rounded-full animate-pulse" />
@@ -71,7 +70,7 @@ export default function TestimonialsSection() {
           </p>
         </div>
 
-        {/* Testimonials Slider */}
+        
         <div className="relative">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex">
@@ -133,7 +132,7 @@ export default function TestimonialsSection() {
             </div>
           </div>
 
-          {/* Navigation Arrows - Changed to circular */}
+        
           <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 flex justify-between pointer-events-none">
             <Button
               onClick={scrollPrev}
@@ -150,11 +149,6 @@ export default function TestimonialsSection() {
           </div>
         </div>
 
-        
-          
-          
-
-        {/* CTA Section */}
         <div className="text-center mt-20">
           <div className="premium-card p-8 max-w-3xl mx-auto">
             <h3 className="text-2xl font-bold gradient-text mb-4">Ready to Write Your Success Story?</h3>

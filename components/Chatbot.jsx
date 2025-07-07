@@ -71,7 +71,7 @@ export default function Chatbot() {
     });
   }, []);
 
-  // Auto scroll to bottom
+  
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -80,7 +80,7 @@ export default function Chatbot() {
     scrollToBottom();
   }, [messages]);
 
-  // Popup logic
+  
   useEffect(() => {
     const interval = parseInt(process.env.NEXT_PUBLIC_CHATBOT_POPUP_INTERVAL || "20000");
     const enabled = process.env.NEXT_PUBLIC_CHATBOT_ENABLED !== "false";

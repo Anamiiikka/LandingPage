@@ -1,6 +1,5 @@
-import * as React from 'react';
-import { cva, type VariantProps } from 'class-variance-authority';
-
+import React from 'react';
+import { cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 const alertVariants = cva(
@@ -19,41 +18,44 @@ const alertVariants = cva(
   }
 );
 
-const Alert = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof alertVariants>
->(({ className, variant, ...props }, ref) => (
-  <div
-    ref={ref}
-    role="alert"
-    className={cn(alertVariants({ variant }), className)}
-    {...props}
-  />
-));
+const Alert = React.forwardRef((props, ref) => {
+  const { className, variant, ...rest } = props;
+
+  return (
+    <div
+      ref={ref}
+      role="alert"
+      className={cn(alertVariants({ variant }), className)}
+      {...rest}
+    />
+  );
+});
 Alert.displayName = 'Alert';
 
-const AlertTitle = React.forwardRef<
-  HTMLParagraphElement,
-  React.HTMLAttributes<HTMLHeadingElement>
->(({ className, ...props }, ref) => (
-  <h5
-    ref={ref}
-    className={cn('mb-1 font-medium leading-none tracking-tight', className)}
-    {...props}
-  />
-));
+const AlertTitle = React.forwardRef((props, ref) => {
+  const { className, ...rest } = props;
+
+  return (
+    <h5
+      ref={ref}
+      className={cn('mb-1 font-medium leading-none tracking-tight', className)}
+      {...rest}
+    />
+  );
+});
 AlertTitle.displayName = 'AlertTitle';
 
-const AlertDescription = React.forwardRef<
-  HTMLParagraphElement,
-  React.HTMLAttributes<HTMLParagraphElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn('text-sm [&_p]:leading-relaxed', className)}
-    {...props}
-  />
-));
+const AlertDescription = React.forwardRef((props, ref) => {
+  const { className, ...rest } = props;
+
+  return (
+    <div
+      ref={ref}
+      className={cn('text-sm [&_p]:leading-relaxed', className)}
+      {...rest}
+    />
+  );
+});
 AlertDescription.displayName = 'AlertDescription';
 
 export { Alert, AlertTitle, AlertDescription };
