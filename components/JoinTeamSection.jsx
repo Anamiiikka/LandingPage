@@ -39,15 +39,38 @@ export default function JoinTeamSection() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      const formDataToSend = new FormData();
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('age', formData.age);
+      formDataToSend.append('experience', formData.experience);
+      formDataToSend.append('resume', formData.resume);
+
+      const response = await fetch('/api/join-team', {
+        method: 'POST',
+        body: formDataToSend,
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to submit application');
+      }
+
       toast({
         title: 'Application Submitted',
         description: 'Thank you for your interest in Adalabs! We will review your application and get back to you soon.',
       });
       setFormData({ name: '', age: '', experience: '', resume: null });
+    } catch (error) {
+      toast({
+        title: 'Submission Failed',
+        description: error.message || 'An error occurred while submitting your application.',
+        variant: 'destructive',
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   return (
