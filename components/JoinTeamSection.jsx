@@ -58,10 +58,17 @@ export default function JoinTeamSection() {
       }
 
       toast({
-        title: 'Application Submitted',
+        title: 'Submitted',
         description: 'Thank you for your interest in Adalabs! We will review your application and get back to you soon.',
       });
+
+      // Reset form fields and file input
       setFormData({ name: '', age: '', experience: '', resume: null });
+      // Clear file input element
+      const fileInput = document.getElementById('resume');
+      if (fileInput) {
+        fileInput.value = '';
+      }
     } catch (error) {
       toast({
         title: 'Submission Failed',
