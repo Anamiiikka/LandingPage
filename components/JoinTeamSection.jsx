@@ -24,7 +24,12 @@ export default function JoinTeamSection() {
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
-    if (file && (file.type === 'application/pdf' || file.type === 'application/msword' || file.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document')) {
+    if (
+      file &&
+      (file.type === 'application/pdf' ||
+        file.type === 'application/msword' ||
+        file.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document')
+    ) {
       setFormData((prev) => ({ ...prev, resume: file }));
     } else {
       toast({
@@ -59,12 +64,11 @@ export default function JoinTeamSection() {
 
       toast({
         title: 'Submitted',
-        description: 'Thank you for your interest in Adalabs! We will review your application and get back to you soon.',
+        description:
+          'Thank you for your interest in Adalabs! We will review your application and get back to you soon.',
       });
 
-      // Reset form fields and file input
       setFormData({ name: '', age: '', experience: '', resume: null });
-      // Clear file input element
       const fileInput = document.getElementById('resume');
       if (fileInput) {
         fileInput.value = '';
@@ -72,7 +76,8 @@ export default function JoinTeamSection() {
     } catch (error) {
       toast({
         title: 'Submission Failed',
-        description: error.message || 'An error occurred while submitting your application.',
+        description:
+          error.message || 'An error occurred while submitting your application.',
         variant: 'destructive',
       });
     } finally {
@@ -84,7 +89,7 @@ export default function JoinTeamSection() {
     <section className="py-32 px-4 relative overflow-hidden">
       <div className="floating-orb top-1/4 left-1/4 w-64 h-64 bg-white/[0.02]" />
       <div className="floating-orb bottom-1/3 right-1/4 w-96 h-96 bg-white/[0.01]" />
-      
+
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
@@ -102,20 +107,16 @@ export default function JoinTeamSection() {
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-          <Button 
-            asChild
-            size="lg" 
-            className="premium-button px-8 py-3 rounded-xl"
-          >
+          <Button asChild size="lg" className="premium-button px-8 py-3 rounded-xl">
             <a href="/careers">
               Explore Adalabs Careers
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
             </a>
           </Button>
-          <Button 
+          <Button
             asChild
-            size="lg" 
-            variant="outline" 
+            size="lg"
+            variant="outline"
             className="px-8 py-3 rounded-xl border-white/20 hover:bg-white/5 hover:border-white/40 transition-all duration-300"
           >
             <a href="/about">
@@ -132,7 +133,9 @@ export default function JoinTeamSection() {
           </h3>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <Label htmlFor="name" className="text-white/80">Full Name</Label>
+              <Label htmlFor="name" className="text-white/80">
+                Full Name
+              </Label>
               <Input
                 id="name"
                 name="name"
@@ -144,7 +147,9 @@ export default function JoinTeamSection() {
               />
             </div>
             <div>
-              <Label htmlFor="age" className="text-white/80">Age</Label>
+              <Label htmlFor="age" className="text-white/80">
+                Age
+              </Label>
               <Input
                 id="age"
                 name="age"
@@ -158,7 +163,9 @@ export default function JoinTeamSection() {
               />
             </div>
             <div>
-              <Label htmlFor="experience" className="text-white/80">Years of Experience</Label>
+              <Label htmlFor="experience" className="text-white/80">
+                Years of Experience
+              </Label>
               <Input
                 id="experience"
                 name="experience"
@@ -172,18 +179,28 @@ export default function JoinTeamSection() {
               />
             </div>
             <div>
-              <Label htmlFor="resume" className="text-white/80">Resume/CV (PDF or DOC)</Label>
-              <div className="mt-2 relative">
-                <Input
+              <Label htmlFor="resume" className="text-white/80">
+                Resume/CV (PDF or DOC)
+              </Label>
+              <div className="mt-2">
+                <label
+                  htmlFor="resume"
+                  className="w-full h-12 flex items-center justify-center gap-2 cursor-pointer rounded-md bg-white/5 border border-white/10 text-white hover:bg-white/10 transition"
+                >
+                  <FileText className="w-5 h-5 text-white/60" />
+                  <span className="text-white/80">
+                    {formData.resume ? formData.resume.name : 'Choose File'}
+                  </span>
+                </label>
+                <input
                   id="resume"
                   name="resume"
                   type="file"
                   accept=".pdf,.doc,.docx"
                   onChange={handleFileChange}
+                  className="hidden"
                   required
-                  className="bg-white/5 border-white/10 text-white file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:bg-white/10 file:text-white/80 hover:file:bg-white/20"
                 />
-                <FileText className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-white/60" />
               </div>
             </div>
             <Button
