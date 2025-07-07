@@ -26,6 +26,7 @@ const applicantSchema = new mongoose.Schema({
   age: { type: Number, required: true },
   experience: { type: Number, required: true },
   resumeFileId: { type: mongoose.Schema.Types.ObjectId, required: true },
+  jobId: { type: String, required: true }, // Added to track job vacancy
   submittedAt: { type: Date, default: Date.now },
 });
 
@@ -42,17 +43,18 @@ export async function POST(request) {
     const age = formData.get('age');
     const experience = formData.get('experience');
     const resume = formData.get('resume');
+    const jobId = formData.get('jobId');
 
     // Validate input
-    if (!name || !age || !experience || !resume) {
-      console.error('Missing fields:', { name, age, experience, resume });
+    if (!name || !age || !experience || !resume || !jobId) {
+      console.error('Missing fields:', { name, age, experience, resume, jobId });
       return NextResponse.json(
-        { error: 'All fields are required' },
+        { error: 'All fields are required, including jobId' },
         { status: 400 }
       );
     }
 
-    const ageNum = Number(age);
+    const ageNum = Number(age); // Fixed: Correctly parse age
     const experienceNum = Number(experience);
 
     if (isNaN(ageNum) || ageNum < 18) {
@@ -121,6 +123,7 @@ export async function POST(request) {
       age: ageNum,
       experience: experienceNum,
       resumeFileId,
+      jobId, // Include jobId in the document
     });
 
     await applicant.save();

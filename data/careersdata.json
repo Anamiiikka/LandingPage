@@ -1,0 +1,17 @@
+[
+  {
+    "id": "1",
+    "title": "Senior Full Stack Developer",
+    "description": "Join our team to build cutting-edge web applications using React, Node.js, and MongoDB."
+  },
+  {
+    "id": "2",
+    "title": "AI/ML Engineer",
+    "description": "Work on innovative AI solutions, including NLP and predictive analytics, using TensorFlow and Python."
+  },
+  {
+    "id": "3",
+    "title": "UI/UX Designer",
+    "description": "Design user-friendly interfaces for web and mobile applications with a focus on modern aesthetics."
+  }
+]
