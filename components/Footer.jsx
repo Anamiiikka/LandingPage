@@ -1,9 +1,8 @@
-"use client";
+'use client';
 
 import { Button } from "@/components/ui/button.jsx";
 import { Input } from "@/components/ui/input.jsx";
 import { Separator } from "@/components/ui/separator.jsx";
-
 import { 
   Facebook, 
   Twitter, 
@@ -85,13 +84,12 @@ export default function Footer() {
   ];
 
   const legal = [
-    { label: "Privacy Policy", href: "/privacy" },
-    { label: "Terms & Conditions", href: "/terms" },
+    { label: "Privacy Policy", href: "/privacy-policy" },
+    { label: "Terms & Conditions", href: "/terms-and-conditions" },
   ];
 
   return (
     <footer className="relative bg-gradient-to-b from-black to-gray-900 text-white">
-    
       <div className="border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 py-12">
           <div className="text-center max-w-4xl mx-auto">
@@ -147,10 +145,8 @@ export default function Footer() {
         </div>
       </div>
 
-   
       <div className="max-w-7xl mx-auto px-4 py-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-         
           <div>
             <h3 className="text-base font-bold text-white mb-4 uppercase tracking-wider">
               Quick Links
@@ -169,7 +165,6 @@ export default function Footer() {
             </ul>
           </div>
 
-       
           <div>
             <h3 className="text-base font-bold text-white mb-4 uppercase tracking-wider">
               What We Do
@@ -188,7 +183,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Legal */}
           <div>
             <h3 className="text-base font-bold text-white mb-4 uppercase tracking-wider">
               Legal
@@ -207,7 +201,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Talk to Us */}
           <div>
             <Button 
               asChild
@@ -235,22 +228,17 @@ export default function Footer() {
           </div>
         </div>
 
-      
         <div className="mt-10 pt-6 border-t border-white/10">
           <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
-
             <div className="text-center lg:text-left">
               <h3 className="text-xl font-bold gradient-text mb-1">
                 @2025 Adalabs & Co.
               </h3>
-              
             </div>
 
-           
             <div className="flex items-center gap-3">
               {socialLinks.map((social, index) => (
                 <Link
-                
                   key={index}
                   href={social.href}
                   target="_blank"
@@ -266,7 +254,6 @@ export default function Footer() {
         </div>
       </div>
 
-    
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="floating-orb bottom-0 left-1/4 w-32 h-32 bg-white/[0.02]" />
         <div className="floating-orb bottom-0 right-1/4 w-24 h-24 bg-white/[0.01]" />
