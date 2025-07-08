@@ -1,128 +1,52 @@
-"use client";
+import React from 'react';
+import { Lightbulb, Building2, Truck, Heart, GraduationCap, ShoppingCart, Sun, Plane } from 'lucide-react';
+import industriesData from '@/data/industriesData.json';
 
-import { Card, CardContent } from "@/components/ui/card.jsx";
-import { Button } from "@/components/ui/button.jsx";
-import { ArrowRight } from "lucide-react";
-import { useRouter } from 'next/navigation';
-import industriesData from "@/data/industriesData.json";
-import {
-  Code2,
-  Plane,
-  Sun,
-  Heart,
-  GraduationCap,
-  ShoppingCart,
-  Building2,
-  Truck
-} from "lucide-react";
-
-// Icon mapping for dynamic icon rendering
-const iconMap = {
-  Code2,
-  Plane,
-  Sun,
-  Heart,
-  GraduationCap,
-  ShoppingCart,
-  Building2,
-  Truck
+const industries = {
+  "Banking": { icon: Building2, id: "fintech" },
+  "Capital Markets": { icon: Building2, id: "fintech" },
+  "Communications, Media, and Information Services": { icon: Lightbulb, id: "software" },
+  "Consumer Goods and Distribution": { icon: ShoppingCart, id: "ecommerce" },
+  "Education": { icon: GraduationCap, id: "education" },
+  "Energy, Resources, and Utilities": { icon: Sun, id: "solar" },
+  "Healthcare": { icon: Heart, id: "healthcare" },
+  "High Tech": { icon: Lightbulb, id: "software" },
+  "Insurance": { icon: Building2, id: "fintech" },
+  "Life Sciences": { icon: Heart, id: "healthcare" },
+  "Manufacturing": { icon: Lightbulb, id: "software" },
+  "Public Services": { icon: Building2, id: "fintech" },
+  "Retail": { icon: ShoppingCart, id: "ecommerce" },
+  "Travel and Logistics": { icon: Truck, id: "logistics" },
 };
 
-export default function IndustriesSection() {
-  const router = useRouter();
-
-  const handleIndustryClick = (industryId) => {
-    router.push(`/industries/${industryId}`);
-  };
-
-  // Convert object to array for mapping
-  const industries = Object.values(industriesData);
-
+const IndustriesSection = () => {
   return (
-    <section className="py-32 px-4 relative">
-      <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-6">
-            <div className="w-2 h-2 bg-white/60 rounded-full animate-pulse" />
-            <span className="text-sm font-medium text-white/80">Our Expertise</span>
-          </div>
-          <h2 className="text-5xl md:text-6xl font-bold mb-8 leading-tight">
-            <span className="gradient-text">Industries We Serve</span>
-          </h2>
-          <p className="text-xl text-white/60 max-w-4xl mx-auto leading-relaxed">
-            From cutting-edge technology to traditional industries, we deliver tailored solutions 
-            that drive innovation and growth across diverse sectors.
-          </p>
-        </div>
-
-        {/* Industries Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-          {industries.map((industry, index) => {
-            const IconComponent = iconMap[industry.icon];
-            
-            return (
-              <Card 
-                key={industry.id}
-                className={`premium-card overflow-hidden hover-lift glow-effect group cursor-pointer transition-all duration-500 ${industry.borderColor} ${industry.hoverColor}`}
-                onClick={() => handleIndustryClick(industry.id)}
-              >
-                <CardContent className="p-6">
-                  <div className={`w-16 h-16 bg-gradient-to-br ${industry.gradient} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-500 shadow-lg border border-white/10`}>
-                    {IconComponent && <IconComponent className="w-8 h-8 text-white" />}
-                  </div>
-                  
-                  <h3 className="text-lg font-semibold mb-3 gradient-text group-hover:text-white transition-colors duration-300">
-                    {industry.title}
-                  </h3>
-                  
-                  <p className="text-white/60 text-sm leading-relaxed mb-4 group-hover:text-white/80 transition-colors duration-300">
-                    {industry.description}
-                  </p>
-                  
-                  <Button 
-                    variant="ghost" 
-                    className="w-full justify-between text-white/70 hover:text-white hover:bg-white/5 transition-all duration-300 group/btn p-0 h-auto"
-                  >
-                    <span className="text-sm">Learn More</span>
-                    <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
-                  </Button>
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
-
-        {/* CTA Section */}
-        <div className="text-center">
-          <div className="premium-card p-8 max-w-3xl mx-auto">
-            <h3 className="text-2xl font-bold gradient-text mb-4">
-              Don't See Your Industry?
-            </h3>
-            <p className="text-white/60 mb-6">
-              We work with businesses across all sectors. Let's discuss how we can help transform your industry with innovative technology solutions.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="premium-button px-8 py-3 rounded-xl">
-                Discuss Your Project
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="px-8 py-3 rounded-xl border-white/20 hover:bg-white/5 hover:border-white/40 transition-all duration-300"
-              >
-                View All Services
-              </Button>
-            </div>
-          </div>
-        </div>
+    <section className="py-16 px-4 bg-background">
+      <div className="max-w-6xl mx-auto text-center mb-12">
+        <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6 leading-tight">
+          Select your domain. Discover the value we bring.
+        </h2>
+        <p className="text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
+          Explore how we tailor our solutions to meet the unique needs of your industry.
+        </p>
       </div>
-
-      {/* Background Elements */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="floating-orb top-1/4 left-1/4 w-64 h-64 bg-white/[0.02]" />
-        <div className="floating-orb bottom-1/4 right-1/4 w-48 h-48 bg-white/[0.01]" />
+      <div className="max-w-6xl mx-auto space-y-4">
+        {Object.entries(industries).map(([title, { icon: Icon, id }]) => {
+          const industry = industriesData[id] || {};
+          return (
+            <div key={title} className="flex items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors duration-300">
+              <Icon className="w-8 h-8 text-white/70 mr-4" />
+              <div className="flex-1 text-left">
+                <h3 className="text-sm font-medium text-white">{title}</h3>
+                <p className="text-xs text-white/70">{industry.description || 'Tailored solutions'}</p>
+              </div>
+              <a href={`/industries/${id}`} className="premium-button px-2 py-1 text-xs rounded-xl">Learn More</a>
+            </div>
+          );
+        })}
       </div>
     </section>
   );
-}
+};
+
+export default IndustriesSection;

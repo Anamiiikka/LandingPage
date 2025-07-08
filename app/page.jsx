@@ -19,10 +19,10 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-background">
       <HeroSection />
-      {/* <ServicesSection />
+       <ServicesSection />
       <section id="industries">
         <IndustriesSection />
-      </section> */}
+      </section> 
       <TestimonialsSection />
       <FAQSection />
       <ConsultationSection />
