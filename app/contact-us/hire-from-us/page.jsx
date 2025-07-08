@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { useToast } from '@/hooks/use-toast';
 import pointersData from '@/data/hire-from-us-pointers.json';
 
@@ -40,22 +41,17 @@ export default function HireFromUsPage() {
       }
 
       toast({
-        title: 'Success!',
-        description: 'Thank you for your interest! Our team will reach out to you soon.',
-        variant: 'success', // Custom variant for success styling
-        duration: 5000, // Display for 5 seconds
-        className: 'bg-green-500/20 border-green-500/40 text-white',
+        title: 'Submitted',
+        description: 'Thank you for your interest in Adalabs! Our team will reach out to you soon.',
       });
 
       setFormData({ name: '', email: '', message: '' });
-      setIsFormOpen(false);
+      setIsFormOpen(false); // Close modal after successful submission
     } catch (error) {
       toast({
         title: 'Submission Failed',
         description: error.message || 'An error occurred while submitting your request.',
         variant: 'destructive',
-        duration: 5000,
-        className: 'bg-red-500/20 border-red-500/40 text-white',
       });
     } finally {
       setIsSubmitting(false);
@@ -105,12 +101,14 @@ export default function HireFromUsPage() {
           </Button>
         </div>
 
-        {/* Contact Form (shown when CTA is clicked) */}
-        {isFormOpen && (
-          <div className="premium-card p-8 max-w-3xl mx-auto">
-            <h3 className="text-2xl font-bold gradient-text mb-6 text-center">
-              Connect with Our Team
-            </h3>
+        {/* Contact Form Modal */}
+        <Dialog open={isFormOpen} onOpenChange={setIsFormOpen}>
+          <DialogContent className="premium-card p-8 max-w-3xl mx-auto bg-black/90 border-white/10 backdrop-blur-md transition-none">
+            <DialogHeader>
+              <DialogTitle className="text-2xl font-bold gradient-text text-center">
+                Connect with Our Team
+              </DialogTitle>
+            </DialogHeader>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <Label htmlFor="name" className="text-white/80">Full Name</Label>
@@ -167,8 +165,8 @@ export default function HireFromUsPage() {
                 </Button>
               </div>
             </form>
-          </div>
-        )}
+          </DialogContent>
+        </Dialog>
       </div>
     </section>
   );
