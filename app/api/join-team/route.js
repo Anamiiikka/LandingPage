@@ -1,13 +1,12 @@
 import { NextResponse } from 'next/server';
 import mongoose from 'mongoose';
-import { GridFSBucket } from 'mongodb';
+import cloudinary from '@/lib/cloudinary'; // Import Cloudinary
 
 // MongoDB connection
 let isConnected = false;
 
 async function connectToDatabase() {
   if (isConnected) return;
-
   try {
     await mongoose.connect(process.env.MONGODB_URI, {
       dbName: 'adalabs',
@@ -25,14 +24,14 @@ const applicantSchema = new mongoose.Schema({
   name: { type: String, required: true },
   age: { type: Number, required: true },
   experience: { type: Number, required: true },
-  resumeFileId: { type: mongoose.Schema.Types.ObjectId, required: true },
-  jobId: { type: String, required: true }, // Added to track job vacancy
+  resumeUrl: { type: String, required: true }, // Changed to store Cloudinary URL
+  jobId: { type: String, required: true },
   submittedAt: { type: Date, default: Date.now },
 });
 
 const Applicant = mongoose.models.Applicant || mongoose.model('Applicant', applicantSchema);
 
-// POST handler for form submission
+// POST handler
 export async function POST(request) {
   try {
     await connectToDatabase();
@@ -54,7 +53,7 @@ export async function POST(request) {
       );
     }
 
-    const ageNum = Number(age); // Fixed: Correctly parse age
+    const ageNum = Number(age);
     const experienceNum = Number(experience);
 
     if (isNaN(ageNum) || ageNum < 18) {
@@ -97,24 +96,26 @@ export async function POST(request) {
       );
     }
 
-    // Store resume in GridFS
-    const db = mongoose.connection.db;
-    const bucket = new GridFSBucket(db, { bucketName: 'resumes' });
-    const uploadStream = bucket.openUploadStream(resume.name || 'resume');
-
+    // Upload resume to Cloudinary
     const fileBuffer = Buffer.from(await resume.arrayBuffer());
-    const resumeFileId = await new Promise((resolve, reject) => {
-      uploadStream
-        .on('error', (error) => {
-          console.error('GridFS upload error:', error);
-          reject(error);
-        })
-        .on('finish', () => {
-          console.log('File uploaded to GridFS:', uploadStream.id);
-          resolve(uploadStream.id);
-        });
-      uploadStream.write(fileBuffer);
-      uploadStream.end();
+    const uploadResult = await new Promise((resolve, reject) => {
+      const uploadStream = cloudinary.uploader.upload_stream(
+        {
+          resource_type: 'raw',
+          folder: 'adalabs_resumes',
+          public_id: `${jobId}_${Date.now()}_${resume.name}`,
+        },
+        (error, result) => {
+          if (error) {
+            console.error('Cloudinary upload error:', error);
+            reject(error);
+          } else {
+            console.log('File uploaded to Cloudinary:', result.secure_url);
+            resolve(result);
+          }
+        }
+      );
+      uploadStream.end(fileBuffer);
     });
 
     // Save applicant data
@@ -122,8 +123,8 @@ export async function POST(request) {
       name,
       age: ageNum,
       experience: experienceNum,
-      resumeFileId,
-      jobId, // Include jobId in the document
+      resumeUrl: uploadResult.secure_url, // Store Cloudinary URL
+      jobId,
     });
 
     await applicant.save();
