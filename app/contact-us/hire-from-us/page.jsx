@@ -7,7 +7,7 @@ export default function Home() {
       title: "Highly Skilled & Experienced Developers",
       description: "Our team comprises seasoned professionals with deep expertise in modern technologies, ensuring faster execution and higher quality outcomes.",
       gradient: "from-yellow-500 to-orange-500",
-      image: "	https://spaces.is/media/pages/culture/a094348f9c-1713951836/struggle-576x921.6-crop-q85.webp",
+      image: "https://spaces.is/media/pages/culture/a094348f9c-1713951836/struggle-576x921.6-crop-q85.webp",
     },
     {
       title: "24/7 Availability & Global Support",
@@ -35,7 +35,6 @@ export default function Home() {
       <nav className="flex justify-between items-center p-6 relative z-10">
         <div className="flex items-center space-x-8">
         </div>
-        
       </nav>
 
       {/* Hero Section */}
@@ -55,13 +54,11 @@ export default function Home() {
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/contact-us/request-for-services">
-  <button className="bg-white text-black px-8 py-4 rounded-full font-medium hover:bg-gray-100 transition-all transform hover:scale-105 flex items-center gap-2">
-    Talk to an Expert
-    <ArrowRight className="w-5 h-5" />
-  </button>
-</Link>
-
-                
+                  <button className="bg-white text-black px-8 py-4 rounded-full font-medium hover:bg-gray-100 transition-all transform hover:scale-105 flex items-center gap-2">
+                    Talk to an Expert
+                    <ArrowRight className="w-5 h-5" />
+                  </button>
+                </Link>
               </div>
             </div>
 
@@ -122,13 +119,14 @@ export default function Home() {
           <div className="relative">
             {cards.map((card, index) => {
               const cardHeight = 384; // 96px (h-96) in pixels
-              const verticalStep = cardHeight * 0.2; // 20% of card height for better fit
+              const verticalStep = cardHeight * 0.2; // 20% of card height for vertical offset
               const cardCount = cards.length;
-              const sideMargin = 3; // 3vw margin on each side
-              const cardGap = 1; // 1vw gap between cards
-              const totalAvailableWidth = 100 - (sideMargin * 2); // Total width minus side margins
+              const cardGap = 2; // 2vw gap between cards
+              const maxContentWidth = 90; // Cap total content width at 90vw
               const totalGapWidth = (cardCount - 1) * cardGap; // Total gap width
-              const cardWidth = (totalAvailableWidth - totalGapWidth) / cardCount; // Width per card
+              const cardWidth = (maxContentWidth - totalGapWidth) / cardCount; // Width per card
+              const totalContentWidth = (cardCount * cardWidth) + totalGapWidth; // Total width of cards + gaps
+              const sideMargin = (100 - totalContentWidth) / 2; // Equal margin on both sides
 
               return (
                 <div
@@ -137,8 +135,7 @@ export default function Home() {
                   style={{
                     background: `linear-gradient(to bottom right, ${card.gradient}, rgba(0, 0, 0, 0.8))`,
                     position: 'absolute',
-                   left: `${(index === 0 ? 0 : sideMargin) + (index * (cardWidth + cardGap))}vw`,
-
+                    left: `${sideMargin + index * (cardWidth + cardGap)}vw`,
                     top: `${index * verticalStep}px`,
                     width: `${cardWidth}vw`,
                   }}
@@ -147,7 +144,6 @@ export default function Home() {
                     src={card.image}
                     alt={card.title}
                     className="absolute inset-0 w-full h-full object-cover"
-
                   />
                   <div className="absolute inset-0 bg-black bg-opacity-20"></div>
                   <div className="relative z-10 p-4 text-center flex flex-col justify-center h-full">
