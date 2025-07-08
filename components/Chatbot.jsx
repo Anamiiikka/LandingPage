@@ -140,9 +140,9 @@ export default function Chatbot() {
     const userMessage = inputMessage.toLowerCase();
     setInputMessage("");
 
-    setIsTyping(true); // Start typing indicator immediately
+    setIsTyping(true);
     const response = await getAIResponse(userMessage);
-    setIsTyping(false); // Stop typing indicator when done
+    setIsTyping(false);
     addMessage(response.text, true, response.options);
   };
 
@@ -266,7 +266,7 @@ export default function Chatbot() {
         case "Contact Support":
           setCurrentView("contact");
           addMessage(
-            "Here’s our mock support contact information:\n\n- **Phone:** +1 (555) 987-6543\n- **Email:** support@yourcompany.com\n- **Hours:** Monday-Friday, 9 AM - 6 PM EST\n\nPlease fill out the form below to send a message to our support team.",
+            "Here's our mock support contact information:\n\n- **Phone:** +1 (555) 987-6543\n- **Email:** support@yourcompany.com\n- **Hours:** Monday-Friday, 9 AM - 6 PM EST\n\nPlease fill out the form below to send a message to our support team.",
             true
           );
           break;
@@ -383,10 +383,10 @@ The proposal will include project scope, timeline, pricing, and next steps.`,
 
   return (
     <>
-      {/* Premium Popup Notification */}
+      {/* Simplified Popup Notification - removed animations */}
       {showPopup && !isOpen && (
         <div
-          className="fixed bottom-28 right-6 z-50 premium-card p-6 max-w-sm cursor-pointer hover-lift animate-in slide-in-from-right group"
+          className="fixed bottom-28 right-6 z-50 premium-card p-6 max-w-sm cursor-pointer hover-lift group"
           style={{ zIndex: 60 }}
           onClick={() => {
             setIsOpen(true);
@@ -394,7 +394,7 @@ The proposal will include project scope, timeline, pricing, and next steps.`,
           }}
         >
           <div className="flex items-start gap-4">
-            <div className="w-12 h-12 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+            <div className="w-12 h-12 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
               <Crown className="w-6 h-6 text-white" />
             </div>
             <div className="flex-1">
@@ -429,10 +429,10 @@ The proposal will include project scope, timeline, pricing, and next steps.`,
         </div>
       )}
 
-      {/* Premium Chat Button */}
+      {/* Chat Button - simplified animations */}
       <Button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-2xl bg-gradient-to-br from-white to-gray-200 hover:from-white hover:to第十白 text-black shadow-2xl hover:shadow-3xl pulse-glow group"
+        className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-2xl bg-gradient-to-br from-white to-gray-200 hover:from-white hover:to-white text-black shadow-2xl hover:shadow-3xl group transition-all duration-300"
         style={{ zIndex: 70 }}
         size="icon"
       >
@@ -443,7 +443,7 @@ The proposal will include project scope, timeline, pricing, and next steps.`,
         )}
       </Button>
 
-      {/* Premium Chat Window */}
+      {/* Chat Window - optimized for performance */}
       {isOpen && (
         <Card className="fixed bottom-28 right-6 z-50 w-[420px] h-[600px] premium-card border-white/20 shadow-2xl" style={{ zIndex: 50 }}>
           <CardHeader className="pb-4 border-b border-white/10">
@@ -455,7 +455,7 @@ The proposal will include project scope, timeline, pricing, and next steps.`,
                 <div>
                   <CardTitle className="text-lg gradient-text">AI Assistant</CardTitle>
                   <div className="flex items-center gap-2 text-sm text-white/60">
-                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                    <div className="w-2 h-2 bg-green-400 rounded-full" />
                     <span>Online & Ready</span>
                     <Crown className="w-3 h-3" />
                   </div>
@@ -514,15 +514,15 @@ The proposal will include project scope, timeline, pricing, and next steps.`,
                     </div>
                   ))}
 
-                  {/* Typing Indicator */}
+                  {/* Simplified Typing Indicator */}
                   {isTyping && (
                     <div className="flex justify-start">
                       <div className="bg-gradient-to-br from-white/10 to-white/5 text-white border border-white/10 p-4 rounded-2xl shadow-lg">
                         <div className="flex items-center gap-2">
                           <div className="flex gap-1">
-                            <div className="w-2 h-2 bg-white/60 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                            <div className="w-2 h-2 bg-white/60 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                            <div className="w-2 h-2 bg-white/60 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                            <div className="w-2 h-2 bg-white/60 rounded-full" />
+                            <div className="w-2 h-2 bg-white/60 rounded-full" />
+                            <div className="w-2 h-2 bg-white/60 rounded-full" />
                           </div>
                           <span className="text-xs text-white/60">AI is typing...</span>
                         </div>
@@ -609,7 +609,7 @@ The proposal will include project scope, timeline, pricing, and next steps.`,
                     placeholder="How can we help you? Tell us about your project, questions, or requirements..."
                     value={contactForm.message}
                     onChange={(e) => setContactForm((prev) => ({ ...prev, message: e.target.value }))}
-                    className="bg-white/5 border-white/20 rounded-xl focus:border-white/40 min-h-[120px] resize-none z-10 ludicrously fast-paced language z-10"
+                    className="bg-white/5 border-white/20 rounded-xl focus:border-white/40 min-h-[120px] resize-none z-10"
                     required
                     style={{ pointerEvents: 'auto' }}
                   />

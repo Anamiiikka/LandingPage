@@ -49,16 +49,13 @@ export default function TestimonialsSection() {
     router.push(`/testimonials/${testimonialId}`);
   };
 
-  // Get the first testimonial's video URL for the main video section
-  const featuredVideoUrl = testimonialsData[0]?.videoUrl || "https://www.youtube.com/embed/dQw4w9WgXcQ";
-
   return (
     <section className="py-32 px-4 relative">
       <div className="max-w-7xl mx-auto">
       
         <div className="text-center mb-20">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-6">
-            <div className="w-2 h-2 bg-white/60 rounded-full animate-pulse" />
+            <div className="w-2 h-2 bg-white/60 rounded-full" />
             <span className="text-sm font-medium text-white/80">Success Stories</span>
           </div>
           <h2 className="text-5xl md:text-6xl font-bold mb-8 leading-tight">
@@ -70,7 +67,7 @@ export default function TestimonialsSection() {
           </p>
         </div>
 
-        
+        {/* Testimonials Slider - optimized for performance */}
         <div className="relative">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex">
@@ -80,10 +77,11 @@ export default function TestimonialsSection() {
                   className="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.33%] px-4"
                 >
                   <Card 
-                    className="premium-card overflow-hidden hover-lift glow-effect group transition-all duration-500 cursor-pointer"
+                    className="premium-card overflow-hidden hover-lift glow-effect group transition-all duration-300 cursor-pointer"
                     onClick={() => handleCardClick(testimonial.id)}
                   >
                     <div className="relative overflow-hidden">
+                      {/* Optimized image loading */}
                       <div 
                         className="aspect-[4/3] bg-gradient-to-br from-white/15 to-white/5 relative overflow-hidden"
                         style={{
@@ -132,17 +130,17 @@ export default function TestimonialsSection() {
             </div>
           </div>
 
-        
+          {/* Navigation Arrows */}
           <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 flex justify-between pointer-events-none">
             <Button
               onClick={scrollPrev}
-              className="w-12 h-12 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/10 p-0 pointer-events-auto"
+              className="w-12 h-12 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/10 p-0 pointer-events-auto transition-colors duration-200"
             >
               <ChevronLeft className="w-6 h-6 text-white" />
             </Button>
             <Button
               onClick={scrollNext}
-              className="w-12 h-12 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/10 p-0 pointer-events-auto"
+              className="w-12 h-12 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/10 p-0 pointer-events-auto transition-colors duration-200"
             >
               <ChevronRight className="w-6 h-6 text-white" />
             </Button>
