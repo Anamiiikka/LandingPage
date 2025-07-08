@@ -72,6 +72,7 @@ export default function Footer() {
     { label: "About us", href: "/about" },
     { label: "Testimonials", href: "/testimonials" },
     { label: "Contact us", href: "/contact" },
+    { label: "Hire Developers from Us", href: "/contact-us/hire-from-us" },
   ];
 
   const services = [
