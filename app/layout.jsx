@@ -1,5 +1,6 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
+import { Toaster } from '@/components/ui/toaster'; // ✅ Make sure the path is correct
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -28,7 +29,10 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://images.pexels.com" />
         <link rel="dns-prefetch" href="https://images.pexels.com" />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {children}
+        <Toaster /> 
+      </body>
     </html>
   );
 }

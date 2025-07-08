@@ -7,7 +7,7 @@ export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden">
       
-      {/* Simplified background elements - no animations */}
+     
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white/[0.03] rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-white/[0.02] rounded-full blur-3xl" />
       <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-white/[0.01] rounded-full blur-3xl" />
