@@ -244,7 +244,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="w-10 h-10 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 rounded-full flex items-center justify-center transition-all duration-300 group hover:scale-110"
+                  className="w-10 h-10 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 rounded-full flex items-center justify-center transition-all duration-300 group hover:scale-105"
                 >
                   <social.icon className="w-4 h-4 text-white/70 group-hover:text-white transition-colors duration-300" />
                 </Link>
@@ -254,9 +254,10 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* Simplified background elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="floating-orb bottom-0 left-1/4 w-32 h-32 bg-white/[0.02]" />
-        <div className="floating-orb bottom-0 right-1/4 w-24 h-24 bg-white/[0.01]" />
+        <div className="absolute bottom-0 left-1/4 w-32 h-32 bg-white/[0.02] rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-24 h-24 bg-white/[0.01] rounded-full blur-3xl" />
       </div>
     </footer>
   );
