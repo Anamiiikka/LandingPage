@@ -1,3 +1,4 @@
+
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button.jsx";
 import Link from "next/link";
@@ -31,7 +32,12 @@ import {
   Cloud,
   Smartphone,
   Server,
-  GitBranch
+  GitBranch,
+  Sparkles,
+  Rocket,
+  Eye,
+  MessageCircle,
+  PlayCircle
 } from "lucide-react";
 
 const iconMap = {
@@ -51,13 +57,18 @@ const iconMap = {
   Cloud,
   Smartphone,
   Server,
-  GitBranch
+  GitBranch,
+  Sparkles,
+  Rocket
 };
 
 const techIconMap = {
+  "React": "Code2",
   "React.js": "Code2",
+  "Next.js": "Code2",
   "Node.js": "Database", 
   "AWS": "Cloud",
+  "AWS HIPAA": "Cloud",
   "React Native": "Smartphone",
   "MongoDB": "Server",
   "Docker": "GitBranch",
@@ -71,7 +82,36 @@ const techIconMap = {
   "Redis": "Database",
   "Kubernetes": "Cloud",
   "Azure": "Cloud",
-  "Google Cloud": "Cloud"
+  "Google Cloud": "Cloud",
+  "Blockchain": "Shield",
+  "Security": "Shield",
+  "APIs": "GitBranch",
+  "Machine Learning": "Sparkles",
+  "AI/ML": "Sparkles",
+  "Kafka": "Database",
+  "Elasticsearch": "Database",
+  "WebRTC": "Smartphone",
+  "Shopify": "ShoppingCart",
+  "WooCommerce": "ShoppingCart",
+  "Stripe": "ShoppingCart",
+  "PayPal": "ShoppingCart",
+  "FHIR": "Heart",
+  "HL7": "Heart",
+  "Encryption": "Shield",
+  "SAP": "Database",
+  "IoT": "Zap",
+  "Progressive Web Apps": "Smartphone",
+  "InfluxDB": "Database",
+  "Grafana": "Database",
+  "MQTT": "Zap",
+  "Cloud Analytics": "Cloud",
+  "GPS Tracking": "Truck",
+  "Real-time APIs": "GitBranch",
+  "Mobile": "Smartphone",
+  "GIS": "Globe",
+  "PLC Programming": "Zap",
+  "SCADA": "Zap",
+  "Bioinformatics": "Heart"
 };
 
 export async function generateStaticParams() {
@@ -109,27 +149,71 @@ export default function IndustryPage({ params }) {
 
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
-      {/* Hero Section */}
-      <div className="relative overflow-hidden px-6 py-16 bg-black">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <h1 className="text-6xl lg:text-7xl font-bold leading-tight text-white">
-                  Collaborate with <span className="italic font-light">expert</span> teams to create
-                  <span className="block">innovative {industry.title} solutions.</span>
+     
+      <div className="relative overflow-hidden px-6 py-20 bg-gradient-to-br from-gray-900 via-black to-gray-800">
+        
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-20 left-20 w-96 h-96 bg-blue-500 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-20 w-80 h-80 bg-purple-500 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-10">
+              {/* Industry Badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+                {IconComponent && <IconComponent className="w-5 h-5 text-blue-400" />}
+                <span className="text-sm font-medium text-white">{industry.title} Solutions</span>
+              </div>
+              
+              <div className="space-y-6">
+                <h1 className="text-5xl lg:text-7xl font-bold leading-tight text-white">
+                  Collaborate with{" "}
+                  <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                    expert
+                  </span>{" "}
+                  teams to create
+                  <span className="block mt-2">
+                    innovative{" "}
+                    <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                      {industry.title}
+                    </span>{" "}
+                    solutions.
+                  </span>
                 </h1>
+                
                 <p className="text-xl text-gray-300 max-w-lg leading-relaxed">
-                  We empower your {industry.title.toLowerCase()} success with cutting-edge technology, dedicated support, and tailored strategies for growth.
+                  {industry.description}
                 </p>
+                
+                {/* Quick Stats */}
+                <div className="flex items-center gap-8 pt-4">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-white">50+</div>
+                    <div className="text-sm text-gray-400">Projects</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-white">98%</div>
+                    <div className="text-sm text-gray-400">Success Rate</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-white">24/7</div>
+                    <div className="text-sm text-gray-400">Support</div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="relative group">
-              <img 
-                src={industry.heroImage} 
-                alt={industry.title}
-                className="w-full h-auto object-cover rounded-lg shadow-lg transition-transform duration-300 group-hover:scale-105"
-              />
+            
+            {/* Image Section */}
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl blur opacity-20"></div>
+              <div className="relative bg-white/10 backdrop-blur-sm rounded-xl p-1 transition-transform duration-300 hover:scale-105">
+                <img 
+                  src={industry.heroImage} 
+                  alt={industry.title}
+                  className="w-full h-auto object-cover rounded-xl shadow-xl transition-transform duration-300 hover:scale-105"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -190,46 +274,21 @@ export default function IndustryPage({ params }) {
             <div className="mb-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">BENEFITS</h2>
               <div className="border-l-4 border-blue-500 pl-4 mb-8">
-                <p className="text-xl text-gray-700">Unlock the potential of IoT for your business.</p>
+                <p className="text-xl text-gray-700">Unlock the potential of your industry with tailored solutions.</p>
               </div>
             </div>
             
             <div className="space-y-6">
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  <span className="font-bold">Explore New Business Horizons:</span>
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Envision and implement innovative business models by harnessing the power of digital transformation.
-                </p>
-              </div>
-              
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  <span className="font-bold">Enhance Operational Flexibility:</span>
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Adapt quickly to changing market demands with agile and responsive business practices.
-                </p>
-              </div>
-              
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  <span className="font-bold">Elevate Customer Satisfaction:</span>
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Streamline processes to remove friction, ensuring product and service consistency that delights customers.
-                </p>
-              </div>
-              
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  <span className="font-bold">Promote Sustainability:</span>
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Lower emissions and energy use, contributing to a smaller carbon footprint while improving safety and quality of life.
-                </p>
-              </div>
+              {industry.benefits.map((benefit, index) => (
+                <div key={index}>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    <span className="font-bold">{benefit.title}:</span>
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    {benefit.description}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -258,7 +317,7 @@ export default function IndustryPage({ params }) {
         </div>
       </section>
 
-      {/*CTA Section */}
+      {/* CTA Section */}
       <section className="py-16 px-4 bg-black">
         <div className="max-w-4xl mx-auto text-center">
           <div className="p-8">
@@ -311,4 +370,3 @@ export default function IndustryPage({ params }) {
     </div>
   );
 }
-
