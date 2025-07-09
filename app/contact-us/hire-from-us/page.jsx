@@ -26,28 +26,27 @@ const cardsData = [
   {
     title: "Transparent Communication & Project Management",
     description: "Our structured workflow includes clear milestones, weekly reporting, and continuous feedback loops. Dedicated project managers ensure alignment, accountability, and complete visibility throughout the development lifecycle.",
-    icon: "Target",
+    icon: "target",
     gradient: "from-blue-600 to-purple-600"
   },
   {
     title: "Proven Global Delivery Experience",
     description: "We've successfully delivered projects for clients in North America, Europe, the Middle East, and Asia. Our cross-functional, multicultural teams are well-versed in global expectations and compliance requirements.",
-    icon: "Globe",
+    icon: "globe",
     gradient: "from-green-500 to-teal-600"
   },
   {
     title: "End-to-End Development & Post-Deployment Support",
     description: "Our commitment doesn't end at launch. We offer comprehensive support — including maintenance, feature enhancements, performance monitoring, and security updates — to ensure your application evolves with your business.",
-    icon: "Award",
+    icon: "award",
     gradient: "from-purple-500 to-pink-600"
   }
 ];
 
-// Map string icon names to Lucide components
 const iconMap = {
-  Target: Target,
-  Globe: Globe,
-  Award: Award,
+  target: Target,
+  globe: Globe,
+  award: Award,
 };
 
 export default function Home() {
@@ -71,23 +70,6 @@ export default function Home() {
         .animate-collapse {
           animation: collapseAndStabilize 0.8s ease-out forwards;
         }
-        @keyframes slideUp {
-          0% {
-            transform: translateY(20px);
-            opacity: 0;
-          }
-          100% {
-            transform: translateY(0);
-            opacity: 1;
-          }
-        }
-        .animate-slide-up {
-          animation: slideUp 0.6s ease-out forwards;
-        }
-        .card-hover:hover {
-          transform: translateY(-8px);
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
       `}</style>
 
       {/* Navigation */}
@@ -96,7 +78,9 @@ export default function Home() {
           <Link href="/" className="text-2xl font-bold">Adalabs</Link>
         </div>
         <div className="flex items-center space-x-6">
-          {/* Navigation links commented out as per provided code */}
+          {/* <Link href="/about" className="hover:text-gray-300 transition">About</Link>
+          <Link href="/services" className="hover:text-gray-300 transition">Services</Link>
+          <Link href="/contact" className="hover:text-gray-300 transition">Contact</Link> */}
         </div>
       </nav>
 
@@ -124,10 +108,10 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Visual Elements */}
+           {/* Right Visual Elements */}
             <div className="relative">
               <div className="relative w-full h-96 lg:h-[500px]">
-                <div className="absolute top-0 right-0 w-64 h-32 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl transform rotate-6 shadow-2xl overflow-hidden animate-collapse" style={{ animationDelay: '0.1s' }}>
+                <div className="absolute top-0 right-0 w-64 h-32 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl transform rotate-6 shadow-2xl overflow-hidden">
                   <div className="absolute inset-0 bg-black bg-opacity-20"></div>
                   <div className="p-4 h-full flex items-center justify-center">
                     <div className="text-center">
@@ -136,7 +120,8 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <div className="absolute top-16 left-0 w-48 h-48 bg-gradient-to-br from-orange-500 to-red-500 rounded-full shadow-2xl overflow-hidden animate-collapse" style={{ animationDelay: '0.2s' }}>
+
+                <div className="absolute top-16 left-0 w-48 h-48 bg-gradient-to-br from-orange-500 to-red-500 rounded-full shadow-2xl overflow-hidden">
                   <div className="absolute inset-0 bg-black bg-opacity-20"></div>
                   <div className="p-6 h-full flex items-center justify-center">
                     <div className="text-center">
@@ -145,7 +130,8 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <div className="absolute bottom-0 right-12 w-40 h-40 bg-gradient-to-br from-green-500 to-teal-500 rounded-2xl transform -rotate-12 shadow-2xl overflow-hidden animate-collapse" style={{ animationDelay: '0.3s' }}>
+
+                <div className="absolute bottom-0 right-12 w-40 h-40 bg-gradient-to-br from-green-500 to-teal-500 rounded-2xl transform -rotate-12 shadow-2xl overflow-hidden">
                   <div className="absolute inset-0 bg-black bg-opacity-20"></div>
                   <div className="p-4 h-full flex items-center justify-center">
                     <div className="text-center">
@@ -154,7 +140,8 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <div className="absolute bottom-12 left-16 w-32 h-32 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full shadow-2xl overflow-hidden animate-collapse" style={{ animationDelay: '0.4s' }}>
+
+                <div className="absolute bottom-12 left-16 w-32 h-32 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full shadow-2xl overflow-hidden">
                   <div className="absolute inset-0 bg-black bg-opacity-20"></div>
                   <div className="p-4 h-full flex items-center justify-center">
                     <div className="text-center">
@@ -163,8 +150,9 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <div className="absolute top-32 right-24 w-16 h-16 bg-gradient-to-br from-pink-500 to-purple-500 rounded-full shadow-lg animate-collapse" style={{ animationDelay: '0.5s' }}></div>
-                <div className="absolute bottom-24 left-4 w-12 h-12 bg-gradient-to-br from-indigo-500 to-blue-500 rounded-full shadow-lg animate-collapse" style={{ animationDelay: '0.6s' }}></div>
+
+                <div className="absolute top-32 right-24 w-16 h-16 bg-gradient-to-br from-pink-500 to-purple-500 rounded-full shadow-lg"></div>
+                <div className="absolute bottom-24 left-4 w-12 h-12 bg-gradient-to-br from-indigo-500 to-blue-500 rounded-full shadow-lg"></div>
               </div>
             </div>
           </div>
@@ -186,50 +174,37 @@ export default function Home() {
               const totalContentWidth = (cardCount * cardWidth) + totalGapWidth;
               const sideMargin = (100 - totalContentWidth) / 2;
 
-                const isLeftSide = index % 2 === 0;
-                return (
+              return (
                 <div
                   key={index}
-                  className="flex items-center justify-between py-16 border-b border-gray-800 last:border-b-0"
-                  style={{ animationDelay: `${index * 0.2}s` }}
+                  className="rounded-2xl overflow-hidden relative group hover:scale-105 transition-all duration-300"
+                  style={{
+                    background: `linear-gradient(to bottom right, ${card.gradient}, rgba(0, 0, 0, 0.8))`,
+                    position: 'absolute',
+                    left: `${sideMargin + index * (cardWidth + cardGap)}vw`,
+                    top: `${index * verticalStep}px`,
+                    width: `${cardWidth}vw`,
+                    height: `${cardHeight}px`,
+                  }}
                 >
-                  {/* Content Side */}
-                  <div className={`w-1/2 space-y-6 ${isLeftSide ? 'pr-12' : 'pl-12 order-2'}`}>
-                  <div className="flex items-center space-x-4">
-                    <div className={`w-2 h-12 bg-gradient-to-b ${card.gradient.replace('from-', 'from-').replace('to-', 'to-')} rounded-full`}></div>
-                    <h3 className="text-3xl font-bold text-white leading-tight">{card.title}</h3>
-                  </div>
-                  <p className="text-lg text-gray-300 leading-relaxed">{card.description}</p>
-                  <div className="flex items-center space-x-2 text-gray-400">
-                    <div className={`w-3 h-3 bg-gradient-to-r ${card.gradient} rounded-full`}></div>
-                    <span className="text-sm font-medium">Premium Service</span>
-                  </div>
-                  </div>
-
-                  {/* Image Side */}
-                  <div className={`w-1/2 ${isLeftSide ? '' : 'order-1'}`}>
-                  <div className="relative h-80 rounded-2xl overflow-hidden group">
-                    <img
+                  <img
                     src={card.image}
                     alt={card.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className={`absolute inset-0 bg-gradient-to-t ${card.gradient.replace('from-', 'from-').replace('to-', 'to-')} opacity-60`}></div>
-                    <div className="absolute bottom-6 left-6 right-6">
-                    <div className="bg-black bg-opacity-50 backdrop-blur-sm rounded-lg p-4">
-                      <p className="text-white text-sm font-medium">Expert Solution</p>
-                    </div>
-                    </div>
-                  </div>
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+                  <div className="relative z-10 p-6 text-center flex flex-col justify-start h-full">
+                    <h3 className="text-xl text-white">{card.title}</h3>
                   </div>
                 </div>
-                );
-              })}
-              </div>
-            </div>
-            </div>
+              );
+            })}
+          </div>
+          <div className="h-[600px]"></div>
+        </div>
+      </div>
 
-            {/* Last Three Services - Text-Based Presentation */}
+        {/* Last Three Services - Text-Based Presentation */}
             <div className="px-6 py-16">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16">
@@ -282,3 +257,4 @@ export default function Home() {
     </div>
   );
 }
+
