@@ -1,134 +1,127 @@
 {
-  "software": {
-    "id": "software",
-    "title": "Software, Technology & Communications",
-    "icon": "Code2",
-    "description": "Empowering businesses with cutting-edge software solutions, digital transformation, and communication services",
-    "heroImage": "https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    "gradient": "from-blue-500/20 to-cyan-500/20",
-    "borderColor": "border-blue-500/30",
-    "hoverColor": "hover:border-blue-500/60",
+  "banking": {
+    "id": "banking",
+    "title": "Banking",
+    "icon": "Building2",
+    "description": "Secure and innovative banking solutions to streamline financial operations and enhance customer experiences",
+    "heroImage": "https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "gradient": "from-slate-500/20 to-gray-500/20",
+    "borderColor": "border-slate-500/30",
+    "hoverColor": "hover:border-slate-500/60",
     "services": [
-      "Custom Software Development",
-      "Web Application Development",
-      "Mobile App Development",
-      "API Development & Integration",
-      "Cloud Migration Services",
-      "DevOps & Automation",
-      "Software Modernization",
-      "Technical Consulting",
+      "Digital Banking Platforms",
+      "Mobile Banking Apps",
+      "Payment Processing Systems",
+      "Customer Onboarding Solutions",
+      "Fraud Detection Systems",
+      "Compliance & Reporting",
+      "Core Banking Modernization",
+      "Wealth Management Tools"
+    ],
+    "technologies": ["React", "Node.js", "PostgreSQL", "Redis", "AWS", "Blockchain", "Security", "APIs"],
+    "benefits": [
+      { "title": "Enhanced Security", "description": "Bank-grade security for transactions and data" },
+      { "title": "Customer Engagement", "description": "Intuitive interfaces to boost user satisfaction" },
+      { "title": "Operational Efficiency", "description": "Automate processes to reduce costs" },
+      { "title": "Regulatory Compliance", "description": "Meet global banking standards" }
+    ],
+    "caseStudies": [
+      { "title": "Digital Banking Transformation", "description": "Modernized core banking system for a global bank", "results": "40% Cost Reduction" },
+      { "title": "Mobile Banking App", "description": "Launched a user-friendly mobile banking platform", "results": "200K+ Active Users" }
+    ]
+  },
+  "capital-markets": {
+    "id": "capital-markets",
+    "title": "Capital Markets",
+    "icon": "TrendingUp",
+    "description": "Advanced platforms for trading, risk management, and analytics in capital markets",
+    "heroImage": "https://images.pexels.com/photos/6801874/pexels-photo-6801874.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "gradient": "from-blue-600/20 to-indigo-600/20",
+    "borderColor": "border-blue-600/30",
+    "hoverColor": "hover:border-blue-600/60",
+    "services": [
+      "Trading Platforms",
+      "Risk Management Systems",
+      "Portfolio Analytics",
+      "Algorithmic Trading Solutions",
+      "Market Data Integration",
+      "Compliance Automation",
+      "Clearing and Settlement Systems",
+      "Real-time Analytics",
+      "Regulatory Reporting"
+    ],
+    "technologies": ["React", "Node.js", "Python", "Kafka", "Redis", "AWS", "Blockchain", "Machine Learning"],
+    "benefits": [
+      { "title": "Real-time Insights", "description": "Access to up-to-date market data and analytics" },
+      { "title": "Risk Mitigation", "description": "Advanced tools for risk assessment and management" },
+      { "title": "Trade Efficiency", "description": "Streamline trading operations for faster execution" },
+      { "title": "Compliance Assurance", "description": "Automated regulatory compliance solutions" }
+    ],
+    "caseStudies": [
+      { "title": "High-Frequency Trading Platform", "description": "Developed a low-latency trading system", "results": "99.9% Uptime" },
+      { "title": "Portfolio Management System", "description": "Enhanced analytics for institutional investors", "results": "30% Performance Boost" }
+    ]
+  },
+  "communications": {
+    "id": "communications",
+    "title": "Communications, Media, and Information Services",
+    "icon": "Code2",
+    "description": "Transformative solutions for media management, communication networks, and information services",
+    "heroImage": "https://images.pexels.com/photos/3183165/pexels-photo-3183165.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "gradient": "from-cyan-500/20 to-blue-500/20",
+    "borderColor": "border-cyan-500/30",
+    "hoverColor": "hover:border-cyan-500/60",
+    "services": [
       "Media Content Management",
       "Communication Platforms",
-      "Data Analytics",
-      "Network Optimization"
+      "Network Optimization",
+      "Content Delivery Networks",
+      "Streaming Media Solutions",
+      "Data Analytics Platforms",
+      "Customer Engagement Tools",
+      "Ad Tech Solutions"
     ],
-    "technologies": ["React", "Node.js", "Python", "AWS", "Docker", "Kubernetes", "MongoDB", "PostgreSQL"],
+    "technologies": ["React", "Node.js", "AWS", "MongoDB", "Kafka", "Elasticsearch", "WebRTC", "AI/ML"],
     "benefits": [
-      { "title": "Faster Time to Market", "description": "Accelerate product launches with agile development" },
-      { "title": "Scalable Architecture", "description": "Build systems that grow with your business" },
-      { "title": "Cost Optimization", "description": "Reduce operational costs through automation" },
-      { "title": "Enhanced Security", "description": "Enterprise-grade security implementations" }
+      { "title": "Content Reach", "description": "Deliver content globally with low latency" },
+      { "title": "Audience Engagement", "description": "Personalized media and communication experiences" },
+      { "title": "Network Efficiency", "description": "Optimize bandwidth and performance" },
+      { "title": "Data-Driven Insights", "description": "Leverage analytics for better decision-making" }
     ],
     "caseStudies": [
-      { "title": "TechFlow Platform Transformation", "description": "Increased revenue by 300% through custom web platform", "results": "300% Revenue Growth" },
-      { "title": "Enterprise Software Modernization", "description": "Legacy system migration to cloud-native architecture", "results": "75% Performance Improvement" }
+      { "title": "Global Streaming Platform", "description": "Scalable streaming solution for media company", "results": "50% Latency Reduction" },
+      { "title": "Ad Personalization Engine", "description": "AI-driven ad targeting system", "results": "120% Ad Revenue Growth" }
     ]
   },
-  "drone": {
-    "id": "drone",
-    "title": "Drone & Aerospace",
-    "icon": "Plane",
-    "description": "Advanced UAV systems and aerospace technology solutions for next-generation applications",
-    "heroImage": "https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    "gradient": "from-purple-500/20 to-indigo-500/20",
-    "borderColor": "border-purple-500/30",
-    "hoverColor": "hover:border-purple-500/60",
+  "consumer-goods": {
+    "id": "consumer-goods",
+    "title": "Consumer Goods and Distribution",
+    "icon": "ShoppingCart",
+    "description": "Optimized supply chain and distribution solutions for consumer goods industries",
+    "heroImage": "https://images.pexels.com/photos/3769747/pexels-photo-3769747.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "gradient": "from-teal-500/20 to-cyan-500/20",
+    "borderColor": "border-teal-500/30",
+    "hoverColor": "hover:border-teal-500/60",
     "services": [
-      "UAV Flight Control Systems",
-      "Drone Fleet Management",
-      "Aerial Data Analytics",
-      "Autonomous Navigation",
-      "Real-time Monitoring",
-      "Mission Planning Software",
-      "Payload Integration",
-      "Regulatory Compliance"
+      "Supply Chain Management",
+      "Inventory Optimization",
+      "Demand Forecasting",
+      "Distribution Analytics",
+      "Order Fulfillment Systems",
+      "E-commerce Integration",
+      "Customer Experience Platforms",
+      "Logistics Coordination"
     ],
-    "technologies": ["C++", "Python", "ROS", "OpenCV", "TensorFlow", "GPS/GNSS", "IoT Sensors", "Edge Computing"],
+    "technologies": ["React", "Node.js", "SAP", "AWS", "MongoDB", "Machine Learning", "IoT", "Elasticsearch"],
     "benefits": [
-      { "title": "Operational Efficiency", "description": "Automate complex aerial operations" },
-      { "title": "Data Accuracy", "description": "Precise data collection and analysis" },
-      { "title": "Safety Enhancement", "description": "Reduce human risk in dangerous environments" },
-      { "title": "Cost Reduction", "description": "Lower operational costs vs traditional methods" }
+      { "title": "Supply Chain Efficiency", "description": "Streamline distribution and reduce costs" },
+      { "title": "Customer Satisfaction", "description": "Enhance delivery speed and reliability" },
+      { "title": "Inventory Accuracy", "description": "Real-time inventory tracking and management" },
+      { "title": "Market Agility", "description": "Respond quickly to market demands" }
     ],
     "caseStudies": [
-      { "title": "Agricultural Monitoring System", "description": "Precision agriculture with drone-based crop monitoring", "results": "40% Yield Improvement" },
-      { "title": "Infrastructure Inspection Platform", "description": "Automated inspection of power lines and bridges", "results": "60% Time Savings" }
-    ]
-  },
-  "solar": {
-    "id": "solar",
-    "title": "Solar, Energy & Utilities",
-    "icon": "Sun",
-    "description": "Smart energy management systems and renewable energy monitoring solutions for a sustainable future",
-    "heroImage": "https://images.pexels.com/photos/433308/pexels-photo-433308.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    "gradient": "from-yellow-500/20 to-orange-500/20",
-    "borderColor": "border-yellow-500/30",
-    "hoverColor": "hover:border-yellow-500/60",
-    "services": [
-      "Solar Panel Monitoring",
-      "Energy Management Systems",
-      "Grid Integration Solutions",
-      "Performance Analytics",
-      "Predictive Maintenance",
-      "Smart Inverter Control",
-      "Energy Storage Management",
-      "Carbon Footprint Tracking"
-    ],
-    "technologies": ["IoT", "Python", "React", "InfluxDB", "Grafana", "MQTT", "Machine Learning", "Cloud Analytics"],
-    "benefits": [
-      { "title": "Energy Optimization", "description": "Maximize energy production and efficiency" },
-      { "title": "Predictive Maintenance", "description": "Prevent failures before they occur" },
-      { "title": "Cost Savings", "description": "Reduce operational and maintenance costs" },
-      { "title": "Environmental Impact", "description": "Track and reduce carbon footprint" }
-    ],
-    "caseStudies": [
-      { "title": "Smart Solar Farm Management", "description": "IoT-enabled monitoring for 100MW solar installation", "results": "25% Efficiency Increase" },
-      { "title": "Residential Energy Platform", "description": "Home energy management with solar integration", "results": "35% Energy Savings" }
-    ]
-  },
-  "healthcare": {
-    "id": "healthcare",
-    "title": "Healthcare, Medical & Life Sciences",
-    "icon": "Heart",
-    "description": "HIPAA-compliant healthcare and life sciences solutions improving patient care and research efficiency",
-    "heroImage": "https://images.pexels.com/photos/3786126/pexels-photo-3786126.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    "gradient": "from-red-500/20 to-pink-500/20",
-    "borderColor": "border-red-500/30",
-    "hoverColor": "hover:border-red-500/60",
-    "services": [
-      "Electronic Health Records",
-      "Patient Management Systems",
-      "Telemedicine Platforms",
-      "Medical Device Integration",
-      "Healthcare Analytics",
-      "Appointment Scheduling",
-      "Billing & Insurance",
-      "Compliance Management",
-      "Clinical Trial Management",
-      "Data Analysis",
-      "Lab Automation",
-      "Genomics Solutions"
-    ],
-    "technologies": ["React", "Node.js", "FHIR", "HL7", "AWS HIPAA", "MongoDB", "Encryption", "Blockchain"],
-    "benefits": [
-      { "title": "Patient Care Quality", "description": "Improve patient outcomes and satisfaction" },
-      { "title": "Operational Efficiency", "description": "Streamline healthcare workflows" },
-      { "title": "Compliance Assurance", "description": "Meet HIPAA and regulatory requirements" },
-      { "title": "Data Security", "description": "Protect sensitive patient information" }
-    ],
-    "caseStudies": [
-      { "title": "MedConnect Patient Portal", "description": "Comprehensive patient management system", "results": "75% Time Savings" },
-      { "title": "Telemedicine Platform", "description": "Remote consultation and monitoring system", "results": "90% Patient Satisfaction" }
+      { "title": "Global Distribution Network", "description": "Optimized supply chain for consumer goods", "results": "35% Cost Savings" },
+      { "title": "E-commerce Integration", "description": "Seamless online-offline distribution system", "results": "150% Sales Growth" }
     ]
   },
   "education": {
@@ -162,81 +155,259 @@
       { "title": "Virtual Science Lab", "description": "Interactive online laboratory simulations", "results": "95% Learning Retention" }
     ]
   },
-  "ecommerce": {
-    "id": "ecommerce",
-    "title": "E-Commerce, Retail & Consumer Goods",
+  "energy": {
+    "id": "energy",
+    "title": "Energy, Resources, and Utilities",
+    "icon": "Sun",
+    "description": "Smart energy management systems and renewable energy monitoring solutions for a sustainable future",
+    "heroImage": "https://images.pexels.com/photos/433308/pexels-photo-433308.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "gradient": "from-yellow-500/20 to-orange-500/20",
+    "borderColor": "border-yellow-500/30",
+    "hoverColor": "hover:border-yellow-500/60",
+    "services": [
+      "Solar Panel Monitoring",
+      "Energy Management Systems",
+      "Grid Integration Solutions",
+      "Performance Analytics",
+      "Predictive Maintenance",
+      "Smart Inverter Control",
+      "Energy Storage Management",
+      "Carbon Footprint Tracking"
+    ],
+    "technologies": ["IoT", "Python", "React", "InfluxDB", "Grafana", "MQTT", "Machine Learning", "Cloud Analytics"],
+    "benefits": [
+      { "title": "Energy Optimization", "description": "Maximize energy production and efficiency" },
+      { "title": "Predictive Maintenance", "description": "Prevent failures before they occur" },
+      { "title": "Cost Savings", "description": "Reduce operational and maintenance costs" },
+      { "title": "Environmental Impact", "description": "Track and reduce carbon footprint" }
+    ],
+    "caseStudies": [
+      { "title": "Smart Solar Farm Management", "description": "IoT-enabled monitoring for 100MW solar installation", "results": "25% Efficiency Increase" },
+      { "title": "Residential Energy Platform", "description": "Home energy management with solar integration", "results": "35% Energy Savings" }
+    ]
+  },
+  "healthcare": {
+    "id": "healthcare",
+    "title": "Healthcare",
+    "icon": "Heart",
+    "description": "HIPAA-compliant healthcare solutions improving patient care and operational efficiency",
+    "heroImage": "https://images.pexels.com/photos/3786126/pexels-photo-3786126.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "gradient": "from-red-500/20 to-pink-500/20",
+    "borderColor": "border-red-500/30",
+    "hoverColor": "hover:border-red-500/60",
+    "services": [
+      "Electronic Health Records",
+      "Patient Management Systems",
+      "Telemedicine Platforms",
+      "Medical Device Integration",
+      "Healthcare Analytics",
+      "Appointment Scheduling",
+      "Billing & Insurance",
+      "Compliance Management"
+    ],
+    "technologies": ["React", "Node.js", "FHIR", "HL7", "AWS HIPAA", "MongoDB", "Encryption", "Blockchain"],
+    "benefits": [
+      { "title": "Patient Care Quality", "description": "Improve patient outcomes and satisfaction" },
+      { "title": "Operational Efficiency", "description": "Streamline healthcare workflows" },
+      { "title": "Compliance Assurance", "description": "Meet HIPAA and regulatory requirements" },
+      { "title": "Data Security", "description": "Protect sensitive patient information" }
+    ],
+    "caseStudies": [
+      { "title": "MedConnect Patient Portal", "description": "Comprehensive patient management system", "results": "75% Time Savings" },
+      { "title": "Telemedicine Platform", "description": "Remote consultation and monitoring system", "results": "90% Patient Satisfaction" }
+    ]
+  },
+  "high-tech": {
+    "id": "high-tech",
+    "title": "High Tech",
+    "icon": "Code2",
+    "description": "Empowering high-tech industries with innovative software and digital transformation solutions",
+    "heroImage": "https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "gradient": "from-blue-500/20 to-cyan-500/20",
+    "borderColor": "border-blue-500/30",
+    "hoverColor": "hover:border-blue-500/60",
+    "services": [
+      "Custom Software Development",
+      "Web Application Development",
+      "Mobile App Development",
+      "API Development & Integration",
+      "Cloud Migration Services",
+      "DevOps & Automation",
+      "Software Modernization",
+      "Technical Consulting"
+    ],
+    "technologies": ["React", "Node.js", "Python", "AWS", "Docker", "Kubernetes", "MongoDB", "PostgreSQL"],
+    "benefits": [
+      { "title": "Faster Time to Market", "description": "Accelerate product launches with agile development" },
+      { "title": "Scalable Architecture", "description": "Build systems that grow with your business" },
+      { "title": "Cost Optimization", "description": "Reduce operational costs through automation" },
+      { "title": "Enhanced Security", "description": "Enterprise-grade security implementations" }
+    ],
+    "caseStudies": [
+      { "title": "TechFlow Platform Transformation", "description": "Increased revenue by 300% through custom web platform", "results": "300% Revenue Growth" },
+      { "title": "Enterprise Software Modernization", "description": "Legacy system migration to cloud-native architecture", "results": "75% Performance Improvement" }
+    ]
+  },
+  "insurance": {
+    "id": "insurance",
+    "title": "Insurance",
+    "icon": "Shield",
+    "description": "Digital solutions for insurance providers to streamline claims, policies, and customer interactions",
+    "heroImage": "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "gradient": "from-purple-500/20 to-indigo-500/20",
+    "borderColor": "border-purple-500/30",
+    "hoverColor": "hover:border-purple-500/60",
+    "services": [
+      "Claims Processing Systems",
+      "Policy Management Platforms",
+      "Customer Self-Service Portals",
+      "Risk Assessment Tools",
+      "Fraud Detection Systems",
+      "Compliance Automation",
+      "Insurance Analytics",
+      "Mobile Insurance Apps"
+    ],
+    "technologies": ["React", "Node.js", "PostgreSQL", "AWS", "Machine Learning", "Blockchain", "APIs", "Security"],
+    "benefits": [
+      { "title": "Claims Efficiency", "description": "Faster and more accurate claims processing" },
+      { "title": "Customer Experience", "description": "User-friendly portals for policyholders" },
+      { "title": "Risk Management", "description": "Advanced analytics for risk assessment" },
+      { "title": "Regulatory Compliance", "description": "Ensure adherence to insurance regulations" }
+    ],
+    "caseStudies": [
+      { "title": "Smart Claims Platform", "description": "Automated claims processing system", "results": "50% Faster Claims" },
+      { "title": "Policyholder Portal", "description": "Self-service portal for insurance customers", "results": "80% Customer Satisfaction" }
+    ]
+  },
+  "life-sciences": {
+    "id": "life-sciences",
+    "title": "Life Sciences",
+    "icon": "Heart",
+    "description": "Innovative solutions for life sciences to advance research, clinical trials, and data management",
+    "heroImage": "https://images.pexels.com/photos/3825581/pexels-photo-3825581.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "gradient": "from-pink-500/20 to-red-500/20",
+    "borderColor": "border-red-500/30",
+    "hoverColor": "hover:border-red-500/60",
+    "services": [
+      "Clinical Trial Management",
+      "Data Analysis Platforms",
+      "Lab Automation Systems",
+      "Genomics Solutions",
+      "Regulatory Compliance Tools",
+      "Bioinformatics Platforms",
+      "Patient Data Management",
+      "Research Collaboration Tools"
+    ],
+    "technologies": ["React", "Python", "AWS", "MongoDB", "Bioinformatics", "Machine Learning", "Blockchain", "Encryption"],
+    "benefits": [
+      { "title": "Research Efficiency", "description": "Streamline clinical trials and lab operations" },
+      { "title": "Data Accuracy", "description": "High-quality data for reliable research outcomes" },
+      { "title": "Compliance Assurance", "description": "Meet regulatory standards in life sciences" },
+      { "title": "Collaboration", "description": "Enable seamless research team coordination" }
+    ],
+    "caseStudies": [
+      { "title": "Clinical Trial Platform", "description": "Streamlined trial management system", "results": "40% Time Savings" },
+      { "title": "Genomics Analytics", "description": "Advanced platform for genomic data analysis", "results": "60% Faster Insights" }
+    ]
+  },
+  "manufacturing": {
+    "id": "manufacturing",
+    "title": "Manufacturing",
+    "icon": "Zap",
+    "description": "Smart manufacturing solutions for automation, efficiency, and supply chain optimization",
+    "heroImage": "https://images.pexels.com/photos/1624296/pexels-photo-1624296.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "gradient": "from-orange-500/20 to-red-500/20",
+    "borderColor": "border-orange-500/30",
+    "hoverColor": "hover:border-orange-500/60",
+    "services": [
+      "Factory Automation Systems",
+      "Supply Chain Management",
+      "Predictive Maintenance",
+      "Production Analytics",
+      "IoT Integration",
+      "Quality Control Systems",
+      "Inventory Management",
+      "Manufacturing Execution Systems"
+    ],
+    "technologies": ["IoT", "React", "Node.js", "Python", "AWS", "Machine Learning", "PLC Programming", "SCADA"],
+    "benefits": [
+      { "title": "Production Efficiency", "description": "Automate processes to boost throughput" },
+      { "title": "Cost Reduction", "description": "Minimize downtime and waste" },
+      { "title": "Quality Assurance", "description": "Ensure consistent product quality" },
+      { "title": "Supply Chain Visibility", "description": "Real-time tracking of materials and products" }
+    ],
+    "caseStudies": [
+      { "title": "Smart Factory System", "description": "IoT-enabled factory automation", "results": "45% Efficiency Gain" },
+      { "title": "Predictive Maintenance Platform", "description": "Reduced equipment downtime with AI", "results": "30% Cost Savings" }
+    ]
+  },
+  "public-services": {
+    "id": "public-services",
+    "title": "Public Services",
+    "icon": "Users",
+    "description": "Digital transformation solutions for public sector efficiency and citizen engagement",
+    "heroImage": "https://images.pexels.com/photos/3184297/pexels-photo-3184297.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "gradient": "from-blue-400/20 to-green-400/20",
+    "borderColor": "border-blue-400/30",
+    "hoverColor": "hover:border-blue-400/60",
+    "services": [
+      "Citizen Service Portals",
+      "Digital Government Platforms",
+      "Public Safety Systems",
+      "Smart City Solutions",
+      "Data Analytics for Governance",
+      "Permitting & Licensing Systems",
+      "Public Health Management",
+      "Emergency Response Systems"
+    ],
+    "technologies": ["React", "Node.js", "AWS", "PostgreSQL", "GIS", "Machine Learning", "APIs", "Security"],
+    "benefits": [
+      { "title": "Citizen Engagement", "description": "Improve access to public services" },
+      { "title": "Operational Efficiency", "description": "Streamline government processes" },
+      { "title": "Data-Driven Governance", "description": "Leverage analytics for better decisions" },
+      { "title": "Public Safety", "description": "Enhance emergency response capabilities" }
+    ],
+    "caseStudies": [
+      { "title": "Smart City Platform", "description": "Integrated solution for urban management", "results": "25% Efficiency Increase" },
+      { "title": "Citizen Service Portal", "description": "Online portal for public services", "results": "70% User Adoption" }
+    ]
+  },
+  "retail": {
+    "id": "retail",
+    "title": "Retail",
     "icon": "ShoppingCart",
-    "description": "Comprehensive e-commerce, retail, and consumer goods solutions driving sales and satisfaction",
+    "description": "Comprehensive retail solutions to enhance customer experiences and optimize operations",
     "heroImage": "https://images.pexels.com/photos/3769747/pexels-photo-3769747.jpeg?auto=compress&cs=tinysrgb&w=1200",
     "gradient": "from-teal-500/20 to-cyan-500/20",
     "borderColor": "border-teal-500/30",
     "hoverColor": "hover:border-teal-500/60",
     "services": [
       "E-commerce Platforms",
-      "Payment Gateway Integration",
+      "Point of Sale Systems",
       "Inventory Management",
       "Customer Relationship Management",
-      "Order Fulfillment Systems",
-      "Analytics & Reporting",
+      "Retail Analytics",
       "Mobile Commerce Apps",
-      "Multi-vendor Marketplaces",
-      "Supply Chain Management",
-      "Demand Forecasting",
-      "Logistics Coordination",
-      "Retail Analytics"
+      "Loyalty Program Platforms",
+      "In-Store Digital Solutions"
     ],
     "technologies": ["React", "Next.js", "Shopify", "WooCommerce", "Stripe", "PayPal", "AWS", "Elasticsearch"],
     "benefits": [
-      { "title": "Sales Growth", "description": "Increase online revenue and conversions" },
-      { "title": "Customer Experience", "description": "Enhance shopping experience and satisfaction" },
-      { "title": "Operational Efficiency", "description": "Automate order processing and inventory" },
-      { "title": "Market Reach", "description": "Expand to new markets and channels" }
+      { "title": "Sales Growth", "description": "Increase revenue through optimized channels" },
+      { "title": "Customer Loyalty", "description": "Build stronger customer relationships" },
+      { "title": "Operational Efficiency", "description": "Streamline inventory and sales processes" },
+      { "title": "Omnichannel Experience", "description": "Seamless online and in-store integration" }
     ],
     "caseStudies": [
       { "title": "RetailMax E-commerce Platform", "description": "Modern e-commerce with AI recommendations", "results": "200% Conversion Increase" },
-      { "title": "Multi-vendor Marketplace", "description": "Comprehensive marketplace platform", "results": "150% Vendor Growth" }
+      { "title": "In-Store Analytics", "description": "Real-time insights for retail operations", "results": "40% Sales Uplift" }
     ]
   },
-  "fintech": {
-    "id": "fintech",
-    "title": "Banking, Financial Services & Insurance",
-    "icon": "Building2",
-    "description": "Secure financial platforms, banking, and insurance solutions for the digital economy",
-    "heroImage": "https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    "gradient": "from-slate-500/20 to-gray-500/20",
-    "borderColor": "border-slate-500/30",
-    "hoverColor": "hover:border-slate-500/60",
-    "services": [
-      "Digital Banking Platforms",
-      "Payment Processing Systems",
-      "Blockchain Solutions",
-      "Cryptocurrency Exchanges",
-      "Risk Management Systems",
-      "Compliance & Reporting",
-      "Mobile Banking Apps",
-      "Trading Platforms",
-      "Claims Processing",
-      "Risk Assessment",
-      "Policy Management",
-      "Fraud Detection"
-    ],
-    "technologies": ["React", "Node.js", "Blockchain", "Solidity", "PostgreSQL", "Redis", "Kubernetes", "Security"],
-    "benefits": [
-      { "title": "Security & Compliance", "description": "Bank-grade security and regulatory compliance" },
-      { "title": "Transaction Speed", "description": "Fast and reliable payment processing" },
-      { "title": "User Experience", "description": "Intuitive financial interfaces" },
-      { "title": "Scalability", "description": "Handle millions of transactions daily" }
-    ],
-    "caseStudies": [
-      { "title": "CryptoVault Trading Platform", "description": "High-performance cryptocurrency trading system", "results": "99.99% Uptime" },
-      { "title": "Digital Banking Solution", "description": "Complete mobile banking platform", "results": "500K+ Active Users" }
-    ]
-  },
-  "logistics": {
-    "id": "logistics",
-    "title": "Logistics, Supply Chain & Travel",
+  "travel-logistics": {
+    "id": "travel-logistics",
+    "title": "Travel and Logistics",
     "icon": "Truck",
-    "description": "Smart logistics and supply chain solutions optimizing operations and travel efficiency",
+    "description": "Smart logistics and travel solutions for optimized operations and seamless experiences",
     "heroImage": "https://images.pexels.com/photos/4246119/pexels-photo-4246119.jpeg?auto=compress&cs=tinysrgb&w=1200",
     "gradient": "from-amber-500/20 to-yellow-500/20",
     "borderColor": "border-amber-500/30",
@@ -246,21 +417,21 @@
       "Route Optimization",
       "Warehouse Management",
       "Real-time Tracking",
-      "Inventory Control",
-      "Supply Chain Analytics",
-      "Delivery Management",
+      "Travel Booking Platforms",
+      "Customer Experience Systems",
+      "Logistics Analytics",
       "IoT Integration"
     ],
     "technologies": ["React", "Node.js", "GPS Tracking", "IoT", "Machine Learning", "MongoDB", "Real-time APIs", "Mobile"],
     "benefits": [
       { "title": "Cost Reduction", "description": "Optimize routes and reduce fuel costs" },
-      { "title": "Delivery Speed", "description": "Faster and more reliable deliveries" },
-      { "title": "Visibility", "description": "Real-time tracking and monitoring" },
-      { "title": "Efficiency", "description": "Streamlined warehouse and fleet operations" }
+      { "title": "Customer Experience", "description": "Seamless booking and tracking for travelers" },
+      { "title": "Operational Visibility", "description": "Real-time insights into logistics operations" },
+      { "title": "Efficiency", "description": "Streamlined travel and logistics workflows" }
     ],
     "caseStudies": [
       { "title": "Smart Fleet Management", "description": "IoT-enabled fleet tracking and optimization", "results": "30% Cost Reduction" },
-      { "title": "Warehouse Automation", "description": "Automated inventory and order management", "results": "50% Efficiency Gain" }
+      { "title": "Travel Booking Platform", "description": "Integrated booking system for global travel", "results": "50% Booking Increase" }
     ]
   }
 }

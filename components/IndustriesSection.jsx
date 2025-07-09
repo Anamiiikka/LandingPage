@@ -1,77 +1,79 @@
-import { Home, Zap, Store, Power, Camera } from 'lucide-react';
+import React from 'react';
+import Link from 'next/link';
+import { 
+  Building2,
+  TrendingUp,
+  Code2,
+  ShoppingCart,
+  GraduationCap,
+  Sun,
+  Heart,
+  Shield,
+  Zap,
+  Users,
+  Truck
+} from 'lucide-react';
+import industriesData from '@/data/industriesData.json';
 
-export default function CapabilitiesComponent() {
-  const capabilities = [
-    {
-      icon: <Home className="w-6 h-6" />,
-      title: "Xia Smart Home"
-    },
-    {
-      icon: <Zap className="w-6 h-6" />,
-      title: "Xia Smart Energy"
-    },
-    {
-      icon: <Store className="w-6 h-6" />,
-      title: "Ada Smart Store"
-    },
-    {
-      icon: <Power className="w-6 h-6" />,
-      title: "Ada Intelligent Power Plant"
-    },
-    {
-      icon: <Camera className="w-6 h-6" />,
-      title: "Xia Smart Surveillance"
-    }
-  ];
+// Icon mapping to match industriesData.json
+const iconMap = {
+  Building2,
+  TrendingUp,
+  Code2,
+  ShoppingCart,
+  GraduationCap,
+  Sun,
+  Heart,
+  Shield,
+  Zap,
+  Users,
+  Truck
+};
 
+// Convert industriesData object to array for mapping
+const industries = Object.values(industriesData);
+
+export default function IndustriesSection() {
   return (
-    <div className="max-w-4xl mx-auto p-8 bg-gray-50">
-      <div className="mb-8">
-        <h2 className="text-sm font-semibold text-gray-600 tracking-wider uppercase mb-4">
-          OUR CAPABILITIES
-        </h2>
-        <div className="border-l-4 border-blue-500 pl-6">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-            Our solutions are driving transformation across industries.
-          </h1>
+    <section className="bg-gray-100 py-10 px-5 sm:px-10 md:px-52">
+      <div className="container mx-auto">
+        <div className="lg:w-3/4">
+          <div className="py-8">
+            <h2 className="text-base sm:text-xl font-bold text-black uppercase">
+              INDUSTRIES WE SERVE
+            </h2>
+            <h3 className="text-4xl md:text-6xl text-black mt-4 border-l-4 border-blue-500 pl-4 font-exo">
+              Select your domain. Discover the value we bring.
+            </h3>
+          </div>
+        </div>
+        <div className="px-0">
+          <div className="flex flex-wrap" role="list">
+            {industries.map((industry) => {
+              const Icon = iconMap[industry.icon];
+              return (
+                <div
+                  key={industry.id}
+                  className="w-full lg:w-1/2"
+                  role="listitem"
+                >
+                  <Link
+                    href={`/industries/${industry.id}`}
+                    className="relative pl-4 py-3 flex items-center h-full hover:bg-gray-200 transition-colors"
+                  >
+                    <p className="flex-grow text-lg font-semibold pl-10 text-black">
+                      <span className="absolute left-0 top-1/2 transform -translate-y-1/2">
+                        <Icon className="size-6" />
+                      </span>
+                      {industry.title}
+                    </p>
+                  </Link>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8">
-        {/* Left Column */}
-        <div className="space-y-8">
-          {capabilities.slice(0, 3).map((capability, index) => (
-            <div
-              key={index}
-              className="flex items-center space-x-4 p-2 hover:bg-white hover:shadow-md rounded-lg transition-all duration-200 cursor-pointer"
-            >
-              <div className="text-gray-700 hover:text-blue-600 transition-colors">
-                {capability.icon}
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900">
-                {capability.title}
-              </h3>
-            </div>
-          ))}
-        </div>
-        
-        {/* Right Column */}
-        <div className="space-y-8">
-          {capabilities.slice(3).map((capability, index) => (
-            <div
-              key={index + 3}
-              className="flex items-center space-x-4 p-2 hover:bg-white hover:shadow-md rounded-lg transition-all duration-200 cursor-pointer"
-            >
-              <div className="text-gray-700 hover:text-blue-600 transition-colors">
-                {capability.icon}
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900">
-                {capability.title}
-              </h3>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
+    </section>
   );
 }

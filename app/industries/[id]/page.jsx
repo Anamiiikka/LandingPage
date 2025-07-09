@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import { Card, CardContent } from "@/components/ui/card.jsx";
 import { Button } from "@/components/ui/button.jsx";
 import Link from "next/link";
 import Footer from "@/components/Footer.jsx";
@@ -39,7 +38,11 @@ const iconMap = {
   GraduationCap,
   ShoppingCart,
   Building2,
-  Truck
+  Truck,
+  TrendingUp,
+  Shield,
+  Zap,
+  Users
 };
 
 export async function generateStaticParams() {
@@ -85,7 +88,7 @@ export default function IndustryPage({ params }) {
         <div className="floating-orb top-1/2 right-1/6 w-32 h-32 bg-white/[0.015] animate-pulse delay-500" />
       </div>
 
-      {/* Enhanced Hero Section */}
+      {/* Enhanced Hero Section (Unchanged) */}
       <section className="relative py-20 px-4 overflow-hidden">
         <div className="max-w-6xl mx-auto">
           {/* Breadcrumb Navigation */}
@@ -180,9 +183,9 @@ export default function IndustryPage({ params }) {
       {/* Enhanced Services Section */}
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="premium-card p-8 mb-16">
+          <div className="mb-16">
             <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center">
+              <div className="w-12 h-12 flex items-center justify-center">
                 <Target className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -195,11 +198,11 @@ export default function IndustryPage({ params }) {
               {industry.services.map((service, index) => (
                 <div 
                   key={index} 
-                  className="glass-card p-4 hover:bg-white/10 transition-all duration-300 group cursor-pointer border border-white/10 hover:border-white/20"
+                  className="p-4 hover:bg-white/10 transition-all duration-300 group cursor-pointer"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-gradient-to-br from-green-400/20 to-green-600/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <div className="w-8 h-8 flex items-center justify-center">
                       <CheckCircle className="w-4 h-4 text-green-400" />
                     </div>
                     <span className="text-white/80 text-sm font-medium group-hover:text-white transition-colors">{service}</span>
@@ -210,9 +213,9 @@ export default function IndustryPage({ params }) {
           </div>
 
           {/* Enhanced Technologies */}
-          <div className="premium-card p-8 mb-16">
+          <div className="mb-16">
             <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center">
+              <div className="w-12 h-12 flex items-center justify-center">
                 <Zap className="w-6 h-6 text-yellow-400" />
               </div>
               <div>
@@ -228,7 +231,7 @@ export default function IndustryPage({ params }) {
                   className="group relative"
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
-                  <span className="px-4 py-2 bg-gradient-to-r from-white/10 to-white/5 rounded-full text-white/80 text-sm border border-white/20 hover:bg-white/20 hover:border-white/40 hover:text-white transition-all duration-300 cursor-pointer inline-flex items-center gap-2">
+                  <span className="px-4 py-2 bg-white/10 rounded-full text-white/80 text-sm hover:bg-white/20 hover:text-white transition-all duration-300 cursor-pointer inline-flex items-center gap-2">
                     <Code2 className="w-3 h-3" />
                     {tech}
                   </span>
@@ -238,42 +241,30 @@ export default function IndustryPage({ params }) {
           </div>
 
           {/* Enhanced Benefits */}
-          <div className="premium-card p-8 mb-16">
+          <div className="mb-16">
             <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center">
+              <div className="w-12 h-12 flex items-center justify-center">
                 <TrendingUp className="w-6 h-6 text-blue-400" />
               </div>
               <div>
-                <h2 className="text-3xl font-bold gradient-text">Key Benefits</h2>
-                <p className="text-white/60 text-sm mt-1">Value propositions that drive results</p>
+                <h2 className="text-3xl font-bold gradient-text">BENEFITS</h2>
+                <p className="text-white/60 text-sm mt-1">Unlock the potential of IoT for your business.</p>
               </div>
             </div>
             
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="space-y-4">
               {industry.benefits.map((benefit, index) => (
-                <div 
-                  key={index} 
-                  className="glass-card p-6 group hover:bg-white/10 transition-all duration-300 border border-white/10 hover:border-white/20"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-gradient-to-br from-blue-400/20 to-blue-600/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                      <TrendingUp className="w-5 h-5 text-blue-400" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-white/90 transition-colors">{benefit.title}</h3>
-                      <p className="text-white/70 group-hover:text-white/80 transition-colors">{benefit.description}</p>
-                    </div>
-                  </div>
-                </div>
+                <p key={index} className="text-white/70">
+                  {benefit.title}: {benefit.description}
+                </p>
               ))}
             </div>
           </div>
 
           {/* Enhanced Case Studies */}
-          <div className="premium-card p-8">
+          <div>
             <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center">
+              <div className="w-12 h-12 flex items-center justify-center">
                 <Award className="w-6 h-6 text-yellow-400" />
               </div>
               <div>
@@ -286,21 +277,21 @@ export default function IndustryPage({ params }) {
               {industry.caseStudies.map((study, index) => (
                 <div 
                   key={index} 
-                  className="glass-card p-6 group hover:bg-white/10 transition-all duration-300 border border-white/10 hover:border-white/20"
+                  className="p-6 hover:bg-white/10 transition-all duration-300"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className="flex items-start gap-4 mb-4">
-                    <div className="w-10 h-10 bg-gradient-to-br from-yellow-400/20 to-orange-400/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <div className="w-10 h-10 flex items-center justify-center">
                       <Briefcase className="w-5 h-5 text-yellow-400" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-white/90 transition-colors">{study.title}</h3>
-                      <p className="text-white/70 mb-4 group-hover:text-white/80 transition-colors">{study.description}</p>
+                      <h3 className="text-lg font-semibold text-white mb-2 hover:text-white/90 transition-colors">{study.title}</h3>
+                      <p className="text-white/70 mb-4 hover:text-white/80 transition-colors">{study.description}</p>
                     </div>
                   </div>
                   
                   <div className="flex items-center justify-between">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-green-400/20 to-green-600/20 border border-green-400/30">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-400/20">
                       <TrendingUp className="w-4 h-4 text-green-400" />
                       <span className="text-green-400 text-sm font-medium">{study.results}</span>
                     </div>
@@ -322,54 +313,46 @@ export default function IndustryPage({ params }) {
       {/* Enhanced CTA Section */}
       <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="premium-card p-8 relative overflow-hidden">
-            {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-5">
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/20 to-transparent"></div>
+          <div className="p-8">
+            <div className="w-16 h-16 flex items-center justify-center mx-auto mb-6">
+              {IconComponent && <IconComponent className="w-8 h-8 text-white" />}
             </div>
             
-            <div className="relative z-10">
-              <div className="w-16 h-16 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                {IconComponent && <IconComponent className="w-8 h-8 text-white" />}
+            <h3 className="text-3xl font-bold gradient-text mb-4">
+              Ready to Transform Your {industry.title.split(' &')[0]} Business?
+            </h3>
+            <p className="text-white/70 mb-8 max-w-2xl mx-auto leading-relaxed">
+              Let's discuss how our expertise in {industry.title.toLowerCase()} can help you achieve your business goals with innovative technology solutions.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" className="premium-button px-8 py-4 rounded-xl group">
+                <Star className="w-4 h-4 mr-2" />
+                Get Started Today
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="px-8 py-4 rounded-xl border-white/20 hover:bg-white/5 hover:border-white/40 transition-all duration-300"
+              >
+                <Users className="w-4 h-4 mr-2" />
+                View Portfolio
+              </Button>
+            </div>
+            
+            <div className="flex items-center justify-center gap-8 mt-8 text-white/60">
+              <div className="flex items-center gap-2">
+                <Shield className="w-4 h-4" />
+                <span className="text-sm">Enterprise Security</span>
               </div>
-              
-              <h3 className="text-3xl font-bold gradient-text mb-4">
-                Ready to Transform Your {industry.title.split(' &')[0]} Business?
-              </h3>
-              <p className="text-white/70 mb-8 max-w-2xl mx-auto leading-relaxed">
-                Let's discuss how our expertise in {industry.title.toLowerCase()} can help you achieve your business goals with innovative technology solutions.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="premium-button px-8 py-4 rounded-xl group">
-                  <Star className="w-4 h-4 mr-2" />
-                  Get Started Today
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="px-8 py-4 rounded-xl border-white/20 hover:bg-white/5 hover:border-white/40 transition-all duration-300"
-                >
-                  <Users className="w-4 h-4 mr-2" />
-                  View Portfolio
-                </Button>
+              <div className="flex items-center gap-2">
+                <Globe className="w-4 h-4" />
+                <span className="text-sm">Global Reach</span>
               </div>
-              
-              {/* Trust Indicators */}
-              <div className="flex items-center justify-center gap-8 mt-8 text-white/60">
-                <div className="flex items-center gap-2">
-                  <Shield className="w-4 h-4" />
-                  <span className="text-sm">Enterprise Security</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Globe className="w-4 h-4" />
-                  <span className="text-sm">Global Reach</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Award className="w-4 h-4" />
-                  <span className="text-sm">Industry Expertise</span>
-                </div>
+              <div className="flex items-center gap-2">
+                <Award className="w-4 h-4" />
+                <span className="text-sm">Industry Expertise</span>
               </div>
             </div>
           </div>

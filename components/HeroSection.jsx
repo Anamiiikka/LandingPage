@@ -53,32 +53,7 @@ export default function HeroSection() {
           </Button>
         </div>
 
-        {/* Feature cards - simplified hover effects */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          <div className="premium-card p-8 hover-lift glow-effect group">
-            <div className="w-16 h-16 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-105 transition-transform duration-300">
-              <Zap className="w-8 h-8 text-white" />
-            </div>
-            <h3 className="text-2xl font-semibold mb-4 gradient-text">Lightning Fast</h3>
-            <p className="text-white/60 leading-relaxed">Optimized for speed and performance with cutting-edge technology</p>
-          </div>
-          
-          <div className="premium-card p-8 hover-lift glow-effect group">
-            <div className="w-16 h-16 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-105 transition-transform duration-300">
-              <Shield className="w-8 h-8 text-white" />
-            </div>
-            <h3 className="text-2xl font-semibold mb-4 gradient-text">Secure & Reliable</h3>
-            <p className="text-white/60 leading-relaxed">Built with security as a priority and enterprise-grade reliability</p>
-          </div>
-          
-          <div className="premium-card p-8 hover-lift glow-effect group">
-            <div className="w-16 h-16 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-105 transition-transform duration-300">
-              <Sparkles className="w-8 h-8 text-white" />
-            </div>
-            <h3 className="text-2xl font-semibold mb-4 gradient-text">Modern Design</h3>
-            <p className="text-white/60 leading-relaxed">Beautiful, responsive interfaces that captivate and convert</p>
-          </div>
-        </div>
+        
       </div>
     </section>
   );
