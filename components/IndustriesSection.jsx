@@ -1,52 +1,77 @@
-import React from 'react';
-import { Lightbulb, Building2, Truck, Heart, GraduationCap, ShoppingCart, Sun, Plane } from 'lucide-react';
-import industriesData from '@/data/industriesData.json';
+import { Home, Zap, Store, Power, Camera } from 'lucide-react';
 
-const industries = {
-  "Banking": { icon: Building2, id: "fintech" },
-  "Capital Markets": { icon: Building2, id: "fintech" },
-  "Communications, Media, and Information Services": { icon: Lightbulb, id: "software" },
-  "Consumer Goods and Distribution": { icon: ShoppingCart, id: "ecommerce" },
-  "Education": { icon: GraduationCap, id: "education" },
-  "Energy, Resources, and Utilities": { icon: Sun, id: "solar" },
-  "Healthcare": { icon: Heart, id: "healthcare" },
-  "High Tech": { icon: Lightbulb, id: "software" },
-  "Insurance": { icon: Building2, id: "fintech" },
-  "Life Sciences": { icon: Heart, id: "healthcare" },
-  "Manufacturing": { icon: Lightbulb, id: "software" },
-  "Public Services": { icon: Building2, id: "fintech" },
-  "Retail": { icon: ShoppingCart, id: "ecommerce" },
-  "Travel and Logistics": { icon: Truck, id: "logistics" },
-};
+export default function CapabilitiesComponent() {
+  const capabilities = [
+    {
+      icon: <Home className="w-6 h-6" />,
+      title: "Xia Smart Home"
+    },
+    {
+      icon: <Zap className="w-6 h-6" />,
+      title: "Xia Smart Energy"
+    },
+    {
+      icon: <Store className="w-6 h-6" />,
+      title: "Ada Smart Store"
+    },
+    {
+      icon: <Power className="w-6 h-6" />,
+      title: "Ada Intelligent Power Plant"
+    },
+    {
+      icon: <Camera className="w-6 h-6" />,
+      title: "Xia Smart Surveillance"
+    }
+  ];
 
-const IndustriesSection = () => {
   return (
-    <section className="py-16 px-4 bg-background">
-      <div className="max-w-6xl mx-auto text-center mb-12">
-        <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6 leading-tight">
-          Select your domain. Discover the value we bring.
+    <div className="max-w-4xl mx-auto p-8 bg-gray-50">
+      <div className="mb-8">
+        <h2 className="text-sm font-semibold text-gray-600 tracking-wider uppercase mb-4">
+          OUR CAPABILITIES
         </h2>
-        <p className="text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
-          Explore how we tailor our solutions to meet the unique needs of your industry.
-        </p>
+        <div className="border-l-4 border-blue-500 pl-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+            Our solutions are driving transformation across industries.
+          </h1>
+        </div>
       </div>
-      <div className="max-w-6xl mx-auto space-y-4">
-        {Object.entries(industries).map(([title, { icon: Icon, id }]) => {
-          const industry = industriesData[id] || {};
-          return (
-            <div key={title} className="flex items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors duration-300">
-              <Icon className="w-8 h-8 text-white/70 mr-4" />
-              <div className="flex-1 text-left">
-                <h3 className="text-sm font-medium text-white">{title}</h3>
-                <p className="text-xs text-white/70">{industry.description || 'Tailored solutions'}</p>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8">
+        {/* Left Column */}
+        <div className="space-y-8">
+          {capabilities.slice(0, 3).map((capability, index) => (
+            <div
+              key={index}
+              className="flex items-center space-x-4 p-2 hover:bg-white hover:shadow-md rounded-lg transition-all duration-200 cursor-pointer"
+            >
+              <div className="text-gray-700 hover:text-blue-600 transition-colors">
+                {capability.icon}
               </div>
-              <a href={`/industries/${id}`} className="premium-button px-2 py-1 text-xs rounded-xl">Learn More</a>
+              <h3 className="text-lg font-semibold text-gray-900">
+                {capability.title}
+              </h3>
             </div>
-          );
-        })}
+          ))}
+        </div>
+        
+        {/* Right Column */}
+        <div className="space-y-8">
+          {capabilities.slice(3).map((capability, index) => (
+            <div
+              key={index + 3}
+              className="flex items-center space-x-4 p-2 hover:bg-white hover:shadow-md rounded-lg transition-all duration-200 cursor-pointer"
+            >
+              <div className="text-gray-700 hover:text-blue-600 transition-colors">
+                {capability.icon}
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900">
+                {capability.title}
+              </h3>
+            </div>
+          ))}
+        </div>
       </div>
-    </section>
+    </div>
   );
-};
-
-export default IndustriesSection;
+}
