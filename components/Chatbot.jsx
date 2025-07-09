@@ -394,9 +394,7 @@ The proposal will include project scope, timeline, pricing, and next steps.`,
    
   >
     <div className="flex items-start gap-4">
-      <div className="w-12 h-12 bg-neutral-700 rounded-2xl flex items-center justify-center flex-shrink-0">
-        <Crown className="w-6 h-6 text-yellow-400" />
-      </div>
+      
       <div className="flex-1">
         <div className="flex items-center gap-2 mb-2">
           <h4 className="font-semibold !text-white">Premium Consultation</h4>
