@@ -16,7 +16,7 @@ export const metadata = {
   viewport: 'width=device-width, initial-scale=1',
   robots: 'index, follow',
   openGraph: {
-    title: 'Professional Services - Your Business Partner',
+    title: 'AdaLabs- Your Business Partner',
     description: 'One-stop solution for web development, mobile apps, design, and digital marketing services.',
     type: 'website',
   },
@@ -25,10 +25,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://images.pexels.com" />
-        <link rel="dns-prefetch" href="https://images.pexels.com" />
-      </head>
+     
       <body className={inter.className}>
         {children}
         <Toaster /> 

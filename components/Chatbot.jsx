@@ -383,7 +383,7 @@ The proposal will include project scope, timeline, pricing, and next steps.`,
 
   return (
     <>
-      {/* Simplified Popup Notification - removed animations */}
+      
  {showPopup && !isOpen && (
   <div
     className="fixed bottom-28 right-6 z-50 p-6 max-w-sm cursor-pointer rounded-2xl shadow-xl border border-white/10 bg-black/40 backdrop-blur-md text-white hover:scale-[1.02] transition-all"
@@ -429,11 +429,6 @@ The proposal will include project scope, timeline, pricing, and next steps.`,
     </div>
   </div>
 )}
-
-
-
-
-      {/* Chat Button - simplified animations */}
       <Button
         onClick={() => setIsOpen(!isOpen)}
         className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-2xl bg-gradient-to-br from-white to-gray-200 hover:from-white hover:to-white text-black shadow-2xl hover:shadow-3xl group transition-all duration-300"
@@ -446,8 +441,6 @@ The proposal will include project scope, timeline, pricing, and next steps.`,
           <MessageCircle className="w-7 h-7 transition-transform group-hover:scale-110 duration-300" />
         )}
       </Button>
-
-      {/* Chat Window - optimized for performance */}
       {isOpen && (
         <Card className="fixed bottom-28 right-6 z-50 w-[420px] h-[600px] premium-card border-white/20 shadow-2xl" style={{ zIndex: 50 }}>
           <CardHeader className="pb-4 border-b border-white/10">
@@ -517,8 +510,6 @@ The proposal will include project scope, timeline, pricing, and next steps.`,
                       </div>
                     </div>
                   ))}
-
-                  {/* Simplified Typing Indicator */}
                   {isTyping && (
                     <div className="flex justify-start">
                       <div className="bg-gradient-to-br from-white/10 to-white/5 text-white border border-white/10 p-4 rounded-2xl shadow-lg">

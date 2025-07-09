@@ -52,8 +52,6 @@ export default function Footer() {
       setIsSubscribed(true);
       setEmail("");
       setIsLoading(false);
-      
-      // Reset success message after 5 seconds
       setTimeout(() => setIsSubscribed(false), 5000);
     }, 1000);
   };
@@ -254,8 +252,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-
-      {/* Simplified background elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute bottom-0 left-1/4 w-32 h-32 bg-white/[0.02] rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-24 h-24 bg-white/[0.01] rounded-full blur-3xl" />

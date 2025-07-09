@@ -23,7 +23,6 @@ export default function HeroSection() {
           <Star className="w-4 h-4 text-white/60" />
         </div>
 
-        {/* Main heading - optimized for LCP */}
         <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-[0.9] tracking-tight">
           <span className="gradient-text">One-stop solution</span>
           <br />

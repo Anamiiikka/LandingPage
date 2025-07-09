@@ -34,7 +34,6 @@ import {
   GitBranch
 } from "lucide-react";
 
-// Icon mapping for dynamic icon rendering
 const iconMap = {
   Code2,
   Plane,
@@ -55,7 +54,6 @@ const iconMap = {
   GitBranch
 };
 
-// Technology icon mapping
 const techIconMap = {
   "React.js": "Code2",
   "Node.js": "Database", 
@@ -107,7 +105,6 @@ export default function IndustryPage({ params }) {
     notFound();
   }
 
-  // Get the icon component from the mapping
   const IconComponent = iconMap[industry.icon];
 
   return (
@@ -163,7 +160,7 @@ export default function IndustryPage({ params }) {
             </div>
           </div>
 
-          {/* Technologies Section - Modified */}
+          {/* Technologies Section */}
           <div className="mb-16">
             <div className="mb-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">TECHNOLOGIES WE USE</h2>
@@ -261,7 +258,7 @@ export default function IndustryPage({ params }) {
         </div>
       </section>
 
-      {/* Enhanced CTA Section */}
+      {/*CTA Section */}
       <section className="py-16 px-4 bg-black">
         <div className="max-w-4xl mx-auto text-center">
           <div className="p-8">

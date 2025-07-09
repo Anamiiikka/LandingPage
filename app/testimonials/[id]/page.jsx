@@ -47,7 +47,6 @@ export default function TestimonialPage({ params }) {
     notFound();
   }
 
-  // Use the consolidated data from the single JSON file
   const caseStudyData = {
     ...testimonial,
     solution: {

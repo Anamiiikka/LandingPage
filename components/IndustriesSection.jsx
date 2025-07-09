@@ -14,8 +14,6 @@ import {
   Truck
 } from 'lucide-react';
 import industriesData from '@/data/industriesData.json';
-
-// Icon mapping to match industriesData.json
 const iconMap = {
   Building2,
   TrendingUp,
@@ -30,7 +28,6 @@ const iconMap = {
   Truck
 };
 
-// Convert industriesData object to array for mapping
 const industries = Object.values(industriesData);
 
 export default function IndustriesSection() {

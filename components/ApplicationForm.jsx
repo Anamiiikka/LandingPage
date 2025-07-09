@@ -26,14 +26,11 @@ export default function ApplicationForm({ jobId }) {
       experience: '',
       resume: null,
     },
-    mode: 'onChange', // Validate on change for immediate feedback
+    mode: 'onChange', 
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Watch the resume field to display the selected file name
   const resume = watch('resume');
-
-  // Debug form state changes
   useEffect(() => {
     console.log('Resume field state:', resume);
     console.log('Form errors:', errors);
