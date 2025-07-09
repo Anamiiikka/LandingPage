@@ -384,50 +384,54 @@ The proposal will include project scope, timeline, pricing, and next steps.`,
   return (
     <>
       {/* Simplified Popup Notification - removed animations */}
-      {showPopup && !isOpen && (
-        <div
-          className="fixed bottom-28 right-6 z-50 premium-card p-6 max-w-sm cursor-pointer hover-lift group"
-          style={{ zIndex: 60 }}
-          onClick={() => {
-            setIsOpen(true);
-            setShowPopup(false);
-          }}
-        >
-          <div className="flex items-start gap-4">
-            <div className="w-12 h-12 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
-              <Crown className="w-6 h-6 text-white" />
-            </div>
-            <div className="flex-1">
-              <div className="flex items-center gap-2 mb-2">
-                <h4 className="font-semibold text-white">Premium Consultation</h4>
-                <Sparkles className="w-4 h-4 text-white/60" />
-              </div>
-              <p className="text-sm text-white/60 mb-3">Get expert guidance tailored to your business needs</p>
-              <div className="flex items-center gap-2 text-xs">
-                <Gift className="w-3 h-3 text-white/60" />
-                <span className="text-white/60">Limited time offer</span>
-                <div className="flex gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3 h-3 fill-white/60 text-white/60" />
-                  ))}
-                </div>
-              </div>
-            </div>
-            <Button
-              size="sm"
-              variant="ghost"
-              className="h-8 w-8 p-0 hover:bg-white/10 z-10"
-              style={{ zIndex: 70 }}
-              onClick={(e) => {
-                e.stopPropagation();
-                setShowPopup(false);
-              }}
-            >
-              <X className="w-4 h-4 text-white/60" />
-            </Button>
+ {showPopup && !isOpen && (
+  <div
+    className="fixed bottom-28 right-6 z-50 p-6 max-w-sm cursor-pointer rounded-2xl shadow-xl border border-white/10 bg-black/40 backdrop-blur-md text-white hover:scale-[1.02] transition-all"
+    onClick={() => {
+      setIsOpen(true);
+      setShowPopup(false);
+    }}
+   
+  >
+    <div className="flex items-start gap-4">
+      <div className="w-12 h-12 bg-neutral-700 rounded-2xl flex items-center justify-center flex-shrink-0">
+        <Crown className="w-6 h-6 text-yellow-400" />
+      </div>
+      <div className="flex-1">
+        <div className="flex items-center gap-2 mb-2">
+          <h4 className="font-semibold !text-white">Premium Consultation</h4>
+          <Sparkles className="w-4 h-4 text-yellow-300" />
+        </div>
+        <p className="text-sm !text-white mb-3">
+          Get expert guidance tailored to your business needs
+        </p>
+        <div className="flex items-center gap-2 text-xs">
+          <Gift className="w-3 h-3 text-white" />
+          <span className="!text-white">Limited time offer</span>
+          <div className="flex gap-1 ml-1">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} className="w-3 h-3 text-yellow-400" />
+            ))}
           </div>
         </div>
-      )}
+      </div>
+      <Button
+        size="sm"
+        variant="ghost"
+        className="h-8 w-8 p-0 hover:bg-neutral-800"
+        onClick={(e) => {
+          e.stopPropagation();
+          setShowPopup(false);
+        }}
+      >
+        <X className="w-4 h-4 text-white" />
+      </Button>
+    </div>
+  </div>
+)}
+
+
+
 
       {/* Chat Button - simplified animations */}
       <Button
