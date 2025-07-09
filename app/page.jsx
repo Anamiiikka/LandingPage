@@ -2,7 +2,6 @@
 
 import dynamic from "next/dynamic";
 import HeroSection from "@/components/HeroSection";
-import ServicesSection from "@/components/ServicesSection";
 import IndustriesSection from "@/components/IndustriesSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import FAQSection from "@/components/FAQSection";
@@ -19,7 +18,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-background">
       <HeroSection />
-       <ServicesSection />
+       
       <section id="industries">
         <IndustriesSection />
       </section> 
