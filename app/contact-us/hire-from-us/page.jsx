@@ -1,47 +1,66 @@
-import { ArrowRight, Users, Target, Award, Zap } from 'lucide-react';
+'use client';
+
+import { ArrowRight, Users, Target, Award, Zap, Globe } from 'lucide-react';
 import Link from 'next/link';
 
-export default function Home() {
-  const cards = [
-    {
-      title: "Highly Skilled & Experienced Developers",
-      description: "Our team comprises seasoned professionals with deep expertise in modern technologies, ensuring faster execution and higher quality outcomes.",
-      gradient: "from-yellow-500 to-orange-500",
-      image: "https://spaces.is/media/pages/culture/a094348f9c-1713951836/struggle-576x921.6-crop-q85.webp",
-    },
-    {
-      title: "24/7 Availability & Global Support",
-      description: "We provide round-the-clock availability across time zones, ensuring seamless collaboration and proactive issue resolution.",
-      gradient: "from-gray-900 to-black",
-      image: "https://spaces.is/media/pages/culture/2703ad4de9-1713951836/employer-information-576x921.6-crop-q85.webp",
-    },
-    {
-      title: "Agile Delivery with Flexible Engagement Models",
-      description: "We offer flexible hiring models from rapid prototyping to long-term scaling, tailored to your business goals.",
-      gradient: "from-red-600 to-red-700",
-      image: "https://spaces.is/media/pages/culture/f85d1292b3-1713951836/team-building-576x921.6-crop-q85.webp",
-    },
-    {
-      title: "Transparent Communication & Project Management",
-      description: "Our structured workflow includes clear milestones and dedicated managers for complete visibility.",
-      gradient: "from-blue-600 to-purple-600",
-      image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=576&h=921&fit=crop&crop=center",
-    },
-  ];
+// JSON data for cards
+const cardsData = [
+  {
+    title: "Highly Skilled & Experienced Developers",
+    description: "Our team comprises seasoned professionals with deep expertise in modern technologies, frameworks, and industry best practices. We match you with engineers who understand your domain, ensuring faster execution and higher quality outcomes.",
+    gradient: "from-yellow-500 to-orange-500",
+    image: "https://spaces.is/media/pages/culture/a094348f9c-1713951836/struggle-576x921.6-crop-q85.webp"
+  },
+  {
+    title: "24/7 Availability & Global Support",
+    description: "We operate across time zones and provide round-the-clock availability, ensuring seamless collaboration and real-time support regardless of your location. Our clients benefit from uninterrupted development cycles and proactive issue resolution.",
+    gradient: "from-gray-900 to-black",
+    image: "https://spaces.is/media/pages/culture/2703ad4de9-1713951836/employer-information-576x921.6-crop-q85.webp"
+  },
+  {
+    title: "Agile Delivery with Flexible Engagement Models",
+    description: "From rapid prototyping to long-term project scaling, we offer flexible hiring models — including dedicated teams, hourly contracts, and fixed-price engagements — designed to suit your business goals and timeline.",
+    gradient: "from-red-600 to-red-700",
+    image: "https://spaces.is/media/pages/culture/f85d1292b3-1713951836/team-building-576x921.6-crop-q85.webp"
+  },
+  {
+    title: "Transparent Communication & Project Management",
+    description: "Our structured workflow includes clear milestones, weekly reporting, and continuous feedback loops. Dedicated project managers ensure alignment, accountability, and complete visibility throughout the development lifecycle.",
+    icon: "target",
+    gradient: "from-blue-600 to-purple-600"
+  },
+  {
+    title: "Proven Global Delivery Experience",
+    description: "We've successfully delivered projects for clients in North America, Europe, the Middle East, and Asia. Our cross-functional, multicultural teams are well-versed in global expectations and compliance requirements.",
+    icon: "globe",
+    gradient: "from-green-500 to-teal-600"
+  },
+  {
+    title: "End-to-End Development & Post-Deployment Support",
+    description: "Our commitment doesn't end at launch. We offer comprehensive support — including maintenance, feature enhancements, performance monitoring, and security updates — to ensure your application evolves with your business.",
+    icon: "award",
+    gradient: "from-purple-500 to-pink-600"
+  }
+];
 
+const iconMap = {
+  target: Target,
+  globe: Globe,
+  award: Award,
+};
+
+export default function Home() {
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Navigation */}
       <nav className="flex justify-between items-center p-6 relative z-10">
-        <div className="flex items-center space-x-8">
-        </div>
+        <div className="flex items-center space-x-8"></div>
       </nav>
 
       {/* Hero Section */}
       <div className="relative overflow-hidden px-6 py-12">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
             <div className="space-y-8">
               <div className="space-y-4">
                 <h1 className="text-6xl lg:text-7xl font-bold leading-tight">
@@ -62,10 +81,10 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Visual Elements */}
+            {/* Visual Cards */}
             <div className="relative">
-              <div className="relative w-full h-96 lg:h-[500px]">
-                <div className="absolute top-0 right-0 w-64 h-32 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl transform rotate-6 shadow-2xl overflow-hidden">
+              <div className="relative w-full h-96 lg:h-[500px] flex justify-center">
+                <div className="absolute top-0 right-8 w-64 h-32 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl transform rotate-6 shadow-2xl overflow-hidden">
                   <div className="absolute inset-0 bg-black bg-opacity-20"></div>
                   <div className="p-4 h-full flex items-center justify-center">
                     <div className="text-center">
@@ -74,8 +93,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-
-                <div className="absolute top-16 left-0 w-48 h-48 bg-gradient-to-br from-orange-500 to-red-500 rounded-full shadow-2xl overflow-hidden">
+                <div className="absolute top-16 left-8 w-48 h-48 bg-gradient-to-br from-orange-500 to-red-500 rounded-full shadow-2xl overflow-hidden">
                   <div className="absolute inset-0 bg-black bg-opacity-20"></div>
                   <div className="p-6 h-full flex items-center justify-center">
                     <div className="text-center">
@@ -84,8 +102,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-
-                <div className="absolute bottom-0 right-12 w-40 h-40 bg-gradient-to-br from-green-500 to-teal-500 rounded-2xl transform -rotate-12 shadow-2xl overflow-hidden">
+                <div className="absolute bottom-0 right-16 w-40 h-40 bg-gradient-to-br from-green-500 to-teal-500 rounded-2xl transform -rotate-12 shadow-2xl overflow-hidden">
                   <div className="absolute inset-0 bg-black bg-opacity-20"></div>
                   <div className="p-4 h-full flex items-center justify-center">
                     <div className="text-center">
@@ -94,8 +111,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-
-                <div className="absolute bottom-12 left-16 w-32 h-32 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full shadow-2xl overflow-hidden">
+                <div className="absolute bottom-12 left-20 w-32 h-32 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full shadow-2xl overflow-hidden">
                   <div className="absolute inset-0 bg-black bg-opacity-20"></div>
                   <div className="p-4 h-full flex items-center justify-center">
                     <div className="text-center">
@@ -104,34 +120,33 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-
-                <div className="absolute top-32 right-24 w-16 h-16 bg-gradient-to-br from-pink-500 to-purple-500 rounded-full shadow-lg"></div>
-                <div className="absolute bottom-24 left-4 w-12 h-12 bg-gradient-to-br from-indigo-500 to-blue-500 rounded-full shadow-lg"></div>
+                <div className="absolute top-32 right-32 w-16 h-16 bg-gradient-to-br from-pink-500 to-purple-500 rounded-full shadow-lg"></div>
+                <div className="absolute bottom-24 left-12 w-12 h-12 bg-gradient-to-br from-indigo-500 to-blue-500 rounded-full shadow-lg"></div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Cards Section */}
+      {/* First Three Cards */}
       <div className="px-6 py-16">
         <div className="w-full mx-auto">
           <div className="relative">
-            {cards.map((card, index) => {
-              const cardHeight = 384; // 96px (h-96) in pixels
-              const verticalStep = cardHeight * 0.2; // 20% of card height for vertical offset
-              const cardCount = cards.length;
-              const cardGap = 2; // 2vw gap between cards
-              const maxContentWidth = 90; // Cap total content width at 90vw
-              const totalGapWidth = (cardCount - 1) * cardGap; // Total gap width
-              const cardWidth = (maxContentWidth - totalGapWidth) / cardCount; // Width per card
-              const totalContentWidth = (cardCount * cardWidth) + totalGapWidth; // Total width of cards + gaps
-              const sideMargin = (100 - totalContentWidth) / 2; // Equal margin on both sides
+            {cardsData.slice(0, 3).map((card, index) => {
+              const cardHeight = 384;
+              const verticalStep = cardHeight * 0.2;
+              const cardCount = 3;
+              const cardGap = 2;
+              const maxContentWidth = 90;
+              const totalGapWidth = (cardCount - 1) * cardGap;
+              const cardWidth = (maxContentWidth - totalGapWidth) / cardCount;
+              const totalContentWidth = (cardCount * cardWidth) + totalGapWidth;
+              const sideMargin = (100 - totalContentWidth) / 2;
 
               return (
                 <div
                   key={index}
-                  className={`h-96 rounded-2xl overflow-hidden relative group hover:scale-105 transition-all duration-300`}
+                  className="h-96 rounded-2xl overflow-hidden relative group hover:scale-105 transition-all duration-300"
                   style={{
                     background: `linear-gradient(to bottom right, ${card.gradient}, rgba(0, 0, 0, 0.8))`,
                     position: 'absolute',
@@ -155,6 +170,25 @@ export default function Home() {
             })}
           </div>
           <div className="h-[550px]"></div>
+        </div>
+      </div>
+
+      {/* Last Three Cards */}
+      <div className="px-6 py-16 bg-black text-white">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+          {cardsData.slice(3).map((card, index) => {
+            const IconComponent = iconMap[card.icon];
+            return (
+              <div key={index} className="bg-neutral-900 rounded-xl p-6 shadow-md border border-neutral-800 transition hover:shadow-lg">
+                <div className="w-12 h-12 bg-neutral-800 rounded-xl flex items-center justify-center mb-4">
+                  <IconComponent className="w-5 h-5 text-white" />
+                </div>
+                <h3 className="text-white text-lg font-semibold mb-2">{card.title}</h3>
+                <p className="text-sm text-gray-400 mb-4">{card.description}</p>
+                
+              </div>
+            );
+          })}
         </div>
       </div>
 

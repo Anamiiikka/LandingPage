@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Highly Skilled & Experienced Developers",
+    "description": "Our team comprises seasoned professionals with deep expertise in modern technologies, frameworks, and industry best practices. We match you with engineers who understand your domain, ensuring faster execution and higher quality outcomes.",
+    "gradient": "from-yellow-500 to-orange-500",
+    "image": "https://spaces.is/media/pages/culture/a094348f9c-1713951836/struggle-576x921.6-crop-q85.webp"
+  },
+  {
+    "title": "24/7 Availability & Global Support",
+    "description": "We operate across time zones and provide round-the-clock availability, ensuring seamless collaboration and real-time support regardless of your location. Our clients benefit from uninterrupted development cycles and proactive issue resolution.",
+    "gradient": "from-gray-900 to-black",
+    "image": "https://spaces.is/media/pages/culture/2703ad4de9-1713951836/employer-information-576x921.6-crop-q85.webp"
+  },
+  {
+    "title": "Agile Delivery with Flexible Engagement Models",
+    "description": "From rapid prototyping to long-term project scaling, we offer flexible hiring models — including dedicated teams, hourly contracts, and fixed-price engagements — designed to suit your business goals and timeline.",
+    "gradient": "from-red-600 to-red-700",
+    "image": "https://spaces.is/media/pages/culture/f85d1292b3-1713951836/team-building-576x921.6-crop-q85.webp"
+  },
+  {
+    "title": "Transparent Communication & Project Management",
+    "description": "Our structured workflow includes clear milestones, weekly reporting, and continuous feedback loops. Dedicated project managers ensure alignment, accountability, and complete visibility throughout the development lifecycle.",
+    "icon": "target",
+    "gradient": "from-blue-600 to-purple-600"
+  },
+  {
+    "title": "Proven Global Delivery Experience",
+    "description": "We've successfully delivered projects for clients in North America, Europe, the Middle East, and Asia. Our cross-functional, multicultural teams are well-versed in global expectations and compliance requirements.",
+    "icon": "globe",
+    "gradient": "from-green-500 to-teal-600"
+  },
+  {
+    "title": "End-to-End Development & Post-Deployment Support",
+    "description": "Our commitment doesn't end at launch. We offer comprehensive support — including maintenance, feature enhancements, performance monitoring, and security updates — to ensure your application evolves with your business.",
+    "icon": "award",
+    "gradient": "from-purple-500 to-pink-600"
+  }
+]
