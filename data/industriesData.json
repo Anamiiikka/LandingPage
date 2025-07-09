@@ -5,9 +5,7 @@
     "icon": "Building2",
     "description": "Secure and innovative banking solutions to streamline financial operations and enhance customer experiences",
     "heroImage": "https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    "gradient": "from-slate-500/20 to-gray-500/20",
-    "borderColor": "border-slate-500/30",
-    "hoverColor": "hover:border-slate-500/60",
+
     "services": [
       "Digital Banking Platforms",
       "Mobile Banking Apps",
@@ -36,9 +34,7 @@
     "icon": "TrendingUp",
     "description": "Advanced platforms for trading, risk management, and analytics in capital markets",
     "heroImage": "https://images.pexels.com/photos/6801874/pexels-photo-6801874.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    "gradient": "from-blue-600/20 to-indigo-600/20",
-    "borderColor": "border-blue-600/30",
-    "hoverColor": "hover:border-blue-600/60",
+   
     "services": [
       "Trading Platforms",
       "Risk Management Systems",
@@ -68,9 +64,7 @@
     "icon": "Code2",
     "description": "Transformative solutions for media management, communication networks, and information services",
     "heroImage": "https://images.pexels.com/photos/3183165/pexels-photo-3183165.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    "gradient": "from-cyan-500/20 to-blue-500/20",
-    "borderColor": "border-cyan-500/30",
-    "hoverColor": "hover:border-cyan-500/60",
+    
     "services": [
       "Media Content Management",
       "Communication Platforms",
@@ -99,9 +93,7 @@
     "icon": "ShoppingCart",
     "description": "Optimized supply chain and distribution solutions for consumer goods industries",
     "heroImage": "https://images.pexels.com/photos/3769747/pexels-photo-3769747.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    "gradient": "from-teal-500/20 to-cyan-500/20",
-    "borderColor": "border-teal-500/30",
-    "hoverColor": "hover:border-teal-500/60",
+    
     "services": [
       "Supply Chain Management",
       "Inventory Optimization",
@@ -130,9 +122,7 @@
     "icon": "GraduationCap",
     "description": "Interactive learning platforms and educational technology solutions for modern education",
     "heroImage": "https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    "gradient": "from-green-500/20 to-emerald-500/20",
-    "borderColor": "border-green-500/30",
-    "hoverColor": "hover:border-green-500/60",
+    
     "services": [
       "Learning Management Systems",
       "Interactive Course Platforms",
@@ -161,9 +151,7 @@
     "icon": "Sun",
     "description": "Smart energy management systems and renewable energy monitoring solutions for a sustainable future",
     "heroImage": "https://images.pexels.com/photos/433308/pexels-photo-433308.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    "gradient": "from-yellow-500/20 to-orange-500/20",
-    "borderColor": "border-yellow-500/30",
-    "hoverColor": "hover:border-yellow-500/60",
+    
     "services": [
       "Solar Panel Monitoring",
       "Energy Management Systems",
@@ -192,9 +180,7 @@
     "icon": "Heart",
     "description": "HIPAA-compliant healthcare solutions improving patient care and operational efficiency",
     "heroImage": "https://images.pexels.com/photos/3786126/pexels-photo-3786126.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    "gradient": "from-red-500/20 to-pink-500/20",
-    "borderColor": "border-red-500/30",
-    "hoverColor": "hover:border-red-500/60",
+    
     "services": [
       "Electronic Health Records",
       "Patient Management Systems",
@@ -223,9 +209,7 @@
     "icon": "Code2",
     "description": "Empowering high-tech industries with innovative software and digital transformation solutions",
     "heroImage": "https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    "gradient": "from-blue-500/20 to-cyan-500/20",
-    "borderColor": "border-blue-500/30",
-    "hoverColor": "hover:border-blue-500/60",
+    
     "services": [
       "Custom Software Development",
       "Web Application Development",
@@ -254,9 +238,7 @@
     "icon": "Shield",
     "description": "Digital solutions for insurance providers to streamline claims, policies, and customer interactions",
     "heroImage": "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    "gradient": "from-purple-500/20 to-indigo-500/20",
-    "borderColor": "border-purple-500/30",
-    "hoverColor": "hover:border-purple-500/60",
+    
     "services": [
       "Claims Processing Systems",
       "Policy Management Platforms",
@@ -285,9 +267,7 @@
     "icon": "Heart",
     "description": "Innovative solutions for life sciences to advance research, clinical trials, and data management",
     "heroImage": "https://images.pexels.com/photos/3825581/pexels-photo-3825581.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    "gradient": "from-pink-500/20 to-red-500/20",
-    "borderColor": "border-red-500/30",
-    "hoverColor": "hover:border-red-500/60",
+    
     "services": [
       "Clinical Trial Management",
       "Data Analysis Platforms",
@@ -316,9 +296,7 @@
     "icon": "Zap",
     "description": "Smart manufacturing solutions for automation, efficiency, and supply chain optimization",
     "heroImage": "https://plus.unsplash.com/premium_photo-1682144509812-4734c830b486?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFudWZhY3R1cmluZ3xlbnwwfHwwfHx8MA%3D%3D",
-    "gradient": "from-orange-500/20 to-red-500/20",
-    "borderColor": "border-orange-500/30",
-    "hoverColor": "hover:border-orange-500/60",
+    
     "services": [
       "Factory Automation Systems",
       "Supply Chain Management",
@@ -347,9 +325,7 @@
     "icon": "Users",
     "description": "Digital transformation solutions for public sector efficiency and citizen engagement",
     "heroImage": "https://images.unsplash.com/photo-1605152276897-4f618f831968?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "gradient": "from-blue-400/20 to-green-400/20",
-    "borderColor": "border-blue-400/30",
-    "hoverColor": "hover:border-blue-400/60",
+   
     "services": [
       "Citizen Service Portals",
       "Digital Government Platforms",
@@ -378,9 +354,7 @@
     "icon": "ShoppingCart",
     "description": "Comprehensive retail solutions to enhance customer experiences and optimize operations",
     "heroImage": "https://images.pexels.com/photos/3769747/pexels-photo-3769747.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    "gradient": "from-teal-500/20 to-cyan-500/20",
-    "borderColor": "border-teal-500/30",
-    "hoverColor": "hover:border-teal-500/60",
+    
     "services": [
       "E-commerce Platforms",
       "Point of Sale Systems",
@@ -409,9 +383,7 @@
     "icon": "Truck",
     "description": "Smart logistics and travel solutions for optimized operations and seamless experiences",
     "heroImage": "https://images.pexels.com/photos/4246119/pexels-photo-4246119.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    "gradient": "from-amber-500/20 to-yellow-500/20",
-    "borderColor": "border-amber-500/30",
-    "hoverColor": "hover:border-amber-500/60",
+    
     "services": [
       "Fleet Management Systems",
       "Route Optimization",
