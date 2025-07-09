@@ -2,6 +2,7 @@
 
 import { ArrowRight, Users, Target, Award, Zap, Globe } from 'lucide-react';
 import Link from 'next/link';
+import AdaLabsFooter from '@/components/AdalabsFooter';
 
 // JSON data for cards
 const cardsData = [
@@ -83,9 +84,8 @@ export default function Home() {
           <Link href="/contact" className="hover:text-gray-300 transition">Contact</Link> */}
         </div>
       </nav>
-
-      {/* Hero Section (Unchanged) */}
-      <div className="relative overflow-hidden px-6 py-16">
+      {/* Hero Section */}
+      <div className="relative overflow-hidden px-6 py-16 min-h-screen flex items-center">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
@@ -205,6 +205,8 @@ export default function Home() {
             <div className="h-[600px]"></div>
           </div>
         </div>
+        {/* Spacer to shift the next section downward */}
+        <div className="h-24"></div>
 
         {/* Last Three Services - Text-Based Presentation */}
         <div className="px-6 py-16">
@@ -244,21 +246,28 @@ export default function Home() {
         </div>
       </div>
 
-      {/* CTA Section with Black Background */}
-      <div className="bg-black text-white">
-        <div className="px-6 py-16">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <h2 className="text-5xl font-bold text-white">Ready to accelerate your development?</h2>
-            <p className="text-xl text-gray-300">
-              Let's discuss how our experienced developers can help you build scalable, high-quality solutions.
-            </p>
+        {/* CTA Section with Black Background */}
+    <div className="bg-black text-white">
+      <div className="px-6 py-16">
+        <div className="max-w-4xl mx-auto text-center space-y-8">
+          <h2 className="text-5xl font-bold text-white">Ready to accelerate your development?</h2>
+          <p className="text-xl text-gray-300">
+            Let's discuss how our experienced developers can help you build scalable, high-quality solutions.
+          </p>
+          <br />
+          <Link href="/contact-us/request-for-services">
             <button className="bg-white text-black px-10 py-4 rounded-full font-medium hover:bg-gray-100 transition-all transform hover:scale-105 flex items-center gap-2 mx-auto">
               Start Your Project Today
               <ArrowRight className="w-5 h-5" />
             </button>
-          </div>
+          </Link>
         </div>
       </div>
     </div>
+    {/* Footer */}
+    <div className="bg-black text-white py-8">
+      <AdaLabsFooter />
+    </div>
+  </div>
   );
 }
