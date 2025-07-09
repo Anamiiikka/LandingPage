@@ -84,7 +84,7 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section */}
+      {/* Hero Section (Unchanged) */}
       <div className="relative overflow-hidden px-6 py-16">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -108,7 +108,7 @@ export default function Home() {
               </div>
             </div>
 
-           {/* Right Visual Elements */}
+            {/* Right Visual Elements */}
             <div className="relative">
               <div className="relative w-full h-96 lg:h-[500px]">
                 <div className="absolute top-0 right-0 w-64 h-32 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl transform rotate-6 shadow-2xl overflow-hidden">
@@ -159,102 +159,106 @@ export default function Home() {
         </div>
       </div>
 
-      {/* First Three Cards */}
-      <div className="px-6 py-16">
-        <div className="w-full mx-auto">
-          <div className="relative">
-            {cardsData.slice(0, 3).map((card, index) => {
-              const cardHeight = 500;
-              const verticalStep = cardHeight * 0.2;
-              const cardCount = 3;
-              const cardGap = 2;
-              const maxContentWidth = 90;
-              const totalGapWidth = (cardCount - 1) * cardGap;
-              const cardWidth = (maxContentWidth - totalGapWidth) / cardCount;
-              const totalContentWidth = (cardCount * cardWidth) + totalGapWidth;
-              const sideMargin = (100 - totalContentWidth) / 2;
+      {/* Sections with White Background */}
+      <div className="bg-white text-black">
+        {/* First Three Cards */}
+        <div className="px-6 py-16">
+          <div className="w-full mx-auto">
+            <div className="relative">
+              {cardsData.slice(0, 3).map((card, index) => {
+                const cardHeight = 500;
+                const verticalStep = cardHeight * 0.2;
+                const cardCount = 3;
+                const cardGap = 2;
+                const maxContentWidth = 90;
+                const totalGapWidth = (cardCount - 1) * cardGap;
+                const cardWidth = (maxContentWidth - totalGapWidth) / cardCount;
+                const totalContentWidth = (cardCount * cardWidth) + totalGapWidth;
+                const sideMargin = (100 - totalContentWidth) / 2;
 
-              return (
-                <div
-                  key={index}
-                  className="rounded-2xl overflow-hidden relative group hover:scale-105 transition-all duration-300"
-                  style={{
-                    background: `linear-gradient(to bottom right, ${card.gradient}, rgba(0, 0, 0, 0.8))`,
-                    position: 'absolute',
-                    left: `${sideMargin + index * (cardWidth + cardGap)}vw`,
-                    top: `${index * verticalStep}px`,
-                    width: `${cardWidth}vw`,
-                    height: `${cardHeight}px`,
-                  }}
-                >
-                  <img
-                    src={card.image}
-                    alt={card.title}
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-                  <div className="relative z-10 p-6 text-center flex flex-col justify-start h-full">
-                    <h3 className="text-xl text-white">{card.title}</h3>
+                return (
+                  <div
+                    key={index}
+                    className="rounded-2xl overflow-hidden relative group hover:scale-105 transition-all duration-300"
+                    style={{
+                      background: `linear-gradient(to bottom right, ${card.gradient}, rgba(0, 0, 0, 0.8))`,
+                      position: 'absolute',
+                      left: `${sideMargin + index * (cardWidth + cardGap)}vw`,
+                      top: `${index * verticalStep}px`,
+                      width: `${cardWidth}vw`,
+                      height: `${cardHeight}px`,
+                    }}
+                  >
+                    <img
+                      src={card.image}
+                      alt={card.title}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+                    <div className="relative z-10 p-6 text-center flex flex-col justify-start h-full">
+                      <h3 className="text-xl text-white">{card.title}</h3>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
+            <div className="h-[600px]"></div>
           </div>
-          <div className="h-[600px]"></div>
         </div>
-      </div>
 
         {/* Last Three Services - Text-Based Presentation */}
-            <div className="px-6 py-16">
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-white mb-4">Additional Advantages</h2>
-              <p className="text-xl text-gray-300">Comprehensive support for your development journey</p>
-              </div>
-              
-              <div className="space-y-12">
+        <div className="px-6 py-16">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-black mb-4">Additional Advantages</h2>
+              <p className="text-xl text-gray-600">Comprehensive support for your development journey</p>
+            </div>
+
+            <div className="space-y-12">
               {cardsData.slice(3).map((card, index) => {
                 const IconComponent = iconMap[card.icon];
                 return (
-                <div
-                  key={index}
-                  className="flex items-start space-x-8 py-8 border-l-4 border-gray-700 pl-8 hover:border-white transition-colors duration-300"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className={`w-16 h-16 bg-gradient-to-br ${card.gradient} rounded-2xl flex items-center justify-center flex-shrink-0 shadow-xl`}>
-                  <IconComponent className="w-8 h-8 text-white" />
+                  <div
+                    key={index}
+                    className="flex items-start space-x-8 py-8 border-l-4 border-gray-300 pl-8 hover:border-gray-900 transition-colors duration-300"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <div className={`w-16 h-16 bg-gradient-to-br ${card.gradient} rounded-2xl flex items-center justify-center flex-shrink-0 shadow-xl`}>
+                      <IconComponent className="w-8 h-8 text-white" />
+                    </div>
+
+                    <div className="flex-1">
+                      <h3 className="text-2xl font-bold text-black mb-4">{card.title}</h3>
+                      <p className="text-lg text-gray-600 leading-relaxed max-w-4xl">{card.description}</p>
+
+                      <div className="mt-6 flex items-center space-x-4">
+                        <div className={`h-1 w-20 bg-gradient-to-r ${card.gradient} rounded-full`}></div>
+                        <span className="text-sm text-gray-500 font-medium">Professional Excellence</span>
+                      </div>
+                    </div>
                   </div>
-                  
-                  <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-white mb-4">{card.title}</h3>
-                  <p className="text-lg text-gray-300 leading-relaxed max-w-4xl">{card.description}</p>
-                  
-                  <div className="mt-6 flex items-center space-x-4">
-                    <div className={`h-1 w-20 bg-gradient-to-r ${card.gradient} rounded-full`}></div>
-                    <span className="text-sm text-gray-400 font-medium">Professional Excellence</span>
-                  </div>
-                  </div>
-                </div>
                 );
-            })}
+              })}
+            </div>
           </div>
         </div>
       </div>
 
-      {/* CTA Section */}
-      <div className="px-6 py-16">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          <h2 className="text-5xl font-bold">Ready to accelerate your development?</h2>
-          <p className="text-xl text-gray-300">
-            Let's discuss how our experienced developers can help you build scalable, high-quality solutions.
-          </p>
-          <button className="bg-white text-black px-10 py-4 rounded-full font-medium hover:bg-gray-100 transition-all transform hover:scale-105 flex items-center gap-2 mx-auto">
-            Start Your Project Today
-            <ArrowRight className="w-5 h-5" />
-          </button>
+      {/* CTA Section with Black Background */}
+      <div className="bg-black text-white">
+        <div className="px-6 py-16">
+          <div className="max-w-4xl mx-auto text-center space-y-8">
+            <h2 className="text-5xl font-bold text-white">Ready to accelerate your development?</h2>
+            <p className="text-xl text-gray-300">
+              Let's discuss how our experienced developers can help you build scalable, high-quality solutions.
+            </p>
+            <button className="bg-white text-black px-10 py-4 rounded-full font-medium hover:bg-gray-100 transition-all transform hover:scale-105 flex items-center gap-2 mx-auto">
+              Start Your Project Today
+              <ArrowRight className="w-5 h-5" />
+            </button>
+          </div>
         </div>
       </div>
     </div>
   );
 }
-
