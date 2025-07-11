@@ -386,29 +386,29 @@ The proposal will include project scope, timeline, pricing, and next steps.`,
       
  {showPopup && !isOpen && (
   <div
-    className="fixed bottom-28 right-6 z-50 p-6 max-w-sm cursor-pointer rounded-2xl shadow-xl border border-white/10 bg-black/40 backdrop-blur-md text-white hover:scale-[1.02] transition-all"
+    className="fixed bottom-20 sm:bottom-28 right-4 sm:right-6 z-50 p-4 sm:p-6 max-w-xs sm:max-w-sm cursor-pointer rounded-2xl shadow-xl border border-gray-300 bg-white text-black hover:scale-[1.02] transition-all"
     onClick={() => {
       setIsOpen(true);
       setShowPopup(false);
     }}
    
   >
-    <div className="flex items-start gap-4">
+    <div className="flex items-start gap-3 sm:gap-4">
       
       <div className="flex-1">
         <div className="flex items-center gap-2 mb-2">
-          <h4 className="font-semibold !text-white">Premium Consultation</h4>
-          <Sparkles className="w-4 h-4 text-yellow-300" />
+          <h4 className="font-semibold text-black text-sm sm:text-base">Premium Consultation</h4>
+          <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-500" />
         </div>
-        <p className="text-sm !text-white mb-3">
+        <p className="text-xs sm:text-sm text-gray-700 mb-3">
           Get expert guidance tailored to your business needs
         </p>
         <div className="flex items-center gap-2 text-xs">
-          <Gift className="w-3 h-3 text-white" />
-          <span className="!text-white">Limited time offer</span>
+          <Gift className="w-3 h-3 text-gray-600" />
+          <span className="text-gray-600">Limited time offer</span>
           <div className="flex gap-1 ml-1">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-3 h-3 text-yellow-400" />
+              <Star key={i} className="w-2 h-2 sm:w-3 sm:h-3 text-yellow-400" />
             ))}
           </div>
         </div>
@@ -416,40 +416,40 @@ The proposal will include project scope, timeline, pricing, and next steps.`,
       <Button
         size="sm"
         variant="ghost"
-        className="h-8 w-8 p-0 hover:bg-neutral-800"
+        className="h-6 w-6 sm:h-8 sm:w-8 p-0 hover:bg-gray-100"
         onClick={(e) => {
           e.stopPropagation();
           setShowPopup(false);
         }}
       >
-        <X className="w-4 h-4 text-white" />
+        <X className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" />
       </Button>
     </div>
   </div>
 )}
       <Button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-2xl bg-gradient-to-br from-white to-gray-200 hover:from-white hover:to-white text-black shadow-2xl hover:shadow-3xl group transition-all duration-300"
+        className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50 w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-white to-gray-200 hover:from-white hover:to-white text-black shadow-2xl hover:shadow-3xl group transition-all duration-300"
         style={{ zIndex: 70 }}
         size="icon"
       >
         {isOpen ? (
-          <X className="w-7 h-7 transition-transform group-hover:rotate-90 duration-300" />
+          <X className="w-5 h-5 sm:w-7 sm:h-7 transition-transform group-hover:rotate-90 duration-300" />
         ) : (
-          <MessageCircle className="w-7 h-7 transition-transform group-hover:scale-110 duration-300" />
+          <MessageCircle className="w-5 h-5 sm:w-7 sm:h-7 transition-transform group-hover:scale-110 duration-300" />
         )}
       </Button>
       {isOpen && (
-        <Card className="fixed bottom-28 right-6 z-50 w-[420px] h-[600px] premium-card border-white/20 shadow-2xl" style={{ zIndex: 50 }}>
-          <CardHeader className="pb-4 border-b border-white/10">
+        <Card className="fixed bottom-16 sm:bottom-28 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[420px] h-[calc(100vh-8rem)] sm:h-[600px] max-w-[420px] premium-card border-white/20 shadow-2xl" style={{ zIndex: 50 }}>
+          <CardHeader className="pb-3 sm:pb-4 border-b border-white/10">
             <div className="flex justify-between items-center">
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center">
-                  <Sparkles className="w-5 h-5 text-white" />
+              <div className="flex items-center gap-3 sm:gap-4">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl flex items-center justify-center">
+                  <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </div>
                 <div>
-                  <CardTitle className="text-lg gradient-text">AI Assistant</CardTitle>
-                  <div className="flex items-center gap-2 text-sm text-white/60">
+                  <CardTitle className="text-base sm:text-lg gradient-text">AI Assistant</CardTitle>
+                  <div className="flex items-center gap-2 text-xs sm:text-sm text-white/60">
                     <div className="w-2 h-2 bg-green-400 rounded-full" />
                     <span>Online & Ready</span>
                     <Crown className="w-3 h-3" />
@@ -460,19 +460,19 @@ The proposal will include project scope, timeline, pricing, and next steps.`,
                 size="sm"
                 variant="ghost"
                 onClick={() => setIsOpen(false)}
-                className="h-10 w-10 p-0 hover:bg-white/10 rounded-xl z-10"
+                className="h-8 w-8 sm:h-10 sm:w-10 p-0 hover:bg-white/10 rounded-xl z-10"
                 style={{ zIndex: 60 }}
               >
-                <X className="w-5 h-5 text-white/60" />
+                <X className="w-4 h-4 sm:w-5 sm:h-5 text-white/60" />
               </Button>
             </div>
           </CardHeader>
 
-          <CardContent className="p-0 flex flex-col h-[calc(600px-100px)]">
+          <CardContent className="p-0 flex flex-col h-[calc(100%-80px)] sm:h-[calc(600px-100px)]">
             {currentView === "chat" && (
               <>
                 {/* Messages */}
-                <div className="flex-1 overflow-y-auto p-6 space-y-6" style={{ zIndex: 10 }}>
+                <div className="flex-1 overflow-y-auto p-3 sm:p-6 space-y-4 sm:space-y-6" style={{ zIndex: 10 }}>
                   {messages.map((message) => (
                     <div key={message.id} className={`flex ${message.isBot ? 'justify-start' : 'justify-end'}`}>
                       <div
@@ -480,11 +480,11 @@ The proposal will include project scope, timeline, pricing, and next steps.`,
                           message.isBot
                             ? 'chat-bubble bg-gradient-to-br from-white/10 to-white/5 text-white border border-white/10'
                             : 'bg-gradient-to-r from-white to-gray-200 text-black'
-                        } p-4 rounded-2xl shadow-lg relative z-20`}
+                        } p-3 sm:p-4 rounded-2xl shadow-lg relative z-20`}
                       >
-                        <p className="text-sm leading-relaxed whitespace-pre-line">{message.text}</p>
+                        <p className="text-xs sm:text-sm leading-relaxed whitespace-pre-line">{message.text}</p>
                         {message.options && (
-                          <div className="mt-4 space-y-2 z-30">
+                          <div className="mt-3 sm:mt-4 space-y-2 z-30">
                             {message.options.map((option, idx) => (
                               <Button
                                 key={idx}
@@ -510,7 +510,7 @@ The proposal will include project scope, timeline, pricing, and next steps.`,
                   ))}
                   {isTyping && (
                     <div className="flex justify-start">
-                      <div className="bg-gradient-to-br from-white/10 to-white/5 text-white border border-white/10 p-4 rounded-2xl shadow-lg">
+                      <div className="bg-gradient-to-br from-white/10 to-white/5 text-white border border-white/10 p-3 sm:p-4 rounded-2xl shadow-lg">
                         <div className="flex items-center gap-2">
                           <div className="flex gap-1">
                             <div className="w-2 h-2 bg-white/60 rounded-full" />
@@ -526,13 +526,13 @@ The proposal will include project scope, timeline, pricing, and next steps.`,
                 </div>
 
                 {/* Input */}
-                <div className="p-6 border-t border-white/10">
-                  <div className="flex gap-3">
+                <div className="p-3 sm:p-6 border-t border-white/10">
+                  <div className="flex gap-2 sm:gap-3">
                     <Input
                       value={inputMessage}
                       onChange={(e) => setInputMessage(e.target.value)}
                       placeholder="Type your message..."
-                      className="flex-1 bg-white/5 border-white/20 rounded-xl focus:border-white/40 transition-colors duration-300 z-20"
+                      className="flex-1 bg-white/5 border-white/20 rounded-xl focus:border-white/40 transition-colors duration-300 z-20 text-sm"
                       onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
                       disabled={isTyping}
                       style={{ pointerEvents: 'auto' }}
@@ -541,7 +541,7 @@ The proposal will include project scope, timeline, pricing, and next steps.`,
                       size="sm"
                       onClick={handleSendMessage}
                       disabled={isTyping || !inputMessage.trim()}
-                      className="bg-gradient-to-r from-white to-gray-200 text-black hover:from-white hover:to-white rounded-xl px-4 disabled:opacity-50 z-20"
+                      className="bg-gradient-to-r from-white to-gray-200 text-black hover:from-white hover:to-white rounded-xl px-3 sm:px-4 disabled:opacity-50 z-20"
                       style={{ pointerEvents: 'auto' }}
                     >
                       <Send className="w-4 h-4" />
@@ -552,29 +552,29 @@ The proposal will include project scope, timeline, pricing, and next steps.`,
             )}
 
             {currentView === "contact" && (
-              <div className="p-6 overflow-y-auto">
-                <div className="flex items-center gap-3 mb-6">
+              <div className="p-3 sm:p-6 overflow-y-auto">
+                <div className="flex items-center gap-3 mb-4 sm:mb-6">
                   <Button
                     size="sm"
                     variant="ghost"
                     onClick={() => setCurrentView("chat")}
-                    className="h-10 w-10 p-0 hover:bg-white/10 rounded-xl z-10"
+                    className="h-8 w-8 sm:h-10 sm:w-10 p-0 hover:bg-white/10 rounded-xl z-10"
                     style={{ pointerEvents: 'auto' }}
                   >
-                    <ArrowRight className="w-5 h-5 rotate-180 text-white/60" />
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 rotate-180 text-white/60" />
                   </Button>
                   <div>
-                    <h3 className="font-semibold text-lg gradient-text">Contact Our Team</h3>
-                    <p className="text-sm text-white/60">We'll get back to you within 2-4 hours</p>
+                    <h3 className="font-semibold text-base sm:text-lg gradient-text">Contact Our Team</h3>
+                    <p className="text-xs sm:text-sm text-white/60">We'll get back to you within 2-4 hours</p>
                   </div>
                 </div>
 
-                <form onSubmit={handleContactSubmit} className="space-y-5">
+                <form onSubmit={handleContactSubmit} className="space-y-4 sm:space-y-5">
                   <Input
                     placeholder="Your Name"
                     value={contactForm.name}
                     onChange={(e) => setContactForm((prev) => ({ ...prev, name: e.target.value }))}
-                    className="bg-white/5 border-white/20 rounded-xl focus:border-white/40 z-10"
+                    className="bg-white/5 border-white/20 rounded-xl focus:border-white/40 z-10 text-sm"
                     required
                     style={{ pointerEvents: 'auto' }}
                   />
@@ -584,7 +584,7 @@ The proposal will include project scope, timeline, pricing, and next steps.`,
                     placeholder="Email Address"
                     value={contactForm.email}
                     onChange={(e) => setContactForm((prev) => ({ ...prev, email: e.target.value }))}
-                    className="bg-white/5 border-white/20 rounded-xl focus:border-white/40 z-10"
+                    className="bg-white/5 border-white/20 rounded-xl focus:border-white/40 z-10 text-sm"
                     required
                     style={{ pointerEvents: 'auto' }}
                   />
@@ -594,7 +594,7 @@ The proposal will include project scope, timeline, pricing, and next steps.`,
                     placeholder="Phone Number (Optional)"
                     value={contactForm.phone}
                     onChange={(e) => setContactForm((prev) => ({ ...prev, phone: e.target.value }))}
-                    className="bg-white/5 border-white/20 rounded-xl focus:border-white/40 z-10"
+                    className="bg-white/5 border-white/20 rounded-xl focus:border-white/40 z-10 text-sm"
                     style={{ pointerEvents: 'auto' }}
                   />
 
@@ -602,14 +602,14 @@ The proposal will include project scope, timeline, pricing, and next steps.`,
                     placeholder="How can we help you? Tell us about your project, questions, or requirements..."
                     value={contactForm.message}
                     onChange={(e) => setContactForm((prev) => ({ ...prev, message: e.target.value }))}
-                    className="bg-white/5 border-white/20 rounded-xl focus:border-white/40 min-h-[120px] resize-none z-10"
+                    className="bg-white/5 border-white/20 rounded-xl focus:border-white/40 min-h-[100px] sm:min-h-[120px] resize-none z-10 text-sm"
                     required
                     style={{ pointerEvents: 'auto' }}
                   />
 
                   <Button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-white to-gray-200 text-black hover:from-white hover:to-white rounded-xl py-3 font-semibold z-10"
+                    className="w-full bg-gradient-to-r from-white to-gray-200 text-black hover:from-white hover:to-white rounded-xl py-2 sm:py-3 font-semibold z-10 text-sm"
                     style={{ pointerEvents: 'auto' }}
                   >
                     <Mail className="w-4 h-4 mr-2" />
@@ -620,30 +620,30 @@ The proposal will include project scope, timeline, pricing, and next steps.`,
             )}
 
             {currentView === "quote" && (
-              <div className="p-6 overflow-y-auto">
-                <div className="flex items-center gap-3 mb-6">
+              <div className="p-3 sm:p-6 overflow-y-auto">
+                <div className="flex items-center gap-3 mb-4 sm:mb-6">
                   <Button
                     size="sm"
                     variant="ghost"
                     onClick={() => setCurrentView("chat")}
-                    className="h-10 w-10 p-0 hover:bg-white/10 rounded-xl z-10"
+                    className="h-8 w-8 sm:h-10 sm:w-10 p-0 hover:bg-white/10 rounded-xl z-10"
                     style={{ pointerEvents: 'auto' }}
                   >
-                    <ArrowRight className="w-5 h-5 rotate-180 text-white/60" />
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 rotate-180 text-white/60" />
                   </Button>
                   <div>
-                    <h3 className="font-semibold text-lg gradient-text">Request a Quote</h3>
-                    <p className="text-sm text-white/60">Get a personalized quote for your project</p>
+                    <h3 className="font-semibold text-base sm:text-lg gradient-text">Request a Quote</h3>
+                    <p className="text-xs sm:text-sm text-white/60">Get a personalized quote for your project</p>
                   </div>
                 </div>
 
-                <form onSubmit={handleQuoteSubmit} className="space-y-5">
-                  <div className="grid grid-cols-2 gap-4">
+                <form onSubmit={handleQuoteSubmit} className="space-y-4 sm:space-y-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     <Input
                       placeholder="Full Name"
                       value={quoteForm.name}
                       onChange={(e) => setQuoteForm((prev) => ({ ...prev, name: e.target.value }))}
-                      className="bg-white/5 border-white/20 rounded-xl focus:border-white/40 z-10"
+                      className="bg-white/5 border-white/20 rounded-xl focus:border-white/40 z-10 text-sm"
                       required
                       style={{ pointerEvents: 'auto' }}
                     />
@@ -652,7 +652,7 @@ The proposal will include project scope, timeline, pricing, and next steps.`,
                       placeholder="Email Address"
                       value={quoteForm.email}
                       onChange={(e) => setQuoteForm((prev) => ({ ...prev, email: e.target.value }))}
-                      className="bg-white/5 border-white/20 rounded-xl focus:border-white/40 z-10"
+                      className="bg-white/5 border-white/20 rounded-xl focus:border-white/40 z-10 text-sm"
                       required
                       style={{ pointerEvents: 'auto' }}
                     />
@@ -663,14 +663,14 @@ The proposal will include project scope, timeline, pricing, and next steps.`,
                     placeholder="Phone Number (Optional)"
                     value={quoteForm.phone}
                     onChange={(e) => setQuoteForm((prev) => ({ ...prev, phone: e.target.value }))}
-                    className="bg-white/5 border-white/20 rounded-xl focus:border-white/40 z-10"
+                    className="bg-white/5 border-white/20 rounded-xl focus:border-white/40 z-10 text-sm"
                     style={{ pointerEvents: 'auto' }}
                   />
 
                   <select
                     value={quoteForm.service}
                     onChange={(e) => setQuoteForm((prev) => ({ ...prev, service: e.target.value }))}
-                    className="w-full h-12 px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white focus:border-white/40 transition-colors duration-300 z-10"
+                    className="w-full h-10 sm:h-12 px-3 sm:px-4 py-2 sm:py-3 bg-white/5 border border-white/20 rounded-xl text-white focus:border-white/40 transition-colors duration-300 z-10 text-sm"
                     required
                     style={{ pointerEvents: 'auto' }}
                   >
@@ -700,7 +700,7 @@ The proposal will include project scope, timeline, pricing, and next steps.`,
                   <select
                     value={quoteForm.budget}
                     onChange={(e) => setQuoteForm((prev) => ({ ...prev, budget: e.target.value }))}
-                    className="w-full h-12 px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white focus:border-white/40 transition-colors duration-300 z-10"
+                    className="w-full h-10 sm:h-12 px-3 sm:px-4 py-2 sm:py-3 bg-white/5 border border-white/20 rounded-xl text-white focus:border-white/40 transition-colors duration-300 z-10 text-sm"
                     required
                     style={{ pointerEvents: 'auto' }}
                   >
@@ -724,7 +724,7 @@ The proposal will include project scope, timeline, pricing, and next steps.`,
                   <select
                     value={quoteForm.timeline}
                     onChange={(e) => setQuoteForm((prev) => ({ ...prev, timeline: e.target.value }))}
-                    className="w-full h-12 px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white focus:border-white/40 transition-colors duration-300 z-10"
+                    className="w-full h-10 sm:h-12 px-3 sm:px-4 py-2 sm:py-3 bg-white/5 border border-white/20 rounded-xl text-white focus:border-white/40 transition-colors duration-300 z-10 text-sm"
                     required
                     style={{ pointerEvents: 'auto' }}
                   >
@@ -749,14 +749,14 @@ The proposal will include project scope, timeline, pricing, and next steps.`,
                     placeholder="Describe your project or requirements..."
                     value={quoteForm.description}
                     onChange={(e) => setQuoteForm((prev) => ({ ...prev, description: e.target.value }))}
-                    className="bg-white/5 border-white/20 rounded-xl focus:border-white/40 min-h-[120px] resize-none z-10"
+                    className="bg-white/5 border-white/20 rounded-xl focus:border-white/40 min-h-[100px] sm:min-h-[120px] resize-none z-10 text-sm"
                     required
                     style={{ pointerEvents: 'auto' }}
                   />
 
                   <Button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-white to-gray-200 text-black hover:from-white hover:to-white rounded-xl py-3 font-semibold z-10"
+                    className="w-full bg-gradient-to-r from-white to-gray-200 text-black hover:from-white hover:to-white rounded-xl py-2 sm:py-3 font-semibold z-10 text-sm"
                     style={{ pointerEvents: 'auto' }}
                   >
                     <DollarSign className="w-4 h-4 mr-2" />
