@@ -8,11 +8,7 @@ import FAQSection from "@/components/FAQSection";
 import Chatbot from "@/components/Chatbot";
 import Footer from "@/components/Footer";
 import JoinTeamSection from "@/components/JoinTeamSection";
-
-
-const ConsultationSection = dynamic(() => import("../components/ConsultationSection"), {
-  ssr: false, // Disable server-side rendering
-});
+import ConsultationSection from "@/components/ConsultationSection";
 
 export default function Home() {
   return (

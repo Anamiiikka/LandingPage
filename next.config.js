@@ -7,7 +7,7 @@ const nextConfig = {
   
   // Image optimization
   images: {
-    domains: ['images.pexels.com'],
+    domains: ['images.pexels.com', 'spaces.is'],
     formats: ['image/webp', 'image/avif'],
     minimumCacheTTL: 60,
   },

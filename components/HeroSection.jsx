@@ -14,15 +14,7 @@ export default function HeroSection() {
       
       <div className="relative max-w-7xl mx-auto text-center z-10">
     
-        <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full premium-card mb-8 hover-lift group">
-          <div className="w-2 h-2 bg-white rounded-full" />
-          <Sparkles className="w-4 h-4 text-white/80 group-hover:text-white transition-colors" />
-          <span className="text-sm font-medium bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-            Professional Solutions
-          </span>
-          <Star className="w-4 h-4 text-white/60" />
-        </div>
-
+      
         <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-[0.9] tracking-tight">
           <span className="gradient-text">One-stop solution</span>
           <br />
